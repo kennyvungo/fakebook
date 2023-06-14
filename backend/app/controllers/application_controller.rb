@@ -10,19 +10,19 @@ class ApplicationController < ActionController::API
     before_action :snake_case_params,:attach_authenticity_token
 
     # testing for fake user log in and log out
-    # def test
-    #     if params.has_key?(:login)
-    #         login!(User.first)
-    #     elsif params.has_key?(:logout)
-    #         logout!
-    #     end
+    def test
+        if params.has_key?(:login)
+            login!(User.first)
+        elsif params.has_key?(:logout)
+            logout!
+        end
     
-    #     if current_user
-    #         render json: { user: current_user.slice('id','email', 'first_name', 'last_name','session_token') }
-    #     else
-    #         render json: ['No current user']
-    #     end
-    # end
+        if current_user
+            render json: { user: current_user.slice('id','email', 'first_name', 'last_name','session_token') }
+        else
+            render json: ['No current user']
+        end
+    end
 
 
     def current_user
@@ -75,7 +75,7 @@ class ApplicationController < ActionController::API
             @message = "#{error.class} - #{error.message}"
             @stack = Rails::BacktraceCleaner.new.clean(error.backtrace)
             render 'api/errors/internal_server_error', status: :internal_server_error
-            
+
             logger.error "\n#{@message}:\n\t#{@stack.join("\n\t")}\n"
         end
     end
