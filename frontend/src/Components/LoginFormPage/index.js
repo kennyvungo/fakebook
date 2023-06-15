@@ -22,7 +22,6 @@ const LoginFormPage = () => {
         .catch(async(res) => {
             let data;
             try {
-
                 data = await res.clone().json();
             } catch {
               data = await res.text(); // Will hit this case if, e.g., server is down
