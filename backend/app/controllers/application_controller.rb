@@ -26,7 +26,7 @@ class ApplicationController < ActionController::API
 
 
     def current_user
-        @current_user || User.find_by(session_token: session[:session_token])
+        @current_user ||= User.find_by(session_token: session[:session_token])
     end
 
     def login!(user)    
@@ -34,7 +34,7 @@ class ApplicationController < ActionController::API
     end
 
     def logout! 
-        current_user.reset_session_token!
+        current_user.reset_session_token! if current_user
         session[:session_token] = nil 
         @current_user = nil
     end
