@@ -1,0 +1,15 @@
+.createbutton{
+    background-color: #43b72a;
+    border: #43b72a;
+    border-radius: 5px;
+    color: white;
+    font-family: klavika-web, sans-serif;
+    font-weight: bold;
+    width: 200px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.createbutton:hover{
+    background-color: #419f2b;
+}

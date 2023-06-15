@@ -13,7 +13,7 @@ function SignUpFormModal() {
     }
 return (
     <>
-    <button onClick={() => helperFunc()}>Create New Account</button>
+    <button className="createbutton" onClick={() => helperFunc()}>Create New Account</button>
     {showModal && (
     <Modal onClose={() => setShowModal(false)}>
         <SignUpFormPage/>

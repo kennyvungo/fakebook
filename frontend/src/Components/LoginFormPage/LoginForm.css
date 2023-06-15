@@ -1,0 +1,79 @@
+.homeright{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-left: 150px;
+    background-color: white;
+    border: white;
+    border-radius: 10px;
+    box-shadow: lightgray 2px 2px 5px;
+    width: 50vh;
+    height: 40vh;
+}
+.homeleft{
+    padding-right: 100px;
+}
+.logcontainer{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    background-color: #f0f2f5;
+    height: 90vh;
+    width: 100%;
+}
+.logo{
+    width:80%;
+}
+.logform{
+    padding-top: 50px;
+    justify-content: center;
+    align-items: center;
+}
+.subheader{
+    font-family: klavika-web, sans-serif;
+    font-size: 25px;
+    
+    color: #282a2d;
+}
+.logbutton{
+    background-color: #1a77f2;
+    border: #1a77f2;
+    font-weight: bold;
+    border-radius: 5px;
+    color:white;
+    width: 400px;
+    height: 40px;
+    cursor: pointer;
+}
+.logbutton:hover{
+    background-color: #1f6fd7;
+}
+.linebreak{
+    width: 500px;
+    height: 47px;
+    border-bottom: 1px solid black;
+    position: absolute;
+    }
+
+.email{
+    width: 400px;
+    height: 40px;
+    
+}
+.pw{
+    width: 400px;
+    height: 40px;
+}
+.forgot{
+    color: #1a77f2;
+    font-family: klavika-web, sans-serif;
+    font-size: 12px;
+}
+/* input[type=text]{
+    border-radius: 5px;
+    }
+     */
+ul{
+    margin-top: 5px;
+    justify-content: center;
+}

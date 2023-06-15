@@ -39,7 +39,6 @@ const sessionUser = useSelector(state => state.session.user);
     return (
     <ul>
         <li>
-            <NavLink exact to="/">Home</NavLink>
             {sessionLinks}
         </li>
     </ul>
