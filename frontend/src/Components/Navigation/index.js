@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 // import LoginFormModal from '../LoginFormModal';
 import './Navigation.css';
 import * as sessionActions from "../../store/session";
+import SignUpFormModal from '../SignupFormModal';
 
 function Navigation (){
 
@@ -30,7 +31,8 @@ const sessionUser = useSelector(state => state.session.user);
         <>
         {/* <LoginFormModal /> */}
         <NavLink to="/login">Log In</NavLink>
-        <NavLink to="/signup">Sign Up</NavLink>
+        {/* <NavLink to="/signup">Sign Up</NavLink> */}
+        <SignUpFormModal/>
         </>
     );
     }
