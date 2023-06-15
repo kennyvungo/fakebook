@@ -2,11 +2,11 @@ import LoginFormPage from "./Components/LoginFormPage";
 import React from "react";
 import {Route,Switch} from 'react-router-dom'
 import SignUpFormPage from "./Components/SignupFormPage";
-
+import Navigation from "./Components/Navigation";
 function App() {
   return (
     <>
-      <h1>fakebook</h1>
+      <Navigation/>
       <Switch>
         <Route exact path="/login">
           <LoginFormPage/>
