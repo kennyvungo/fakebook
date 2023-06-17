@@ -38,7 +38,7 @@ const LoginFormPage = () => {
             <div className='homeleft'>
                 <img className='logo' src={logo}/>
                 <p className="subheader"> Connect with friends and the world</p>
-                <p className="subheader"> around you on Facebook.</p>
+                <p className="subheader"> around you on Fakebook.</p>
             </div>
             <div className='homeright'>
             <form className='logform' onSubmit={handleSubmit}>

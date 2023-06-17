@@ -13,3 +13,48 @@
 .createbutton:hover{
     background-color: #419f2b;
 }
+
+.modal{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width:50vh;
+    height: 60vh;
+    border: white;
+    border-radius: 5px;
+}
+
+.signupform{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.signupbutton{
+    background-color:#00a400;
+    color:#fff;
+    border: none;
+    border-radius: 6px;
+    height: 36px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.fname{
+    padding: 11px;
+}
+.lname{
+    padding: 11px;
+}
+.name input[type="text"] {
+    background-color: #f5f6f7;
+}
+.emailinput{
+    background-color: #f5f6f7;
+    padding: 11px;
+}
+.passinput{
+    padding: 11px;
+}

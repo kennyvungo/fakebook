@@ -1,14 +1,15 @@
 .homeright{
-    display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: center;
     padding-left: 150px;
-    background-color: white;
-    border: white;
-    border-radius: 10px;
-    box-shadow: lightgray 2px 2px 5px;
-    width: 50vh;
-    height: 40vh;
+    background-color: #fff;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+    width: 256px;
+    padding-bottom: 24px;
+    padding-top: 10px;
 }
 .homeleft{
     padding-right: 100px;
@@ -25,9 +26,12 @@
     width:80%;
 }
 .logform{
-    padding-top: 50px;
+    padding-top: 25px;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-right: 140px;
 }
 .subheader{
     font-family: klavika-web, sans-serif;
@@ -36,14 +40,16 @@
     color: #282a2d;
 }
 .logbutton{
-    background-color: #1a77f2;
-    border: #1a77f2;
+    background-color: #1877f2;
+    border: none;
+    font-size: 20px;
     font-weight: bold;
-    border-radius: 5px;
+    border-radius: 6px;
     color:white;
-    width: 400px;
-    height: 40px;
+    width: 360px;
+    height: 45px;
     cursor: pointer;
+    margin-bottom: 12px;
 }
 .logbutton:hover{
     background-color: #1f6fd7;
@@ -56,18 +62,41 @@
     }
 
 .email{
-    width: 400px;
-    height: 40px;
+    font-size: 17px;
+    width: 330px;
+    height: 22px;
+    line-height: 16px;
+    border: 1px solid #dddfe2;
+    color: #1d2129;
+    padding-top: 14px;
+    padding-right: 16px;
+    padding-bottom: 14px;
+    padding-left: 16px;
+    margin-bottom: 12px;
     
 }
 .pw{
-    width: 400px;
-    height: 40px;
+    font-size: 17px;
+    width: 330px;
+    height: 22px;
+    line-height: 16px;
+    border: 1px solid #dddfe2;
+    color: #1d2129;
+    padding-top: 14px;
+    padding-right: 16px;
+    padding-bottom: 14px;
+    padding-left: 16px;
+    margin-bottom: 12px;
 }
 .forgot{
     color: #1a77f2;
     font-family: klavika-web, sans-serif;
     font-size: 12px;
+    padding-bottom: 12px;
+    cursor: pointer;
+}
+.forgot:hover{
+    text-decoration: underline;
 }
 /* input[type=text]{
     border-radius: 5px;

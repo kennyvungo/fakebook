@@ -22,3 +22,15 @@
     position: absolute;
     background-color:white;
   }
+
+  .signupheader{
+    font-family: klavika-web, sans-serif;
+    line-height: 38px;
+    font-weight: bold;
+    font-size: 32px;
+  }
+  .signupsub{
+    font-family: klavika-web, sans-serif;
+    font-size: 15px;
+    color: #606770;
+}

@@ -31,51 +31,53 @@ const SignUpFormPage = () => {
     }
 
     return (
-        <>
-            <h1>Sign Up</h1>
-            <form onSubmit={handleSubmit}>
+        <div className='modal'>
+            <h1 className='signupheader'>Sign Up</h1>
+            <h2 className='signupsub'>Its quick and easy.</h2>
+            <form className='signupform' onSubmit={handleSubmit}>
             <ul>
                 {errors.map((error) => <li key={error}>{error}</li>)}
             </ul>
-            <label>
-                Email
+                <div className="name">
+                    <input
+                    className="fname"
+                    placeholder="First Name"
+                    type="text"
+                    value={first_name}
+                    onChange={(e) => setFirstName(e.target.value)}
+                    required
+                    />
+                    <input
+                    className="lname"
+                    placeholder="Last Name"
+                    type="text"
+                    value={last_name}
+                    onChange={(e) => setLastName(e.target.value)}
+                    required
+                    />
+                </div>
                 <input
+                className='emailinput'
+                placeholder="Mobile number or email"
                 type="text"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 />
-            </label>
-            <label>
-                Password
                 <input
+                className="passinput"
+                placeholder="New password"
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 />
-            </label>
-            <label>
-                First Name
-                <input
-                type="text"
-                value={first_name}
-                onChange={(e) => setFirstName(e.target.value)}
-                required
-                />
-            </label>
-            <label>
-                Last Name
-                <input
-                type="text"
-                value={last_name}
-                onChange={(e) => setLastName(e.target.value)}
-                required
-                />
-            </label>
-            <button type="submit">Sign Up</button>
+                <p>People who use our service may have uploaded your contact information to Facebook.</p>
+                <p> Learn more.</p>
+                <p>By clicking Sign Up, you agree to our Terms, Privacy Policy and Cookies Policy. You may receive SMS Notifications from us and can opt out any time.</p>
+            <button className="signupbutton" type="submit">Sign Up</button>
         </form>
-    </>
+    </div>
     );
 }
 
