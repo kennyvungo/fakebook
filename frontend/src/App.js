@@ -5,25 +5,20 @@ import {Route,Switch} from 'react-router-dom'
 import SignUpFormPage from "./Components/SignupFormModal/SignUpForm";
 import Navigation from "./Components/Navigation";
 import Splash from "./Components/Splash/splash";
+import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 function App() {
   const loggedIn = useSelector(state=>state.session.user);
-  let display; 
-  if(loggedIn){
-    display = <Splash/>
-  }
-  else{
-    display = <LoginFormPage/>
-  }
+  let display = <LoginFormPage/> 
+
   return (
     <>
-      <Splash/>
       <Switch>
-        <Route exact path="/">
+        <Route exact path="/login">
           <LoginFormPage/>
         </Route>
-        {/* <Route exact path="/signup">
-          <SignUpFormPage/>
-        </Route> */}
+        <Route exact path="/">
+          <Splash/>
+        </Route>
       </Switch>
     </>
   );
