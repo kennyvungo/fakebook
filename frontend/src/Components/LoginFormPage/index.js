@@ -32,6 +32,13 @@ const LoginFormPage = () => {
             else setErrors([res.statusText]);
         })
     }
+    const handleClick = (e) => {
+        e.preventDefault();
+        // setEmail("demo@gmail.com")
+        // setPassword("password")
+        dispatch(sessionActions.login({email: "demo@gmail.com",password:"password"}));
+    }
+
 
     return (
         <div className='logcontainer'>
@@ -72,7 +79,7 @@ const LoginFormPage = () => {
                 <ul>
                 <button className='logbutton'>Log In</button>
                 </ul>
-                <p className='forgot'>Demo Login</p>
+                <p className='forgot' onClick={handleClick}>Demo Login</p>
             <SignUpFormModal/>
             </form>
             </div>

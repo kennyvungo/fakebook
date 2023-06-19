@@ -21,23 +21,19 @@ const sessionUser = useSelector(state => state.session.user);
     }
     if (sessionUser) {
     sessionLinks = (
-        <>
+        <div className='navbar'>
         <ProfileButton user={sessionUser} />
             <button onClick={handleClick}>Log Out</button>
-        </>
+        </div>
     );
     } else {
     sessionLinks = (
         <>
-        {/* <LoginFormModal /> */}
-        <NavLink to="/login">Log In</NavLink>
-        {/* <NavLink to="/signup">Sign Up</NavLink> */}
-        <SignUpFormModal/>
         </>
     );
     }
     return (
-    <ul>
+    <ul className='navbar'>
         <li>
             {sessionLinks}
         </li>

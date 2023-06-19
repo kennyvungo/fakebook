@@ -1,0 +1,8 @@
+.profbutton{
+    color: rgb(12,142,241);
+    font-size: 50px;
+}
+
+.navbar{
+    display: flex;
+}

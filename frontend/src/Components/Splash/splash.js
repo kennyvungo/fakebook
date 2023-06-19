@@ -1,12 +1,11 @@
 import React from 'react'
 import Navigation from '../Navigation'
-const splash = () => {
+const Splash = () => {
   return (
     <>
     <Navigation/>
-    <div>splash</div>
     </>
   )
 }
 
-export default splash
+export default Splash
