@@ -19,10 +19,9 @@ const SignUpFormPage = () => {
             .catch(async (res) => {
             let data;
             try {
-              // .clone() essentially allows you to read the response body twice
                 data = await res.clone().json();
             } catch {
-              data = await res.text(); // Will hit this case if, e.g., server is down
+                data = await res.text();
             }
             if (data?.errors) setErrors(data.errors);
             else if (data) setErrors([data]);
@@ -32,8 +31,10 @@ const SignUpFormPage = () => {
 
     return (
         <div className='modal'>
-            <h1 className='signupheader'>Sign Up</h1>
-            <h2 className='signupsub'>Its quick and easy.</h2>
+            <div className="modalhead">
+                <h1 className='signupheader'>Sign Up</h1>
+                <h2 className='signupsub'>Its quick and easy.</h2>
+            </div>
             <form className='signupform' onSubmit={handleSubmit}>
             <ul>
                 {errors.map((error) => <li key={error}>{error}</li>)}
@@ -72,9 +73,11 @@ const SignUpFormPage = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 />
+                <div className="disclaim">
                 <p>People who use our service may have uploaded your contact information to Facebook.</p>
-                <p> Learn more.</p>
+                <a>Learn More</a>
                 <p>By clicking Sign Up, you agree to our Terms, Privacy Policy and Cookies Policy. You may receive SMS Notifications from us and can opt out any time.</p>
+                </div>
             <button className="signupbutton" type="submit">Sign Up</button>
         </form>
     </div>

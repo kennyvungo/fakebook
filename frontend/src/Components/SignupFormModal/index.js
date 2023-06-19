@@ -7,9 +7,7 @@ import SignUpFormPage from "./SignUpForm";
 function SignUpFormModal() {
     const [showModal, setShowModal] = useState(false);
     const helperFunc = () => {
-        console.log(showModal)
         setShowModal(true)
-        console.log(showModal)
     }
 return (
     <>

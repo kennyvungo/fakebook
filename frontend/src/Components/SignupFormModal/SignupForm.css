@@ -15,8 +15,6 @@
 }
 
 .modal{
-    display: flex;
-    flex-direction: column;
     justify-content: space-around;
     align-items: center;
     width:50vh;
@@ -29,8 +27,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
-
 
 .signupbutton{
     background-color:#00a400;
@@ -40,21 +38,55 @@
     height: 36px;
     font-size: 18px;
     font-weight: bold;
+    width: 250px;
 }
 
 .fname{
     padding: 11px;
+    width: 180px;
+    margin-right: 9px;
 }
 .lname{
     padding: 11px;
+    width: 180px;
 }
 .name input[type="text"] {
     background-color: #f5f6f7;
+    border: 1px solid darkgray;
+    border-radius: 5px;
 }
 .emailinput{
     background-color: #f5f6f7;
     padding: 11px;
+    width:390px;
+    border: 1px solid darkgray;
+    border-radius: 5px;
+    margin-bottom: 12px;
 }
 .passinput{
+    background-color: #f5f6f7;
     padding: 11px;
+    width:390px;
+    border: 1px solid darkgray;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.disclaim{
+    padding-left: 10px;
+    color: darkgray;
+    font-size: 12px;
+    font-family: klavika-web, sans-serif;;
+    margin-bottom: 50px;
+}
+
+.name{
+    justify-content: space-around;
+    margin-bottom: 12px;
+}
+
+.modalhead{
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 20px;
 }

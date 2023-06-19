@@ -72,7 +72,7 @@ const LoginFormPage = () => {
                 <ul>
                 <button className='logbutton'>Log In</button>
                 </ul>
-                <p className='forgot'>Forgot Password?</p>
+                <p className='forgot'>Demo Login</p>
             <SignUpFormModal/>
             </form>
             </div>
