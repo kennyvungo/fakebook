@@ -23,7 +23,7 @@ const removePost = (postId) => {
     }
 }
 
-export const getPosts = (state) => {
+export const getPosts =(state) => {
     return state.posts ? Object.values(state.posts) : []
 }
 
@@ -84,20 +84,19 @@ export const deletePost = (postId) => async(dispatch) => {
     }
 }
 
-const postReducer = (state={},action) => {
-    let newState;
+const postsReducer = (state={},action) => {
+    let newState = {...state};
     switch(action.type){
         case RECEIVE_POSTS:
             return {...action.posts}
         case RECEIVE_POST:
-            newState = {...state};
             newState[action.post.id] = action.post
             return newState;
         case REMOVE_POST:
-            delete newState[action.postId]
+            delete newState.posts[action.postId]
             return newState;
         default:
             return state
     }
 }
-export default postReducer
+export default postsReducer

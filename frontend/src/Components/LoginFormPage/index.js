@@ -4,7 +4,7 @@ import * as sessionActions from "../../store/session";
 import { useDispatch,useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import './LoginForm.css';
-import logo from '../../assets/fblogo.svg'
+import logo from '../../assets/fblogo.png'
 import SignUpFormModal from '../SignupFormModal';
 
 const LoginFormPage = () => {

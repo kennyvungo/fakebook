@@ -29,7 +29,7 @@ function ProfileButton({ user }) {
   };
 
   return (
-    <div classname='rightmenu'>
+    <div className='rightmenu'>
       <div className = "profbutton" onClick={openMenu} >
         <i className="fa-brands fa-facebook"></i>
       </div>

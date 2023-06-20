@@ -12,6 +12,7 @@
 #  updated_at      :datetime         not null
 #
 class User < ApplicationRecord
+  has_secure_password
   before_validation :ensure_session_token
 
   validates :email,length: {in: 3..255},format:{ with: URI::MailTo::EMAIL_REGEXP },uniqueness: true
@@ -19,8 +20,7 @@ class User < ApplicationRecord
   validates :session_token, presence: true, uniqueness: true
   
   
-  
-  has_secure_password
+  has_many :posts, dependent: :destroy
 
   def self.find_by_credentials(email,password)
     user = User.find_by(email: email)
