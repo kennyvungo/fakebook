@@ -5,6 +5,7 @@ const PostFormModal = () => {
     const [body,setBody] = useState('')
     const handleSubmit =(e) => {
         e.preventDefault();
+        console.log("kenny")
     }
   return (
     <form onSubmit={handleSubmit}>
