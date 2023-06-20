@@ -41,7 +41,7 @@ export const fetchPosts = () => async(dispatch) =>{
 
 export const createPost = (post) => async(dispatch) =>{
     const {userId,body} = post;
-    const res = await csrfFetch(`/api.posts`,{
+    const res = await csrfFetch(`/api/posts`,{
         method: 'POST',
         body: JSON.stringify({
             post:{
@@ -59,7 +59,7 @@ export const createPost = (post) => async(dispatch) =>{
 
 export const updatePost = (post) => async(dispatch) =>{
     const {userId,body} = post;
-    const res = await csrfFetch(`/api.posts`,{
+    const res = await csrfFetch(`/api/posts`,{
         method: 'PATCH',
         body: JSON.stringify({
             post:{
@@ -100,4 +100,4 @@ const postReducer = (state={},action) => {
             return state
     }
 }
-export default postsReducer
+export default postReducer

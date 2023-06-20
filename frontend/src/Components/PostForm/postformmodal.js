@@ -1,11 +1,18 @@
 import React from 'react'
 import { useState } from 'react'
+import { useDispatch,useSelector} from "react-redux";
+import * as postActions from "../../store/post"
 
 const PostFormModal = () => {
+  const dispatch = useDispatch();
     const [body,setBody] = useState('')
+    const [errors,setErrors] = useState([]);
+    const userId = useSelector(state => state.session.user.id);
+
     const handleSubmit =(e) => {
         e.preventDefault();
-        console.log("kenny")
+        setErrors([]);
+        return dispatch(postActions.createPost({userId: userId,body:body}))
     }
   return (
     <form onSubmit={handleSubmit}>
