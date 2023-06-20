@@ -11,8 +11,10 @@ const PostIndex = () => {
 
     useEffect(() =>{
         dispatch(fetchPosts())
+        // return () =>{
+                //close Modal?   
+        // }
     },[dispatch])
-    console.log(posts)
   return (
     <div className="postIndex">
         {posts.map((post) => (<PostItem post={post}/>))}
