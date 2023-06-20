@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: fakebook_production
-  username: fakebook
-  password: <%= ENV["FAKEBOOK_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
