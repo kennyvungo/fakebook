@@ -1,6 +1,6 @@
 .postbox{
     font-family: klavika-web, sans-serif;
-    height: 200px;
+    height: 254px;
     width: 500px;
     border: 1px solid lightgray;
     border-radius: 10px;
@@ -15,5 +15,53 @@
 }
 .postbody{
     font-size: 15px;
-    padding: 15px;
+    padding: 55px;
+}
+
+.postbar{
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px;
+    padding-right: 5px;
+    font-size: 12px;
+    margin-left: 9px;
+    margin-right: 9px;
+}
+
+.commentinput{
+    padding: 7px;
+    margin-left: 17px;
+    margin-top: 10px;
+    background-color: #EFF2F5;
+    border: none;
+    border-radius: 15px;
+    width: 450px
+}
+.likeico{
+    width: 180px;
+    display: flex;
+    justify-content: center;
+    padding: 6px;
+    cursor: pointer;
+}
+
+.commentico{
+    width: 180px;
+    display: flex;
+    justify-content: center;
+    padding: 6px;
+    cursor: pointer;
+}
+
+.likeico:hover{
+    background-color: lightgray;
+    border-radius: 5px;
+
+}
+.commentico:hover{
+    background-color: lightgray;
+    border-radius: 5px;
 }
