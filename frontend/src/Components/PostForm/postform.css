@@ -65,3 +65,10 @@
 .postformbutton:hover{
     background-color: blue;
 }
+
+div.is-disabled
+{
+  pointer-events: none;
+  opacity: 0.7;
+  background-color: lightgray;
+}

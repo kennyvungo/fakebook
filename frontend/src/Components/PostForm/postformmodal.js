@@ -9,6 +9,7 @@ const PostFormModal = () => {
     const [errors,setErrors] = useState([]);
     const user = useSelector(state => state.session.user);
     const userId = user.id
+    let isDisabled = body;
 
     const handleSubmit =(e) => {
         e.preventDefault();
@@ -28,7 +29,7 @@ const PostFormModal = () => {
         onChange={(e) => setBody(e.target.value)}
         required
         />
-    <div onClick={handleSubmit} className='postformbutton' disabled={true}> Post</div>
+    <div onClick={handleSubmit} className={(!isDisabled) ? 'is-disabled postformbutton' : 'postformbutton'}> Post</div>
     </form>
   )
 }
