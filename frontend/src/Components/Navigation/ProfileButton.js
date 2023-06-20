@@ -29,9 +29,9 @@ function ProfileButton({ user }) {
   };
 
   return (
-    <>
+    <div classname='rightmenu'>
       <div className = "profbutton" onClick={openMenu} >
-        <i class="fa-brands fa-facebook"></i>
+        <i className="fa-brands fa-facebook"></i>
       </div>
       {showMenu && (
         <ul className="profile-dropdown">
@@ -43,7 +43,7 @@ function ProfileButton({ user }) {
           </li>
         </ul>
       )}
-    </>
+    </div>
   );
 }
 

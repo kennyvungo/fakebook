@@ -2,6 +2,7 @@ import React from 'react'
 import Navigation from '../Navigation'
 import { Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import PostForm from '../PostForm/postform';
 
 
 
@@ -11,7 +12,8 @@ const Splash = () => {
 
     return (
         <>
-        <Navigation/>
+            <Navigation/>
+            <PostForm user={sessionUser}/>
         </>
     )
 }

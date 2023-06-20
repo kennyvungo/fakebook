@@ -1,0 +1,55 @@
+.postbutton{
+    font-family: klavika-web, sans-serif;
+    font-size: 15px;
+    color: #606770;
+    background-color: #EFF2F5;
+    width: 450px;
+    margin-top: 100px;
+    padding: 11px;
+    border-radius: 20px;
+    position: fixed;
+    left: 40%;
+    cursor: pointer;
+}
+.postbutton:hover{
+    background-color:lightgrey;
+}
+.postbuttoncontainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.posttextbox{
+    width: 400px;
+    height: 250px;
+    font-size: 20px;
+    border: none;
+    margin-left: 5px;
+}
+.postformhead{
+    font-family: klavika-web, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid lightgray;
+}
+.postformbutton{
+    font-family: klavika-web, sans-serif;
+    color: white;
+    font-size: 14px;
+    padding: 9px;
+    background-color: #1a73e3;
+    width: 89%;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    margin-left: 14px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.postformbutton:hover{
+    background-color: blue;
+}

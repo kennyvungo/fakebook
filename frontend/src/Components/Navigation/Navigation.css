@@ -5,4 +5,10 @@
 
 .navbar{
     display: flex;
+    justify-content: space-around;
+}
+.rightmenu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }

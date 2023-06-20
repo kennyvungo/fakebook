@@ -22,6 +22,10 @@ const sessionUser = useSelector(state => state.session.user);
     if (sessionUser) {
     sessionLinks = (
         <div className='navbar'>
+        <input
+            type= 'text'
+            placeholder='Search Facebook'
+        />
         <ProfileButton user={sessionUser} />
         </div>
     );
@@ -32,7 +36,7 @@ const sessionUser = useSelector(state => state.session.user);
     );
     }
     return (
-    <ul className='navbar'>
+    <ul>
         <li>
             {sessionLinks}
         </li>
