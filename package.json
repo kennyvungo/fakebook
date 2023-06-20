@@ -1,7 +1,7 @@
 {
   "name": "fakebook",
   "version": "1.0.0",
-  "description": "",
+  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
   "main": "index.js",
   "scripts": {
     "build": "npm install --prefix frontend && npm run build --prefix frontend"
@@ -11,5 +11,8 @@
   "license": "ISC",
   "engines": {
     "node": "16.x"
+  },
+  "directories": {
+    "lib": "lib"
   }
 }
