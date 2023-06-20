@@ -22,11 +22,16 @@ const sessionUser = useSelector(state => state.session.user);
     if (sessionUser) {
     sessionLinks = (
         <div className='navbar'>
-        <input
-            type= 'text'
-            placeholder='Search Facebook'
-        />
-        <ProfileButton user={sessionUser} />
+            <input
+                className='searchbar'
+                type= 'text'
+                placeholder=' Search Facebook'
+            />
+            <div className='rightnav'>
+                <i class="fa-brands fa-facebook-messenger" id='smallico'></i>
+                <i class="fa-solid fa-bell" id='smallico'></i>
+                <ProfileButton user={sessionUser} />
+            </div>
         </div>
     );
     } else {

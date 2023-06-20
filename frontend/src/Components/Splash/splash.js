@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import PostForm from '../PostForm/postform';
 import PostIndex from '../PostIndex/postindex';
+import "./splash.css"
 
 
 

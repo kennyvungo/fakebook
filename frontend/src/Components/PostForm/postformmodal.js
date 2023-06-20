@@ -12,6 +12,7 @@ const PostFormModal = () => {
     const handleSubmit =(e) => {
         e.preventDefault();
         setErrors([]);
+        
         return dispatch(postActions.createPost({userId: userId,body:body}))
     }
   return (

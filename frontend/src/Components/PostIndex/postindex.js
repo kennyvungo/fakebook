@@ -7,7 +7,7 @@ import "./postindex.css"
 
 const PostIndex = () => {
     const dispatch = useDispatch();
-    const posts = useSelector(getPosts)
+    const posts = useSelector(getPosts).reverse()
 
     useEffect(() =>{
         dispatch(fetchPosts())
@@ -15,7 +15,6 @@ const PostIndex = () => {
     console.log(posts)
   return (
     <div className="postIndex">
-        <div>Start of Post Index</div>
         {posts.map((post) => (<PostItem post={post}/>))}
     </div>
   )

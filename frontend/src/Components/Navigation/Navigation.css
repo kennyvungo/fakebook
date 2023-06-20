@@ -1,14 +1,48 @@
 .profbutton{
     color: rgb(12,142,241);
-    font-size: 50px;
+    font-size: 40px;
 }
 
 .navbar{
+    padding-top: 5px;
     display: flex;
     justify-content: space-around;
+    background-color: #fff;
+    height: 50px;
 }
 .rightmenu{
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+.rightnav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    right: 2%;
+}
+#smallico{
+    font-size: 18px;
+    cursor: pointer;
+    padding: 10px;
+    margin-right: 8px;
+    border-radius: 50%;
+    background-color: #E3E6EA;
+    border: 2px solid #E3E6EA;
+}
+
+#smallico:hover{
+    background-color: gray;
+    border: 2px solid gray;
+}
+
+.searchbar{
+    position: fixed;
+    left: 5%;
+    padding: 13px;
+    background-color: #EFF2F5;
+    border: none;
+    border-radius: 15px;
+    width: 250px
 }
