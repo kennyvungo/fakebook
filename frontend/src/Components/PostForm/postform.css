@@ -19,7 +19,7 @@
     justify-content: center;
     align-items: center;
     background-color: #fff;
-    margin-top: 55px;
+    margin-top: 75px;
     position: absolute;
     left: 35%;
     width: 500px;
@@ -28,6 +28,7 @@
     border-radius: 10px;
     margin-bottom: 15px;
     background-color: #fff;
+    z-index: 0;
 }
 .posttextbox{
     width: 400px;
@@ -35,6 +36,7 @@
     font-size: 20px;
     border: none;
     margin-left: 5px;
+    padding-left: 10px;
 }
 .postformhead{
     font-family: klavika-web, sans-serif;

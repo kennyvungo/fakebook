@@ -7,12 +7,13 @@ const PostFormModal = () => {
   const dispatch = useDispatch();
     const [body,setBody] = useState('')
     const [errors,setErrors] = useState([]);
-    const userId = useSelector(state => state.session.user.id);
+    const user = useSelector(state => state.session.user);
+    const userId = user.id
 
     const handleSubmit =(e) => {
         e.preventDefault();
         setErrors([]);
-        
+
         return dispatch(postActions.createPost({userId: userId,body:body}))
     }
   return (
@@ -23,11 +24,11 @@ const PostFormModal = () => {
         className='posttextbox'
         type='text'
         value={body}
-        placeholder={`What's on your mind, Kenny?`}
+        placeholder={`What's on your mind, ${user.firstName}?`}
         onChange={(e) => setBody(e.target.value)}
         required
         />
-    <div onClick={handleSubmit} className='postformbutton'> Post</div>
+    <div onClick={handleSubmit} className='postformbutton' disabled={true}> Post</div>
     </form>
   )
 }

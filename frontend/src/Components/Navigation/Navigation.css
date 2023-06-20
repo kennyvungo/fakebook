@@ -9,6 +9,10 @@
     justify-content: space-around;
     background-color: #fff;
     height: 50px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
 }
 .rightmenu{
     display: flex;
