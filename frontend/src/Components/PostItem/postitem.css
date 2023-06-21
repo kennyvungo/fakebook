@@ -73,6 +73,15 @@
     border-radius: 5px;
 
 }
+
+.likedico{
+    color: #0073F5;
+    width: 180px;
+    display: flex;
+    justify-content: center;
+    padding: 6px;
+    cursor: pointer;
+}
 .commentico:hover{
     background-color: lightgray;
     border-radius: 5px;

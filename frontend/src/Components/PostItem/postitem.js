@@ -17,6 +17,7 @@ const PostItem = ({post}) => {
     const dispatch = useDispatch();
     const [showMenu, setShowMenu] = useState(false);
     const [showModal, setShowModal] = useState(false);
+    const [isLiked,setisLiked] = useState(false);
 
     const helperFunc = () => {
         setShowModal(true)
@@ -40,6 +41,9 @@ const PostItem = ({post}) => {
 
     const handleDelete = () => {
         dispatch(postActions.deletePost(post.id))
+    }
+    const handleLike = () => {
+        setisLiked(!isLiked);
     }
     return (
         <>
@@ -66,7 +70,7 @@ const PostItem = ({post}) => {
         {post.body}
         </div>
         <div className ='postbar'>
-            <div className='likeico'>
+            <div onClick = {handleLike} className={isLiked ? 'likedico' : 'likeico'}>
             <BiLike/>
             Like
             </div>

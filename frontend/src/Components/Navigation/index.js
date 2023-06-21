@@ -26,7 +26,7 @@ const sessionUser = useSelector(state => state.session.user);
             <input
                 className='searchbar'
                 type= 'text'
-                placeholder=' Search Facebook'
+                placeholder=' Search Fakebook'
             />
             <div className='rightnav'>
                 <i class="fa-brands fa-facebook-messenger" id='smallico'></i>
