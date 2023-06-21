@@ -75,3 +75,17 @@
     background-color: lightgray;
     border-radius: 50%;
 }
+
+.postdropdown{
+    position: absolute;
+    right: 37%;
+    width: 200px;
+    height: 100px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px lightgray;
+    margin-top: 0px;
+}
+div ul{
+    position: relative;
+}
