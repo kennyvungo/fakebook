@@ -11,6 +11,7 @@ import CommentIndex from '../Comments/commentindex';
 import CommentInput from '../Comments/commentinput';
 import * as postActions from "../../store/posts"
 import EditPostModal from './editpostmodal';
+import CommentLikeNumber from '../Comments/commentlikenumber';
 
 const PostItem = ({post}) => {
     const sessionUser = useSelector(state => state.session.user)
@@ -68,6 +69,9 @@ const PostItem = ({post}) => {
             )}
         <div className='postbody'>
         {post.body}
+        </div>
+        <div>
+            <CommentLikeNumber/>
         </div>
         <div className ='postbar'>
             <div onClick = {handleLike} className={isLiked ? 'likedico' : 'likeico'}>

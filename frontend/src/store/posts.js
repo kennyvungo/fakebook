@@ -40,6 +40,15 @@ export const fetchPosts = () => async(dispatch) =>{
     }
 }
 
+
+export const fetchCommentLength = (postId) => async(dispatch) => {
+    const res = await csrfFetch(`/api/posts/${postId}`)
+    if(res.ok){
+        const data = await res.json().length
+        return data;
+    }
+}
+
 export const createPost = (post) => async(dispatch) =>{
     const {userId,body} = post;
     const res = await csrfFetch(`/api/posts`,{
