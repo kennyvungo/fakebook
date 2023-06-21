@@ -8,7 +8,7 @@ export const REMOVE_COMMENT = 'comments/REMOVE_COMMENT'
 const receiveComments = (comments) => {
     return{
         type: RECEIVE_COMMENTS,
-        post
+        comments
     }
 } 
 
@@ -30,8 +30,8 @@ export const getComments = (state) => {
     return state.comments ? Object.values(state.comments) : []
 }
 
-export const getComment = (postId) => (state) => {
-    return state.coments ? state.comments[postId] : null;
+export const getComment = (commentId) => (state) => {
+    return state.coments ? state.comments[commentId] : null;
 }
 
 export const fetchComments = () => async(dispatch) => {
@@ -43,14 +43,14 @@ export const fetchComments = () => async(dispatch) => {
 }
 
 export const createComment = (comment) => async(dispatch) => {
-    const{userId,postId,body} = comment;
+    const{user_id,post_id,body} = comment;
     const res = await csrfFetch(`/api/comments`,{
         method: 'POST',
         body: JSON.stringify({
             comment:{
-                userId,
-                postId,
-                body
+                body,
+                post_id,
+                user_id
             }
         })
     })
