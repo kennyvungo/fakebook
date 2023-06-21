@@ -6,14 +6,21 @@ import {GoComment} from'react-icons/go'
 import {BsThreeDots} from 'react-icons/bs'
 import { useState,useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import Modal from '../../context/Modal';
 import CommentIndex from '../Comments/commentindex';
 import CommentInput from '../Comments/commentinput';
 import * as postActions from "../../store/posts"
+import EditPostModal from './editpostmodal';
 
 const PostItem = ({post}) => {
     const sessionUser = useSelector(state => state.session.user)
     const dispatch = useDispatch();
     const [showMenu, setShowMenu] = useState(false);
+    const [showModal, setShowModal] = useState(false);
+
+    const helperFunc = () => {
+        setShowModal(true)
+    }
     
     const openMenu = () => {
         if (showMenu) return;
@@ -35,7 +42,13 @@ const PostItem = ({post}) => {
         dispatch(postActions.deletePost(post.id))
     }
     return (
-    <div className="postbox">
+        <>
+        {showModal && (
+            <Modal onClose={() => setShowModal(false)}>
+                <EditPostModal setShowModal={setShowModal} post={post}/>
+            </Modal>
+            )}
+            <div className="postbox">
         <div className='postUser'>
             {sessionUser.firstName}
             {sessionUser.lastName}
@@ -44,8 +57,8 @@ const PostItem = ({post}) => {
             </div>
         </div>
         {showMenu &&(
-                <ul className="postdropdown">
-                    <ul>Edit Post</ul>
+            <ul className="postdropdown">
+                    <ul onClick={() => helperFunc()}>Edit Post</ul>
                     <ul onClick={handleDelete}>Delete Post</ul>
                 </ul>
             )}
@@ -67,6 +80,7 @@ const PostItem = ({post}) => {
             <CommentIndex post ={post}/>
         </div>
     </div>
+</>
   )
 }
 

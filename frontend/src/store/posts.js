@@ -60,7 +60,7 @@ export const createPost = (post) => async(dispatch) =>{
 
 export const updatePost = (post) => async(dispatch) =>{
     const {userId,body} = post;
-    const res = await csrfFetch(`/api/posts`,{
+    const res = await csrfFetch(`/api/posts/${post.id}`,{
         method: 'PATCH',
         body: JSON.stringify({
             post:{
