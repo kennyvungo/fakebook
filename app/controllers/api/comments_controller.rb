@@ -8,11 +8,12 @@ class Api::CommentsController < ApplicationController
 
 
     end
+    def show
+
+    end
 
     def destroy 
 
     end
-
-
 
 end

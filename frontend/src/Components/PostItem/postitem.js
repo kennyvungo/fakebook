@@ -3,15 +3,17 @@ import "./postitem.css"
 import {useSelector } from 'react-redux';
 import { BiLike} from 'react-icons/bi'
 import {GoComment} from'react-icons/go'
+import {BsThreeDots} from 'react-icons/bs'
 const PostItem = ({post}) => {
     const sessionUser = useSelector(state => state.session.user)
   return (
     <div className="postbox">
         <div className='postUser'>
-        {sessionUser.firstName}
-        <div>
-        {sessionUser.lastName}
-        </div>
+            {sessionUser.firstName}
+            {sessionUser.lastName}
+            <div className='postdots'>
+                <BsThreeDots/>
+            </div>
         </div>
         <div className='postbody'>
         {post.body}

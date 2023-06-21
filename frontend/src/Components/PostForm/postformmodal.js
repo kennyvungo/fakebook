@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useDispatch,useSelector} from "react-redux";
 import * as postActions from "../../store/posts"
 
-const PostFormModal = () => {
+const PostFormModal = ({setShowModal}) => {
   const dispatch = useDispatch();
     const [body,setBody] = useState('')
     const [errors,setErrors] = useState([]);
@@ -14,8 +14,9 @@ const PostFormModal = () => {
     const handleSubmit =(e) => {
         e.preventDefault();
         setErrors([]);
-
-        return dispatch(postActions.createPost({userId: userId,body:body}))
+        dispatch(postActions.createPost({userId: userId,body:body})).then(() =>{
+          setShowModal(false)
+        })
     }
   return (
     <form onSubmit={handleSubmit}>

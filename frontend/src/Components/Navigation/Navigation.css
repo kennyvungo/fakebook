@@ -50,3 +50,17 @@
     border-radius: 15px;
     width: 250px
 }
+.profile-dropdown{
+    position: absolute;
+    top: 40px;
+    right: -25px;
+    width: 350px;
+    height: 450px;
+    border: 1px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px lightgray;
+    overflow:hidden;
+    background-color: #fff;
+    font-size: 30px;
+    font-family: klavika-web, sans-serif;
+}

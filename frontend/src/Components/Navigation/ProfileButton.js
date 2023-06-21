@@ -9,7 +9,7 @@ function ProfileButton({ user }) {
   const openMenu = () => {
     if (showMenu) return;
     setShowMenu(true);
-  };
+  }; 
   
   useEffect(() => {
     if (!showMenu) return;
@@ -35,12 +35,12 @@ function ProfileButton({ user }) {
       </div>
       {showMenu && (
         <ul className="profile-dropdown">
-          <li>{user.firstName}</li>
-          <li>{user.lastName}</li>
-          <li>{user.email}</li>
-          <li>
+            <ul>{user.firstName}</ul>
+            <ul>{user.lastName}</ul>
+            <ul>{user.email}</ul>
+            <ul>
             <button onClick={logout}>Log Out</button>
-          </li>
+          </ul>
         </ul>
       )}
     </div>
@@ -48,6 +48,7 @@ function ProfileButton({ user }) {
 }
 
 export default ProfileButton;
+
 
 
 

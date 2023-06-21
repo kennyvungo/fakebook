@@ -1,6 +1,6 @@
 .postbox{
     font-family: klavika-web, sans-serif;
-    height: 254px;
+    height: 264px;
     width: 500px;
     border: 1px solid lightgray;
     border-radius: 10px;
@@ -64,4 +64,14 @@
 .commentico:hover{
     background-color: lightgray;
     border-radius: 5px;
+}
+
+.postdots{
+    position: relative;
+    padding: 3px;
+    right: -75%;
+}
+.postdots:hover{
+    background-color: lightgray;
+    border-radius: 50%;
 }
