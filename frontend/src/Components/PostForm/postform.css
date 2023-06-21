@@ -3,7 +3,7 @@
     font-size: 15px;
     color: #606770;
     background-color: #EFF2F5;
-    width: 450px;
+    width: 415px;
     padding: 11px;
     border-radius: 20px;
     position: relative;
@@ -15,7 +15,6 @@
 }
 .postbuttoncontainer{
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: #fff;

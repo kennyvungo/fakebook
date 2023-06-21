@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
+import profile from '../../assets/profile.jpg'
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -30,9 +31,7 @@ function ProfileButton({ user }) {
 
   return (
     <div className='rightmenu'>
-      <div className = "profbutton" onClick={openMenu} >
-        <i className="fa-brands fa-facebook"></i>
-      </div>
+      <img className = "profile" src={profile} onClick={openMenu} />
       {showMenu && (
         <ul className="profile-dropdown">
             <ul>{user.firstName}</ul>

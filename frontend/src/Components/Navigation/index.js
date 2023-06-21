@@ -22,6 +22,7 @@ const sessionUser = useSelector(state => state.session.user);
     if (sessionUser) {
     sessionLinks = (
         <div className='navbar'>
+            <i className="fa-brands fa-facebook profbutton"></i>
             <input
                 className='searchbar'
                 type= 'text'

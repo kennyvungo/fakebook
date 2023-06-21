@@ -1,8 +1,15 @@
 .profbutton{
     color: rgb(12,142,241);
     font-size: 40px;
+    position: fixed;
+    left: 1%;
 }
 
+.profile{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
 .navbar{
     padding-top: 5px;
     display: flex;
@@ -43,7 +50,7 @@
 
 .searchbar{
     position: fixed;
-    left: 5%;
+    left: 4%;
     padding: 13px;
     background-color: #EFF2F5;
     border: none;
