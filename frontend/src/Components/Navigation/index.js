@@ -29,8 +29,8 @@ const sessionUser = useSelector(state => state.session.user);
                 placeholder=' Search Fakebook'
             />
             <div className='rightnav'>
-                <i class="fa-brands fa-facebook-messenger" id='smallico'></i>
-                <i class="fa-solid fa-bell" id='smallico'></i>
+                <i className="fa-brands fa-facebook-messenger" id='smallico'></i>
+                <i className="fa-solid fa-bell" id='smallico'></i>
                 <ProfileButton user={sessionUser} />
             </div>
         </div>

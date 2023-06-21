@@ -1,4 +1,5 @@
 import csrfFetch from "./csrf";
+import {receivePost} from "./posts"
 
 export const RECEIVE_COMMENTS = 'comments/RECEIVE_COMMENTS'
 export const RECEIVE_COMMENT = 'comments/RECEIVE_COMMENT'
@@ -53,6 +54,12 @@ export const createComment = (comment) => async(dispatch) => {
             }
         })
     })
+    if(res.ok){
+        const data = await res.json()
+        debugger
+        dispatch(receiveComments(data.comment))
+        dispatch(receivePost(data.post))
+    }
 }
 
 const commentsReducer = (state={},action) => {

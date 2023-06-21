@@ -1,0 +1,7 @@
+.commentlikenums{
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    border-top: 1px solid lightgray;
+}

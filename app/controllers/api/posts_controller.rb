@@ -1,7 +1,7 @@
 class Api::PostsController < ApplicationController
     def index 
         @posts = Post.all 
-        render json: @posts, include: :user
+        render :index
     end
     
     def show

@@ -6,12 +6,12 @@ import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 const CommentIndex = ({post}) => {
     const dispatch = useDispatch();
-    const comments = useSelector(getComments)
+    // const comments = useSelector(getComments)
 
     // useEffect(() => {
     //     dispatch(fetchPosts())
     // },[dispatch])
-    console.log(comments)
+    // console.log(comments)
     return (
         <>
         {/* <div>{comments}</div> */}

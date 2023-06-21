@@ -10,7 +10,7 @@ const receivePosts = (posts) => {
         posts
     }
 }
-const receivePost = (post) => {
+export const receivePost = (post) => {
     return {
         type: RECEIVE_POST,
         post
@@ -41,10 +41,10 @@ export const fetchPosts = () => async(dispatch) =>{
 }
 
 
-export const fetchCommentLength = (postId) => async(dispatch) => {
+export const fetchCommentNumber = (postId) => async(dispatch) => {
     const res = await csrfFetch(`/api/posts/${postId}`)
     if(res.ok){
-        const data = await res.json().length
+        const data = await res.json()
         return data;
     }
 }
@@ -100,6 +100,7 @@ const postsReducer = (state={},action) => {
         case RECEIVE_POSTS:
             return {...action.posts}
         case RECEIVE_POST:
+            debugger
             newState[action.post.id] = action.post
             return newState;
         case REMOVE_POST:

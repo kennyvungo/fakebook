@@ -5,13 +5,13 @@ class Api::CommentsController < ApplicationController
     end
     def show
         @comment = Comment.find(params[:id])
-        render json: @comment
+        render :show
     end
 
     def create 
         @comment = Comment.new(comment_params)
         if @comment.save 
-            render json: @comment
+            render :show
         else
             render json: {errors:@comment.errors.full_messages},status: 422
         end

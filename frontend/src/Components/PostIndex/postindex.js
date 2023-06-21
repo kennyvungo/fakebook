@@ -17,7 +17,7 @@ const PostIndex = () => {
     },[dispatch])
   return (
     <div className="postIndex">
-        {posts.map((post) => (<PostItem post={post}/>))}
+        {posts.map((post) => (<PostItem key={post.id} post={post}/>))}
     </div>
   )
 }
