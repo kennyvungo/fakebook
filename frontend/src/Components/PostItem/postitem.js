@@ -8,6 +8,7 @@ import { useState,useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import CommentIndex from '../Comments/commentindex';
 import CommentInput from '../Comments/commentinput';
+import * as postActions from "../../store/posts"
 
 const PostItem = ({post}) => {
     const sessionUser = useSelector(state => state.session.user)
@@ -28,6 +29,11 @@ const PostItem = ({post}) => {
         document.addEventListener('click', closeMenu);
         return () => document.removeEventListener("click", closeMenu);
     }, [showMenu]);
+
+
+    const handleDelete = () => {
+        dispatch(postActions.deletePost(post.id))
+    }
     return (
     <div className="postbox">
         <div className='postUser'>
@@ -40,7 +46,7 @@ const PostItem = ({post}) => {
         {showMenu &&(
                 <ul className="postdropdown">
                     <ul>Edit Post</ul>
-                    <ul>Delete Post</ul>
+                    <ul onClick={handleDelete}>Delete Post</ul>
                 </ul>
             )}
         <div className='postbody'>
@@ -58,7 +64,7 @@ const PostItem = ({post}) => {
         </div>
         <CommentInput post = {post}/>
         <div>
-            <CommentIndex/>
+            <CommentIndex post ={post}/>
         </div>
     </div>
   )

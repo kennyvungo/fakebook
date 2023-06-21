@@ -27,6 +27,7 @@ export const getPosts =(state) => {
     return state.posts ? Object.values(state.posts) : []
 }
 
+
 export const getPost =(postId) => (state) => {
     return state.posts ? state.posts[postId] :null
 }
@@ -76,7 +77,7 @@ export const updatePost = (post) => async(dispatch) =>{
 }
 
 export const deletePost = (postId) => async(dispatch) => {
-    const res = await csrfFetch(`/api/p[osts/${postId}`,{
+    const res = await csrfFetch(`/api/posts/${postId}`,{
         method: 'DELETE',
     })
     if(res.ok){

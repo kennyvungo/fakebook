@@ -93,11 +93,15 @@
     position: absolute;
     right: 37%;
     width: 200px;
-    height: 100px;
+    height: 70px;
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 2px 2px 5px lightgray;
     margin-top: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
 }
 div ul{
     position: relative;
@@ -121,4 +125,15 @@ div ul{
 .commentsend:hover{
     background-color: lightgray;
     border-radius: 50%;
+}
+
+.postdropdown ul{
+    padding-top: 10px;
+    padding-left: 20px;
+    height: 100%;
+    width: 90%;
+    cursor: pointer;
+}
+.postdropdown ul:hover{
+    background-color: #f2f2f2;
 }

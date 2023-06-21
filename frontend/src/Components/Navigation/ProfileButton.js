@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import profile from '../../assets/profile.jpg'
-
+import {BsFillGearFill} from 'react-icons/bs'
+import {RiLogoutBoxRFill} from 'react-icons/ri'
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
@@ -34,12 +35,13 @@ function ProfileButton({ user }) {
       <img className = "profile" src={profile} onClick={openMenu} />
       {showMenu && (
         <ul className="profile-dropdown">
-            <ul>{user.firstName}</ul>
-            <ul>{user.lastName}</ul>
+            <ul>{user.firstName}{user.lastName}</ul>
             <ul>{user.email}</ul>
-            <ul>
-            <button onClick={logout}>Log Out</button>
-          </ul>
+            <ul> <BsFillGearFill/> Settings & Privacy</ul>
+            <ul className = 'logout' onClick={logout}> <div className="dropdownico">
+                <RiLogoutBoxRFill/> 
+                </div>
+                Log Out</ul>
         </ul>
       )}
     </div>

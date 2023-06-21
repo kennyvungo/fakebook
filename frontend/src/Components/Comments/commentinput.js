@@ -37,8 +37,6 @@ const CommentInput = ({post}) => {
             onChange={(e) => setcommentBody(e.target.value)}
 
         />
-        <div>
-        </div>
         </div>
     )
 }

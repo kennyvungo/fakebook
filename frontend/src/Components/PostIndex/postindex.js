@@ -7,7 +7,7 @@ import "./postindex.css"
 
 const PostIndex = () => {
     const dispatch = useDispatch();
-    const posts = useSelector(getPosts).reverse()
+    const posts = useSelector(getPosts)
 
     useEffect(() =>{
         dispatch(fetchPosts())
