@@ -18,6 +18,8 @@ const CommentInput = ({post}) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(commentActions.createComment({body: commentBody,user_id: userId,post_id: post.id}))
+        setIsFocused(false);
+        setcommentBody("");
     }
     return (
         <div>
@@ -29,9 +31,11 @@ const CommentInput = ({post}) => {
         <input
             className={!isFocused ? 'commentinput' : 'commentfocused'}
             type="text"
+            value={commentBody}
             placeholder='Write a comment'
             onClick={handleClick}
             onChange={(e) => setcommentBody(e.target.value)}
+
         />
         <div>
         </div>
