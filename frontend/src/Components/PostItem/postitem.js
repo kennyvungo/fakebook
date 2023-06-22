@@ -84,7 +84,7 @@ const PostItem = ({post}) => {
         {post.body}
         </div>
         <div>
-            <CommentLikeNumber post={post}/>
+            <CommentLikeNumber post={post} setPostModal={setPostModal}/>
         </div>
         <div className ='postbar'>
             <div onClick = {handleLike} className={isLiked ? 'likedico' : 'likeico'}>
