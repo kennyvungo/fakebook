@@ -14,6 +14,7 @@ import EditPostModal from './editpostmodal';
 import CommentLikeNumber from '../Comments/commentlikenumber';
 import CommentItem from '../Comments/commentitem';
 import PostShowModal from '../PostShow/postshowmodal';
+import { fetchComments } from '../../store/comments';
 
 const PostItem = ({post}) => {
     const sessionUser = useSelector(state => state.session.user)
@@ -41,8 +42,9 @@ const PostItem = ({post}) => {
             setShowMenu(false);
         };
         document.addEventListener('click', closeMenu);
+        // dispatch(postActions.fetchPost())
         return () => document.removeEventListener("click", closeMenu);
-    }, [showMenu]);
+    }, [showMenu,allComments]);
 
 
     const handleDelete = () => {
