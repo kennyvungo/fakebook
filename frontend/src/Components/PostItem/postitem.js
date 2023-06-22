@@ -13,6 +13,7 @@ import * as postActions from "../../store/posts"
 import EditPostModal from './editpostmodal';
 import CommentLikeNumber from '../Comments/commentlikenumber';
 import CommentItem from '../Comments/commentitem';
+import PostShowModal from '../PostShow/postshowmodal';
 
 const PostItem = ({post}) => {
     const sessionUser = useSelector(state => state.session.user)
@@ -20,6 +21,7 @@ const PostItem = ({post}) => {
     const [showMenu, setShowMenu] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [isLiked,setisLiked] = useState(false);
+    const [postModal,setPostModal] = useState(false);
     let allComments = post.comments
     allComments ||= [];
 
@@ -49,12 +51,20 @@ const PostItem = ({post}) => {
     const handleLike = () => {
         setisLiked(!isLiked);
     }
+    const handleComment = () => {
+        setPostModal(true)
+    }
     return (
         <>
         {showModal && (
             <Modal onClose={() => setShowModal(false)}>
                 <EditPostModal setShowModal={setShowModal} post={post}/>
             </Modal>
+            )}
+            {postModal &&(
+                <Modal onClose={() => setPostModal(false)}>
+                    <PostShowModal post={post}/>
+                </Modal>
             )}
             <div className="postbox">
         <div className='postUser'>
@@ -81,7 +91,7 @@ const PostItem = ({post}) => {
             <BiLike/>
             Like
             </div>
-            <div className='commentico'>
+            <div className='commentico' onClick={handleComment}>
                 <GoComment/>
                 Comment
             </div>

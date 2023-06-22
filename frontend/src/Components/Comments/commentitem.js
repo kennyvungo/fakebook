@@ -1,7 +1,8 @@
 import React from 'react'
 
 const CommentItem = ({com}) => {
-  let author = com.user;
+  let author = com.author;
+  
   return (
     <>
     <div>{author}</div>
