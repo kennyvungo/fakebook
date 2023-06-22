@@ -21,6 +21,7 @@ const PostItem = ({post}) => {
     const [showModal, setShowModal] = useState(false);
     const [isLiked,setisLiked] = useState(false);
     let allComments = post.comments
+    allComments ||= [];
 
     const helperFunc = () => {
         setShowModal(true)

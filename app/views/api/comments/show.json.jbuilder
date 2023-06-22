@@ -1,5 +1,6 @@
 json.comment do 
     json.extract! @comment, :body, :post_id, :user_id
+    json.author @comment.user
 end
 
 post = @comment.post

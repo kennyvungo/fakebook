@@ -16,4 +16,8 @@ class Comment < ApplicationRecord
 
   belongs_to :post
   belongs_to :user
+  
+  def get_user 
+    self.user
+  end
 end
