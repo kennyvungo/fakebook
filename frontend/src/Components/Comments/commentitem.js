@@ -6,14 +6,14 @@ import { useDispatch } from 'react-redux';
 
 const CommentItem = ({com}) => {
   const dispatch = useDispatch();
-  let author = com.author;
+  let writer = com.author;
   useEffect(() =>{
     dispatch(fetchComments())
   },[dispatch,com])
   
   return (
     <div className="commentitem">
-    {/* <div>{author}</div> */}
+    {/* <div>{writer.first_name}</div> */}
     <div>{com.body}</div>
     </div>
   )

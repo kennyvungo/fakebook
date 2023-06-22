@@ -39,8 +39,13 @@ export const fetchPosts = () => async(dispatch) =>{
         dispatch(receivePosts(data))
     }
 }
-
-
+export const fetchPost = (postId) => async(dispatch) =>{
+    const res = await csrfFetch(`/api/${postId}`)
+    if(res.ok){
+        const data = await res.json()
+        dispatch(receivePost(data))
+    }
+}
 
 export const fetchCommentNumber = (postId) => async(dispatch) => {
     const res = await csrfFetch(`/api/posts/${postId}`)

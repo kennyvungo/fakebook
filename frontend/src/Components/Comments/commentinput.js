@@ -3,6 +3,8 @@ import { useState,useEffect } from 'react';
 import {IoSend} from 'react-icons/io5';
 import * as commentActions from "../../store/comments"
 import { useDispatch, useSelector } from 'react-redux';
+import * as postActions from "../../store/posts"
+
 
 const CommentInput = ({post}) => {
     const [isFocused,setIsFocused] = useState(false);
@@ -19,6 +21,7 @@ const CommentInput = ({post}) => {
         e.preventDefault();
         dispatch(commentActions.createComment({body: commentBody,user_id: userId,post_id: post.id}))
         setIsFocused(false);
+        dispatch(postActions.fetchPost(post.id))
         setcommentBody("");
     }
     return (

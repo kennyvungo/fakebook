@@ -25,6 +25,7 @@ const PostItem = ({post}) => {
     const [postModal,setPostModal] = useState(false);
     let allComments = post.comments
     allComments ||= [];
+    let firstCom = allComments[0]
 
     const helperFunc = () => {
         setShowModal(true)
@@ -42,7 +43,6 @@ const PostItem = ({post}) => {
             setShowMenu(false);
         };
         document.addEventListener('click', closeMenu);
-        // dispatch(postActions.fetchPost())
         return () => document.removeEventListener("click", closeMenu);
     }, [showMenu,allComments]);
 
@@ -103,7 +103,7 @@ const PostItem = ({post}) => {
         <CommentInput post = {post}/>
         <div>
             {(allComments.length > 0) &&
-            <CommentItem com ={allComments[0]}/> }
+            <CommentItem com ={firstCom}/> }
             {}
         </div>
     </div>
