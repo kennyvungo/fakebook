@@ -68,7 +68,7 @@ const PostShowModal = ({post}) => {
         {post.body}
         </div>
         <div>
-            <CommentLikeNumber post={post}/>
+            <CommentLikeNumber post={post} setShowModal={setShowModal}/>
         </div>
         <div className ='postbar'>
             <div onClick = {handleLike} className={isLiked ? 'likedico' : 'likeico'}>
@@ -81,9 +81,8 @@ const PostShowModal = ({post}) => {
             </div>
         </div>
         <CommentInput post = {post}/>
-        <div>
+        <div className="commentindex">
             <CommentIndex post={post}/>
-            
         </div>
     </div>
 </>

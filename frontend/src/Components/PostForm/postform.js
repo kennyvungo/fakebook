@@ -20,7 +20,7 @@ const PostForm = () => {
         </div>
         {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-            <PostFormModal setShowModal={setShowModal}/>
+            <PostFormModal />
         </Modal>
         )}
     </div>

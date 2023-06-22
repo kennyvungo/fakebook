@@ -1,13 +1,14 @@
 import React from 'react'
+import "./commentitem.css"
 
 const CommentItem = ({com}) => {
   let author = com.author;
   
   return (
-    <>
-    <div>{author}</div>
+    <div className="commentitem">
+    {/* <div>{author}</div> */}
     <div>{com.body}</div>
-    </>
+    </div>
   )
 }
 

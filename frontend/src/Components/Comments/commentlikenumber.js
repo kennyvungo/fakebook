@@ -3,7 +3,7 @@ import * as postActions from "../../store/posts"
 import "./commentlikenum.css"
 import { useState } from 'react'
 
-const CommentLikeNumber = ({post}) => {
+const CommentLikeNumber = ({post,setShowModal}) => {
     const [showBar, setshowBar] = useState(true)
     const numberComments = post.numComments
   return (
@@ -11,7 +11,7 @@ const CommentLikeNumber = ({post}) => {
     {showBar && (
     <>
         <div>Likes</div>
-        <div>{numberComments} Comments</div>
+        <div className='numComments'>{numberComments} Comments</div>
     </>
     )}
     </div>

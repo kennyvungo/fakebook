@@ -5,15 +5,16 @@ import { getComments } from '../../store/comments'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import CommentItem from './commentitem'
+import { fetchPosts } from '../../store/posts'
 const CommentIndex = ({post}) => {
     const dispatch = useDispatch();
     let allComments = post.comments
     allComments ||= [];
     // const comments = useSelector(getComments)
 
-    // useEffect(() => {
-    //     dispatch(fetchPosts())
-    // },[dispatch])
+    useEffect(() => {
+        dispatch(fetchPosts())
+    },[dispatch])
     // console.log(comments)
     return (
         <>
