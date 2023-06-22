@@ -18,4 +18,8 @@ class Post < ApplicationRecord
     def get_comment_nums 
         self.comments.length
     end
+
+    def get_comments 
+        self.comments
+    end
 end

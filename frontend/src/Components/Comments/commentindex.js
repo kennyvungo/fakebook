@@ -4,8 +4,11 @@ import { getPostComments } from '../../store/comments'
 import { getComments } from '../../store/comments'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
+import CommentItem from './commentitem'
 const CommentIndex = ({post}) => {
     const dispatch = useDispatch();
+    let allComments = post.comments
+    allComments ||= [];
     // const comments = useSelector(getComments)
 
     // useEffect(() => {
@@ -14,7 +17,7 @@ const CommentIndex = ({post}) => {
     // console.log(comments)
     return (
         <>
-        {/* <div>{comments}</div> */}
+        {allComments.map((com) => <CommentItem com={com}/>)}
         </>
     )
 }

@@ -1,8 +1,10 @@
 import React from 'react'
 
-const CommentItem = () => {
+const CommentItem = ({com}) => {
   return (
-    <div>CommentItem</div>
+    <>
+    <div>{com.body}</div>
+    </>
   )
 }
 

@@ -12,6 +12,7 @@ import CommentInput from '../Comments/commentinput';
 import * as postActions from "../../store/posts"
 import EditPostModal from './editpostmodal';
 import CommentLikeNumber from '../Comments/commentlikenumber';
+import CommentItem from '../Comments/commentitem';
 
 const PostItem = ({post}) => {
     const sessionUser = useSelector(state => state.session.user)
@@ -19,6 +20,7 @@ const PostItem = ({post}) => {
     const [showMenu, setShowMenu] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [isLiked,setisLiked] = useState(false);
+    let allComments = post.comments
 
     const helperFunc = () => {
         setShowModal(true)
@@ -85,7 +87,9 @@ const PostItem = ({post}) => {
         </div>
         <CommentInput post = {post}/>
         <div>
-            <CommentIndex post ={post}/>
+            {(allComments.length > 0) &&
+            <CommentItem com ={allComments[0]}/> }
+            
         </div>
     </div>
 </>

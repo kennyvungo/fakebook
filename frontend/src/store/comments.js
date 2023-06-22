@@ -56,7 +56,6 @@ export const createComment = (comment) => async(dispatch) => {
     })
     if(res.ok){
         const data = await res.json()
-        debugger
         dispatch(receiveComments(data.comment))
         dispatch(receivePost(data.post))
     }
