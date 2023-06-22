@@ -7,7 +7,6 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 
-ApplicationRecord.transaction do 
     puts "Destroying tables..."
     # Unnecessary if using `rails db:seed:replant`
     User.destroy_all
@@ -24,7 +23,13 @@ ApplicationRecord.transaction do
       first_name: 'Kenny',
       last_name: "Ngo"
     )
+    p1 = Post.create(
+      body: 'test',
+      user_id: 1
+    )
   
+  
+    p1.photo.attach(io: URI.open("https://knfakebook-dev.s3.us-west-1.amazonaws.com/0scdnsj8byltmzzxzpwvwdl91osz"), filename: "photo")
     # More users
     10.times do 
       User.create!({
@@ -36,4 +41,3 @@ ApplicationRecord.transaction do
     end
   
     puts "Done!"
-  end

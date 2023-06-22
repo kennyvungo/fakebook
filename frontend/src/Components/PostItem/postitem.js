@@ -63,7 +63,9 @@ const PostItem = ({post}) => {
             )}
             {postModal &&(
                 <Modal onClose={() => setPostModal(false)}>
+                    <div className='postshowmodal'>
                     <PostShowModal post={post}/>
+                    </div>
                 </Modal>
             )}
             <div className="postbox">
@@ -100,7 +102,7 @@ const PostItem = ({post}) => {
         <div>
             {(allComments.length > 0) &&
             <CommentItem com ={allComments[0]}/> }
-            
+            {}
         </div>
     </div>
 </>
