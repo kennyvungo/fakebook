@@ -30,7 +30,7 @@ require "open-uri"
     )
   
   
-    p1.photo.attach(io: URI.open("https://knfakebook-dev.s3.us-west-1.amazonaws.com/0scdnsj8byltmzzxzpwvwdl91osz"), filename: "photo")
+    p1.photo.attach(io: File.open("app/assets/images/test.png"), filename: "photo")
     # More users
     10.times do 
       User.create!({
