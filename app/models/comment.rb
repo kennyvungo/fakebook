@@ -17,7 +17,8 @@ class Comment < ApplicationRecord
   belongs_to :post
   belongs_to :user
   
-  def get_user 
-    self.user
+  def get_name 
+    us = self.user
+    return us.first_name + " " + us.last_name
   end
 end

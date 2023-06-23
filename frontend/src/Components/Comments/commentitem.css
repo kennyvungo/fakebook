@@ -1,13 +1,21 @@
+.commentitemwrapper{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+
 .commentitem{
     background-color: #EFF2F5;
-    border-radius: 5px;
+    border-radius: 8px;
     display: inline-block;
     min-width:70px;
     width: 70%;
     justify-content: flex-start;
+    align-items: space-between;
     padding: 7px;
     margin-top: 15px;
-    margin-left: 25px;
+    margin-left: 10px;
     margin-bottom: 10px;
     font-size: 12px;
 }
@@ -15,4 +23,17 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.smallprofile{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+.comname{
+    font-weight: bold;
+    font-size: 13px;
+    margin-bottom: 2px;
 }
