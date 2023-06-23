@@ -26,16 +26,19 @@ const removeComment = (commentId) => {
     }
 }
 
-export const getComments = (state) => {
-    return state.comments ? Object.values(state.comments) : []
+export const getComments = (store) => {
+    return store.comments ? Object.values(store.comments) : []
 }
 
-export const getComment = (commentId) => (state) => {
-    return state.coments ? state.comments[commentId] : null;
+export const getComment = (commentId) => (store) => {
+    return store.comments ? store.comments[commentId] : null;
 }
 
+export const getPostComments = (postId) => (store) => {
+    return Object.values(store.comments).filter((com) => com.id === postId)
+}
 export const fetchComments = () => async(dispatch) => {
-    const res = await csrfFetch(`/api/posts`)
+    const res = await csrfFetch(`/api/comments`)
     if(res.ok){
         const data = await res.json()
         dispatch(receiveComments(data))
@@ -46,20 +49,24 @@ export const createComment = (comment) => async(dispatch) => {
     const{user_id,post_id,body} = comment;
     const res = await csrfFetch(`/api/comments`,{
         method: 'POST',
+        headers:{
+            'Content-Type':'application/json'
+        },
         body: JSON.stringify({
             comment:{
-                body,
+                user_id,
                 post_id,
-                user_id
+                body
             }
         })
     })
     if(res.ok){
         const data = await res.json()
-        dispatch(receiveComments(data.comment))
+        dispatch(receiveComment(data.comment))
         dispatch(receivePost(data.post))
     }
 }
+
 
 const commentsReducer = (state={},action) => {
     let newState = {...state};
@@ -75,7 +82,6 @@ const commentsReducer = (state={},action) => {
         default:
             return state;
     }
-
 }
 
 export default commentsReducer

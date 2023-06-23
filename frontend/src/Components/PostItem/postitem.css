@@ -16,6 +16,8 @@
 .postbody{
     font-size: 15px;
     padding: 55px;
+    display: flex;
+    flex-direction: column;
 }
 
 .postbar{
@@ -145,4 +147,9 @@ div ul{
 }
 .postdropdown ul:hover{
     background-color: #f2f2f2;
+}
+
+.postphoto{
+    max-width:400px;
+    max-height:500px;
 }

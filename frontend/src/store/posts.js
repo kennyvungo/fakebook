@@ -47,6 +47,8 @@ export const fetchPost = (postId) => async(dispatch) =>{
     }
 }
 
+
+
 export const fetchCommentNumber = (postId) => async(dispatch) => {
     const res = await csrfFetch(`/api/posts/${postId}`)
     if(res.ok){
@@ -59,6 +61,9 @@ export const createPost = (post) => async(dispatch) =>{
     const {userId,body} = post;
     const res = await csrfFetch(`/api/posts`,{
         method: 'POST',
+        headers:{
+            'Content-Type':'application/json'
+        },
         body: JSON.stringify({
             post:{
                 userId,
@@ -77,6 +82,9 @@ export const updatePost = (post) => async(dispatch) =>{
     const {userId,body} = post;
     const res = await csrfFetch(`/api/posts/${post.id}`,{
         method: 'PATCH',
+        headers:{
+            'Content-Type':'application/json'
+        },
         body: JSON.stringify({
             post:{
                 userId,

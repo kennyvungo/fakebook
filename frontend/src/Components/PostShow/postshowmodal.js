@@ -66,6 +66,9 @@ const PostShowModal = ({post}) => {
             )}
         <div className='postbody'>
         {post.body}
+        {post.photoUrl && (
+            <img className='postphoto' src={post.photoUrl} alt=""/>
+        )}
         </div>
         <div>
             <CommentLikeNumber post={post} setShowModal={setShowModal}/>

@@ -24,21 +24,55 @@ require "open-uri"
       first_name: 'Kenny',
       last_name: "Ngo"
     )
+      # More users
+      10.times do 
+        User.create!({
+          email: Faker::Internet.unique.email,
+          password: 'password',
+          first_name: Faker::Name.first_name,
+          last_name:  Faker::Name.last_name
+        }) 
+      end
+
+    puts "Creating posts..."
+
     p1 = Post.create(
-      body: 'test',
+      body: "this is just a text post",
+      user_id: 2
+    )
+
+    p2 = Post.create(
+      body: 'me and my poster',
       user_id: 1
     )
   
-  
-    p1.photo.attach(io: File.open("app/assets/images/test.png"), filename: "photo")
-    # More users
-    10.times do 
-      User.create!({
-        email: Faker::Internet.unique.email,
-        password: 'password',
-        first_name: Faker::Name.first_name,
-        last_name:  Faker::Name.last_name
-      }) 
-    end
+    p2.photo.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/poster.jpeg"), filename: "poster")
+
+
+
+    p3 = Post.create(
+      body: 'me and friends',
+      user_id: 1
+    )
+    p3.photo.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/friends.jpg"),filename: "friend")
+
+    p4 = Post.create(
+      body: 'me and megan',
+      user_id: 1
+    )
+
+    p4.photo.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/megan.JPG"),filename:"girl")
+    p5 = Post.create(
+      body: 'me and family',
+      user_id: 1
+    )
+
+    p5.photo.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/family.jpg"),filename:"family")
+
+    p6 = Post.create(
+      body: 'me in arizona',
+      user_id: 1
+    )
+    p6.photo.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/me.JPG"),filename:"me")
   
     puts "Done!"
