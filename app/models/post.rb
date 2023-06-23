@@ -19,4 +19,8 @@ class Post < ApplicationRecord
     def get_comment_nums 
         self.comments.length
     end
+    def get_name 
+        us = self.user
+        return us.first_name + " " + us.last_name
+    end
 end

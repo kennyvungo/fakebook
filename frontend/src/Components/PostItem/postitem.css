@@ -9,9 +9,11 @@
 }
 
 .postUser{
-    font-size: 20px;
+    font-size: 17px;
+    font-weight: bold;
     padding: 15px;
     display: flex;
+    width: 100vw;
 }
 .postbody{
     font-size: 15px;
@@ -90,10 +92,9 @@
 }
 
 .postdots{
-    position: relative;
-    padding: 2px;
-    right: -75%;
     cursor: pointer;
+    display: flex;
+    margin-left: 290px;
 }
 .postdots:hover{
     background-color: #f2f2f2;
@@ -152,4 +153,8 @@ div ul{
 .postphoto{
     max-width:400px;
     max-height:500px;
+}
+
+.postname{
+    margin-left: 8px;
 }

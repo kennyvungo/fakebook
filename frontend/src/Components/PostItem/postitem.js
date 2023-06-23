@@ -15,6 +15,7 @@ import CommentLikeNumber from '../Comments/commentlikenumber';
 import CommentItem from '../Comments/commentitem';
 import PostShowModal from '../PostShow/postshowmodal';
 import * as commentActions from "../../store/comments"
+import profile from '../../assets/profile.jpg'
 
 const PostItem = ({post}) => {
     const sessionUser = useSelector(state => state.session.user)
@@ -71,11 +72,13 @@ const PostItem = ({post}) => {
             )}
             <div className="postbox">
         <div className='postUser'>
-            {sessionUser.firstName}
-            {sessionUser.lastName}
+        <img className = "profile" src={profile} />
+        <div className="postname">
+            {post.name}
+        </div>
             <div className='postdots' onClick={openMenu}>
                 <BsThreeDots/>
-            </div>
+        </div>
         </div>
         {showMenu &&(
             <ul className="postdropdown">
