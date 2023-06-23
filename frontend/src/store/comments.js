@@ -35,7 +35,7 @@ export const getComment = (commentId) => (store) => {
 }
 
 export const getPostComments = (postId) => (store) => {
-    return Object.values(store.comments).filter((com) => com.id === postId)
+    return Object.values(store.comments).filter((com) => com.postId === postId)
 }
 export const fetchComments = () => async(dispatch) => {
     const res = await csrfFetch(`/api/comments`)
@@ -64,6 +64,7 @@ export const createComment = (comment) => async(dispatch) => {
         const data = await res.json()
         dispatch(receiveComment(data.comment))
         dispatch(receivePost(data.post))
+        return data;
     }
 }
 

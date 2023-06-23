@@ -9,7 +9,7 @@ import * as commentActions from "../../store/comments"
 const CommentIndex = ({post}) => {
     const dispatch = useDispatch();
     let allComments = useSelector(commentActions.getPostComments(post.id))
-    console.log(allComments)
+    console.log("allcomments:",allComments)
     useEffect(() => {
         dispatch(commentActions.fetchComments())
     },[])
