@@ -14,7 +14,7 @@ import EditPostModal from './editpostmodal';
 import CommentLikeNumber from '../Comments/commentlikenumber';
 import CommentItem from '../Comments/commentitem';
 import PostShowModal from '../PostShow/postshowmodal';
-import { fetchComments } from '../../store/comments';
+import * as commentActions from "../../store/comments"
 
 const PostItem = ({post}) => {
     const sessionUser = useSelector(state => state.session.user)
@@ -23,8 +23,7 @@ const PostItem = ({post}) => {
     const [showModal, setShowModal] = useState(false);
     const [isLiked,setisLiked] = useState(false);
     const [postModal,setPostModal] = useState(false);
-    let allComments = post.comments
-    allComments ||= [];
+    let allComments = useSelector(commentActions.getPostComments(post.id))
     let firstCom = allComments[0]
 
     const helperFunc = () => {
@@ -38,7 +37,7 @@ const PostItem = ({post}) => {
 
     useEffect(() => {
         if (!showMenu) return;
-    
+        
         const closeMenu = () => {
             setShowMenu(false);
         };

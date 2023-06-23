@@ -3,6 +3,7 @@ import { useDispatch,useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { fetchPosts,getPosts } from '../../store/posts'
 import PostItem from '../PostItem/postitem'
+import * as commentActions from "../../store/comments"
 import "./postindex.css"
 
 const PostIndex = () => {
@@ -11,6 +12,7 @@ const PostIndex = () => {
 
     useEffect(() =>{
         dispatch(fetchPosts())
+        dispatch(commentActions.fetchComments())
     },[dispatch])
 
   return (

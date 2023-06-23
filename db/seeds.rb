@@ -47,7 +47,7 @@ require "open-uri"
     )
   
     p2.photo.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/poster.jpeg"), filename: "poster")
-
+    p2.save
 
 
     p3 = Post.create(

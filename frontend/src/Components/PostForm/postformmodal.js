@@ -18,6 +18,10 @@ const PostFormModal = ({setShowModal}) => {
           setShowModal(false)
         })
     }
+    const handleFile = (e) => {
+      e.preventDefault();
+
+    }
   return (
     <form onSubmit={handleSubmit}>
 
@@ -29,6 +33,11 @@ const PostFormModal = ({setShowModal}) => {
         placeholder={`What's on your mind, ${user.firstName}?`}
         onChange={(e) => setBody(e.target.value)}
         required
+        />
+        <input
+          type='file'
+          onChange={handleFile}
+          placeholder='Upload Image'
         />
     <div onClick={handleSubmit} className={(!isDisabled) ? 'is-disabled postformbutton' : 'postformbutton'}> Post</div>
     </form>

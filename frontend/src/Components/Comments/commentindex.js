@@ -9,14 +9,13 @@ import * as commentActions from "../../store/comments"
 const CommentIndex = ({post}) => {
     const dispatch = useDispatch();
     let allComments = useSelector(commentActions.getPostComments(post.id))
-    console.log("allcomments:",allComments)
-    useEffect(() => {
-        dispatch(commentActions.fetchComments())
-    },[])
+    // useEffect(() => {
+    //     dispatch(commentActions.fetchComments())
+    // },[])
     // console.log(comments)
     return (
         <>
-        {allComments.map((com) => <CommentItem com={com}/>)}
+        {allComments.map((com) => <CommentItem key={com.id} com={com}/>)}
         </>
     )
 }

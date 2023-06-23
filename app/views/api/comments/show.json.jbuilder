@@ -5,6 +5,7 @@ end
 
 post = @comment.post
 json.post do 
-    json.extract! post, :body, :id, :user_id
+    json.extract! post, :body, :id, :user_id,:photo
     json.numComments post.get_comment_nums
+    json.photoUrl post.photo.attached? ? post.photo.url : nil
 end
