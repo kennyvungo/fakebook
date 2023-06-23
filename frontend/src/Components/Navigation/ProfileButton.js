@@ -4,6 +4,7 @@ import * as sessionActions from '../../store/session';
 import profile from '../../assets/profile.jpg'
 import {BsFillGearFill} from 'react-icons/bs'
 import {RiLogoutBoxRFill} from 'react-icons/ri'
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
@@ -29,13 +30,18 @@ function ProfileButton({ user }) {
     e.preventDefault();
     dispatch(sessionActions.logout());
   };
+  // const handleClick = () => {
+  //   <Navigate to='/profile'/>
+  // }
 
   return (
     <div className='rightmenu'>
       <img className = "profile" src={profile} onClick={openMenu} />
       {showMenu && (
         <ul className="profile-dropdown">
-            <ul>{user.firstName}{user.lastName}</ul>
+          <Link to="/profile">
+            {user.firstName}{user.lastName}
+          </Link>
             <ul>{user.email}</ul>
             <ul> <BsFillGearFill/> Settings & Privacy</ul>
             <ul className = 'logout' onClick={logout}> <div className="dropdownico">
