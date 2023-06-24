@@ -2,6 +2,7 @@
     padding: 5px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     font-size: 10px;
     border-top: 1px solid lightgray;
 }
@@ -9,4 +10,14 @@
 .numComments:hover{
     text-decoration: underline;
     cursor: pointer;
+}
+
+.likeico{
+    width: 17px;
+    height: 17px;
+}
+.likenum{
+    display: flex;
+    align-items: center;
+    padding: 0;
 }

@@ -52,6 +52,7 @@ const PostItem = ({post}) => {
     }
     const handleLike = () => {
         setisLiked(!isLiked);
+        
     }
     const handleComment = () => {
         setPostModal(true)
