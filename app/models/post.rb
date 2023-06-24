@@ -14,10 +14,16 @@ class Post < ApplicationRecord
     belongs_to :user
     has_many :comments,
     dependent: :destroy
+
+    has_many :likes, as: :likeable
     has_one_attached :photo
 
     def get_comment_nums 
         self.comments.length
+    end
+
+    def get_post_likes 
+        self.likes.length
     end
     def get_name 
         us = self.user

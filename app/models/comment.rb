@@ -16,9 +16,14 @@ class Comment < ApplicationRecord
 
   belongs_to :post
   belongs_to :user
-  
+  has_many :likes, as: :likeable
+
   def get_name 
     us = self.user
     return us.first_name + " " + us.last_name
+  end
+
+  def get_comment_likes 
+    self.likes.length
   end
 end
