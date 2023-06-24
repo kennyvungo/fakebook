@@ -73,8 +73,13 @@ const PostItem = ({post}) => {
             <div className="postbox">
         <div className='postUser'>
         <img className = "profile" src={profile} />
-        <div className="postname">
+        <div className="postnamewrapper">
+            <div className="postname">
             {post.name}
+            </div>
+            <div className='posttime'>
+            {post.time}
+            </div>
         </div>
             <div className='postdots' onClick={openMenu}>
                 <BsThreeDots/>
@@ -109,7 +114,8 @@ const PostItem = ({post}) => {
         <div>
             {(allComments.length > 0) &&
             <CommentItem com ={firstCom}/> }
-            {}
+             {(allComments.length > 1) &&
+            <div className='viewmore' onClick={() => setPostModal(true)}> View more comments </div>}
         </div>
     </div>
 </>

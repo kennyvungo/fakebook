@@ -38,7 +38,7 @@ require "open-uri"
 
     p1 = Post.create(
       body: "this is just a text post",
-      user_id: 2
+      user_id: 1
     )
 
     p2 = Post.create(

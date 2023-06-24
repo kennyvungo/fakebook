@@ -23,4 +23,8 @@ class Post < ApplicationRecord
         us = self.user
         return us.first_name + " " + us.last_name
     end
+
+    def get_time 
+        self.created_at.strftime("%B %d %Y")
+    end
 end

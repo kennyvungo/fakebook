@@ -9,6 +9,7 @@ const CommentItem = ({com}) => {
   const dispatch = useDispatch();
   
   return (
+    <div className='commentitemwrapwrapper'>
     <div className='commentitemwrapper'>
       <img className = "smallprofile" src={profile} />
       <div className="commentitem">
@@ -16,6 +17,8 @@ const CommentItem = ({com}) => {
         <div className='comname'> {com.name}</div>
         <div>{com.body}</div>
       </div>
+    </div>
+    {/* <div className='comlikebutton'>Like</div> */}
     </div>
   )
 }
