@@ -103,7 +103,9 @@ const PostItem = ({post}) => {
                 </ul>
             )}
         <div className='postbody'>
-        {post.body}
+            <div className='posttext'>
+            {post.body}
+            </div>
         {post.photoUrl && (
             <img className='postphoto' src={post.photoUrl} alt=""/>
         )}

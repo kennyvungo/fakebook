@@ -12,6 +12,7 @@ import CommentInput from '../Comments/commentinput';
 import * as postActions from "../../store/posts"
 import CommentLikeNumber from '../Comments/commentlikenumber';
 import CommentItem from '../Comments/commentitem';
+import profile from '../../assets/profile.jpg'
 
 const PostShowModal = ({post}) => {
     const sessionUser = useSelector(state => state.session.user)
@@ -34,7 +35,6 @@ const PostShowModal = ({post}) => {
 
     useEffect(() => {
         if (!showMenu) return;
-    
         const closeMenu = () => {
             setShowMenu(false);
         };
@@ -53,11 +53,18 @@ const PostShowModal = ({post}) => {
         <>
         <div className="postbox">
         <div className='postUser'>
-            {sessionUser.firstName}
-            {sessionUser.lastName}
+        <img className = "profile" src={profile} />
+        <div className="postnamewrapper">
+            <div className="postname">
+            {post.name}
+            </div>
+            <div className='posttime'>
+            {post.time}
+            </div>
+        </div>
             <div className='postdots' onClick={openMenu}>
                 <BsThreeDots/>
-            </div>
+        </div>
         </div>
         {showMenu &&(
             <ul className="postdropdown">
@@ -66,7 +73,9 @@ const PostShowModal = ({post}) => {
                 </ul>
             )}
         <div className='postbody'>
-        {post.body}
+        <div className='posttext'>
+            {post.body}
+            </div>
         {post.photoUrl && (
             <img className='postphoto' src={post.photoUrl} alt=""/>
         )}

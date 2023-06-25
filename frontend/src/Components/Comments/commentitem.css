@@ -5,8 +5,9 @@
 }
 .commentitemwrapwrapper{
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
 }
 
 .commentitem{
@@ -20,7 +21,7 @@
     padding: 7px;
     margin-top: 15px;
     margin-left: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 3px;
     font-size: 12px;
 }
 .commentindex{
@@ -31,7 +32,7 @@
 
 .smallprofile{
     height: 30px;
-    width: 30px;
+    width: 40px;
     border-radius: 50%;
     margin-left: 10px;
 }
@@ -44,7 +45,35 @@
 
 .comlikebutton{
     display: flex;
-    font-size: 13px;
-    margin-left: 20px;
-    margin-bottom: 10px;
+    justify-content: flex-end;
+    width:24%;
+    height: 5px;
+    top: 0;
+    font-size: 11px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #64676B;
+    margin-bottom: 5px;
+}
+.comlikebutton:hover{
+    text-decoration: underline;
+}
+
+.comlikeblue{
+    color:#2078F4
+}
+
+/* .comlikebuttonwrapper{
+    display: flex;
+    justify-content: space-between;
+} */
+.comlikeico{
+    position: relative;
+    padding-left: 17px;
+    right: -26%;
+    top: -300%;
+    float: right;
+    /* overflow: hidden; */
+    /* z-index: 100; */
+    font-size: 11px;
 }
