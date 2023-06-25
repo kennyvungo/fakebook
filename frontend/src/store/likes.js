@@ -1,4 +1,5 @@
 import csrfFetch from "./csrf";
+import { receivePost } from "./posts";
 
 export const RECEIVE_LIKES = 'likes/RECEIVE_LIKES'
 export const RECEIVE_LIKE = 'likes/RECEIVE_LIKE'
@@ -67,16 +68,21 @@ export const createLike = (like) => async(dispatch) => {
     if(res.ok){
         const data = await res.json();
         dispatch(receiveLike(data.like))
+        dispatch(receivePost(data.post))
     }
 }
 
-export const deletePost = (likeId) => async(dispatch) => {
+export const deleteLike = (likeId) => async(dispatch) => {
     const res = await csrfFetch(`api/likes/${likeId}`,{
         method: 'DELETE'
     })
     if(res.ok){
         dispatch(removeLike(likeId))
     }
+}
+
+export const getPostLikes = (postId,userId) => (store) => {
+    return Object.values(store.likes).filter((like) => like.likeableId === postId && like.userId === userId)
 }
 
 const likesReducer = (state={},action) => {

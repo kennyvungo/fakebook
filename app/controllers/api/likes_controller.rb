@@ -6,13 +6,17 @@ class Api::LikesController < ApplicationController
 
     def show 
         @like = Like.find(params[:id])
-        render :show
+        render :showpost
     end
 
     def create 
         @like = Like.new(like_params)
         if @like.save 
-            render :show
+            if @like.likeable_type == "Post"
+                render :showpost    
+            else
+                render :showcomment
+            end
         else
             render json: {errors:@like.errors.full_messages},status: 422
         end
