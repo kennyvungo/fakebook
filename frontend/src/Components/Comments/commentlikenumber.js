@@ -17,7 +17,7 @@ const CommentLikeNumber = ({post,setPostModal}) => {
             {post.numLikes} 
           </div>
         </div>
-        <div className={post.numComments > 0 ? "numComments" : "numComments hidden" } onClick={() => setPostModal(true)}>{numComments} Comments</div>
+        <div className={post.numComments > 0 ? "numComments" : "numComments hidden" } onClick={() => setPostModal(true)}>{numComments} Comment{post.numComments > 1 && ("s")}</div>
     </>
     )}
     </div>
