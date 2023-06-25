@@ -23,10 +23,11 @@ const PostItem = ({post}) => {
     const dispatch = useDispatch();
     const [showMenu, setShowMenu] = useState(false);
     const [showModal, setShowModal] = useState(false);
-    const [isLiked,setisLiked] = useState(false);
     const [postModal,setPostModal] = useState(false);
     let allComments = useSelector(commentActions.getPostComments(post.id))
     let postLikes = useSelector(likeActions.getPostLikes(post.id,sessionUser.id))
+    let likeId = postLikes.find((like) => like.userId === sessionUser.id)
+    const [isLiked,setisLiked] = useState(likeId);
     console.log(postLikes)
     let firstCom = allComments[0]
 
@@ -56,9 +57,7 @@ const PostItem = ({post}) => {
     const handleLike = () => {
         if(isLiked){
             setisLiked(false);
-            let likeId = postLikes.find((like) => like.userId === sessionUser.id).id
-            console.log("likeid",likeId)
-            dispatch(likeActions.deleteLike(likeId))
+            dispatch(likeActions.deleteLike(likeId.id))
         }
         else{
             setisLiked(true)

@@ -15,6 +15,7 @@ const PostFormModal = ({setShowModal}) => {
         e.preventDefault();
         setErrors([]);
         dispatch(postActions.createPost({userId: userId,body:body})).then(() =>{
+          dispatch(postActions.fetchPosts())
           setShowModal(false)
         })
     }
