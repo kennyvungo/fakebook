@@ -58,7 +58,7 @@ export const fetchCommentNumber = (postId) => async(dispatch) => {
 }
 
 export const createPost = (post) => async(dispatch) =>{
-    const {userId,body,photoUrl} = post;
+    const {userId,body} = post;
     const res = await csrfFetch(`/api/posts`,{
         method: 'POST',
         headers:{

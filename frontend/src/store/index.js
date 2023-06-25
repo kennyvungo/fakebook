@@ -8,9 +8,9 @@ import likes from './likes'
 
 const rootReducer = combineReducers({
     session,
+    likes,
     posts,
-    comments,
-    likes
+    comments
 })
 
 let enhancer;

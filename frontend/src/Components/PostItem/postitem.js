@@ -28,7 +28,6 @@ const PostItem = ({post}) => {
     let postLikes = useSelector(likeActions.getPostLikes(post.id,sessionUser.id))
     let likeId = postLikes.find((like) => like.userId === sessionUser.id)
     const [isLiked,setisLiked] = useState(likeId);
-    console.log(postLikes)
     let firstCom = allComments[0]
 
     const helperFunc = () => {
@@ -58,6 +57,7 @@ const PostItem = ({post}) => {
         if(isLiked){
             setisLiked(false);
             dispatch(likeActions.deleteLike(likeId.id))
+            dispatch(postActions.fetchPosts())
         }
         else{
             setisLiked(true)

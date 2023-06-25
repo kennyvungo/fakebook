@@ -11,14 +11,14 @@ const EditPostModal = ({setShowModal,post}) => {
     const userId = user.id
     let isDisabled = body;
     useEffect(() => {
-        dispatch(postActions.fetchPosts)
-        console.log("rerendering")
-    },[post])
+        dispatch(postActions.fetchPosts())
+    },[dispatch])
     const handleSubmit =(e) => {
         e.preventDefault();
         setErrors([]);
         dispatch(postActions.updatePost({id: post.id,userId: userId,body:body})).then(() =>{
             setShowModal(false)
+            dispatch(postActions.fetchPosts())
         })
     }
     return (

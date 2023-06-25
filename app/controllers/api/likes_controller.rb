@@ -24,7 +24,9 @@ class Api::LikesController < ApplicationController
 
     def destroy 
         @like = Like.find(params[:id])
+        # @post = @like.likeable
         @like.destroy
+        # render :deletepost
     end
 
     private 
