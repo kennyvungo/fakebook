@@ -6,12 +6,13 @@ import { useDispatch, useSelector } from "react-redux";
 import './Navigation.css';
 import * as sessionActions from "../../store/session";
 import SignUpFormModal from '../SignupFormModal';
+import { useHistory } from 'react-router-dom';
 
 function Navigation (){
 
 
 const sessionUser = useSelector(state => state.session.user);
-
+const history = useHistory();
     let sessionLinks;
     const dispatch = useDispatch();
     // const handleClick= (e) =>{
@@ -22,7 +23,7 @@ const sessionUser = useSelector(state => state.session.user);
     if (sessionUser) {
     sessionLinks = (
         <div className='navbar'>
-            <i className="fa-brands fa-facebook profbutton"></i>
+            <i className="fa-brands fa-facebook profbutton" onClick={()=> history.push("/")}></i>
             <input
                 className='searchbar'
                 type= 'text'
