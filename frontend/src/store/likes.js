@@ -1,5 +1,6 @@
 import csrfFetch from "./csrf";
 import { receivePost } from "./posts";
+import {receiveComment} from "./comments"
 
 export const RECEIVE_LIKES = 'likes/RECEIVE_LIKES'
 export const RECEIVE_LIKE = 'likes/RECEIVE_LIKE'
@@ -68,7 +69,7 @@ export const createLike = (like) => async(dispatch) => {
     if(res.ok){
         const data = await res.json();
         dispatch(receiveLike(data.like))
-        dispatch(receivePost(data.post))
+        likeableType === 'Post' ?  dispatch(receivePost(data.post)) :  dispatch(receiveComment(data.comment))
     }
 }
 
@@ -82,7 +83,11 @@ export const deleteLike = (likeId) => async(dispatch) => {
 }
 
 export const getPostLikes = (postId,userId) => (store) => {
-    return Object.values(store.likes).filter((like) => like.likeableId === postId && like.userId === userId)
+    return Object.values(store.likes).filter((like) => like.likeableId === postId && like.userId === userId && like.likeableType == 'Post')
+}
+
+export const getCommentLikes = (commentId,userId) => (store) => {
+    return Object.values(store.likes).filter((like) => like.likeableId === commentId && like.userId === userId && like.likeableType == 'Comment')
 }
 
 const likesReducer = (state={},action) => {
