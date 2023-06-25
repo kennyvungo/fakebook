@@ -18,6 +18,7 @@ const PostShowModal = ({post}) => {
     const dispatch = useDispatch();
     const [showMenu, setShowMenu] = useState(false);
     const [showModal, setShowModal] = useState(false);
+    const[postModal,setPostModal] = useState(true);
     const [isLiked,setisLiked] = useState(false);
     let allComments = post.comments
     allComments ||= [];
@@ -71,7 +72,7 @@ const PostShowModal = ({post}) => {
         )}
         </div>
         <div>
-            <CommentLikeNumber post={post} setShowModal={setShowModal}/>
+            <CommentLikeNumber post={post} setPostModal={setPostModal}/>
         </div>
         <div className ='postbar'>
             <div onClick = {handleLike} className={isLiked ? 'likedico' : 'likeico'}>

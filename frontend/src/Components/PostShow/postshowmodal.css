@@ -1,0 +1,4 @@
+#commdisabled{
+    pointer-events: none;
+    color: red;
+}
