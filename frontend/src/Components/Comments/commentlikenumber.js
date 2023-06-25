@@ -11,12 +11,18 @@ const CommentLikeNumber = ({post,setPostModal}) => {
     <div className="commentlikenums">
     {showBar && (
     <>
+      { post.numLikes > 0 && (
+
+        
         <div className='likenum'>
           <img className='likeico' src={likeico}/>
         <div>
           {post.numLikes} 
         </div>
         </div>
+
+          )
+      }
         <div className='numComments' onClick={() => setPostModal(true)}>{numberComments} Comments</div>
     </>
     )}
