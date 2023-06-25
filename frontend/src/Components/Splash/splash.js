@@ -13,7 +13,7 @@ const Splash = () => {
     if (!sessionUser) return <Redirect to="/login" />;
 
     return (
-        <div className="splash">
+        <div className="splashwrapper">
             <Navigation/>
             <PostForm user={sessionUser}/>
             <PostIndex/>

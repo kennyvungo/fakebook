@@ -6,19 +6,18 @@ import likeico from "../../assets/likeico.png"
 
 const CommentLikeNumber = ({post,setPostModal}) => {
     const [showBar, setshowBar] = useState(true)
-    const numberComments = post.numComments
+    const numComments = post.numComments
   return (
     <div className="commentlikenums">
     {showBar && (
     <>
         <div className={post.numLikes > 0 ? "likenum" : "likenum hidden" }>
-          <img className='likeico' src={likeico}/>
+          <img className='bluelikeico' src={likeico}/>
           <div>
             {post.numLikes} 
           </div>
         </div>
-
-        <div className='numComments' onClick={() => setPostModal(true)}>{numberComments} Comments</div>
+        <div className={post.numComments > 0 ? "numComments" : "numComments hidden" } onClick={() => setPostModal(true)}>{numComments} Comments</div>
     </>
     )}
     </div>

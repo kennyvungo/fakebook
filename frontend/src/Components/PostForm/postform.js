@@ -13,16 +13,19 @@ const PostForm = () => {
         setShowModal(true)
     }
     return (
+    <div className='postformwrapper'>
+
     <div className='postbuttoncontainer'>
         <img className = "profile" src={profile} />
         <div onClick={() => helperFunc()} className='postbutton'> 
             Whats on your mind, {sessionUser.firstName}?
         </div>
         {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
+            <Modal onClose={() => setShowModal(false)}>
             <PostFormModal setShowModal={setShowModal} />
         </Modal>
         )}
+    </div>
     </div>
     )
 }
