@@ -16,6 +16,7 @@ import CommentItem from '../Comments/commentitem';
 import PostShowModal from '../PostShow/postshowmodal';
 import * as commentActions from "../../store/comments"
 import profile from '../../assets/profile.jpg'
+import * as likeActions from "../../store/likes"
 
 const PostItem = ({post}) => {
     const sessionUser = useSelector(state => state.session.user)
@@ -51,8 +52,14 @@ const PostItem = ({post}) => {
         dispatch(postActions.deletePost(post.id))
     }
     const handleLike = () => {
-        setisLiked(!isLiked);
-        
+        if(isLiked){
+            setisLiked(false);
+            
+        }
+        else{
+            setisLiked(true)
+            dispatch(likeActions.createLike({userId: sessionUser.id,likeableId: post.id, likeableType: "Post"}))
+        }
     }
     const handleComment = () => {
         setPostModal(true)

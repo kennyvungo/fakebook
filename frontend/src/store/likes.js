@@ -50,8 +50,48 @@ export const fetchLike = (likeId) => async(dispatch) => {
 }
 
 export const createLike = (like) => async(dispatch) => {
-    const {userId, likeableType,likeableId} = like
-
-
-
+    const {userId, likeableType,likeableId} = like;
+    const res = await csrfFetch(`/api/likes`,{
+        method: 'POST',
+        headers:{
+            'Content-Type':'application/json'
+        },
+        body: JSON.stringify({
+            like:{
+                userId,
+                likeableId,
+                likeableType
+            }
+        })
+    })
+    if(res.ok){
+        const data = await res.json();
+        dispatch(receiveLike(data.like))
+    }
 }
+
+export const deletePost = (likeId) => async(dispatch) => {
+    const res = await csrfFetch(`api/likes/${likeId}`,{
+        method: 'DELETE'
+    })
+    if(res.ok){
+        dispatch(removeLike(likeId))
+    }
+}
+
+const likesReducer = (state={},action) => {
+    let newState = {...state};
+    switch(action.type){
+        case RECEIVE_LIKES:
+            return {...action.likes}
+        case RECEIVE_LIKE:
+            newState[action.like.id] = action.like
+            return newState;
+        case REMOVE_LIKE:
+            delete newState[action.likeId]
+            return newState;
+        default:
+            return state
+    }
+}
+export default likesReducer
