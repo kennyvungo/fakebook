@@ -11,9 +11,10 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
+require "open-uri"
 class User < ApplicationRecord
   has_secure_password
-  before_validation :ensure_session_token
+  before_validation :ensure_session_token,:generate_default_avatar
 
   validates :email,length: {in: 3..255},format:{ with: URI::MailTo::EMAIL_REGEXP },uniqueness: true
   validates :password, length:{in: 6..255}, allow_nil: true
@@ -23,7 +24,7 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
 
-  has_one_attached :prof
+  has_one_attached :avatar
   has_one_attached :cover
 
   def self.find_by_credentials(email,password)
@@ -38,6 +39,14 @@ class User < ApplicationRecord
     self.session_token = generate_unique_session_token
     self.save!
     self.session_token
+  end
+
+  def generate_default_avatar
+    unless self.avatar.attached?
+      # Presumably you have already stored a default pic in your seeds bucket
+      file = URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/default.png");
+      self.avatar.attach(io: file, filename: "default.jpg")
+    end
   end
 
   private

@@ -105,6 +105,9 @@ div.is-disabled
     overflow: hidden;
     cursor: pointer;
 }
+.uploadimg:hover{
+    background-color: lightgray;
+}
 
 .reallyhidden{
     position: absolute;

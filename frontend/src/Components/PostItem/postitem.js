@@ -17,6 +17,7 @@ import PostShowModal from '../PostShow/postshowmodal';
 import * as commentActions from "../../store/comments"
 import profile from '../../assets/profile.jpg'
 import * as likeActions from "../../store/likes"
+import { getUser } from '../../store/users';
 
 const PostItem = ({post}) => {
     const sessionUser = useSelector(state => state.session.user)
@@ -27,6 +28,7 @@ const PostItem = ({post}) => {
     let allComments = useSelector(commentActions.getPostComments(post.id))
     let postLikes = useSelector(likeActions.getPostLikes(post.id,sessionUser.id))
     let likeId = postLikes.find((like) => like.userId === sessionUser.id)
+
     const [isLiked,setisLiked] = useState(likeId);
     let firstCom = allComments[0]
 
@@ -77,13 +79,13 @@ const PostItem = ({post}) => {
             {postModal &&(
                 <Modal onClose={() => setPostModal(false)}>
                     <div className='postshowmodal'>
-                    <PostShowModal post={post}/>
+                    <PostShowModal post={post} isLiked={isLiked}/>
                     </div>
                 </Modal>
             )}
             <div className="postbox">
         <div className='postUser'>
-        <img className = "profile" src={profile} />
+            <img className = "profile" src={profile} />
         <div className="postnamewrapper">
             <div className="postname">
             {post.name}

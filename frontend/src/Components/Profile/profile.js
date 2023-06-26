@@ -30,7 +30,7 @@ const Profile = () => {
     e.preventDefault()
     const formData = new FormData();
     console.log(photoFile)
-    formData.append('user[prof]', photoFile);
+    formData.append('user[avatar]', photoFile);
     dispatch(userActions.createProf(userId,formData)).then(() =>{
       dispatch(userActions.fetchUser(userId))
     })

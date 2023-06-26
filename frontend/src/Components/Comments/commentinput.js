@@ -21,7 +21,7 @@ const CommentInput = ({post}) => {
         e.preventDefault();
         dispatch(commentActions.createComment({body: commentBody,user_id: userId,post_id: post.id}))
         setIsFocused(false);
-        dispatch(postActions.fetchPost(post.id))
+        // dispatch(postActions.fetchPost(post.id))
         setcommentBody("");
     }
     return (

@@ -24,4 +24,10 @@ class Comment < ApplicationRecord
   def get_comment_likes 
     self.likes.length
   end
+
+  def get_avatar 
+    us = self.user 
+    return us.avatar
+  end
+
 end
