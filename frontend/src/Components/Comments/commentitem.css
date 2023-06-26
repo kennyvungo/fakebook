@@ -57,7 +57,8 @@
     margin-bottom: 9px;
     margin-left: 15px;
 }
-.comlikebutton:hover{
+
+.likeword:hover{
     text-decoration: underline;
 }
 
@@ -71,13 +72,15 @@
 } */
 .comlikeico{
     position: relative;
+    color: black;
     /* padding-left: 17px;
     right: -26%; */
     top: -300%;
     /* float: right; */
     /* overflow: hidden; */
     /* z-index: 100; */
-    font-size: 11px;
+    font-size: 9px;
+    font-weight: lighter;
 }
 .notblue{
     color: purple;

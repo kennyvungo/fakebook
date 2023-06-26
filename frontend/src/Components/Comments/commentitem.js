@@ -38,7 +38,10 @@ const CommentItem = ({com}) => {
         <div className='comname'> {com.name}</div>
         <div>{com.body}</div>
       </div>
-      <div className={isLiked ? "comlikebutton comlikeblue" : "comlikebutton" }onClick={handleLike}> Like
+      <div className={isLiked ? "comlikebutton comlikeblue" : "comlikebutton" }onClick={handleLike}> <div className='likeword'>
+        
+        Like
+        </div>
         
         <div className={com.numLikes > 0 ? 'comlikeico' : 'comlikeico hidden'}>
         <img className='bluelikeico' src={likeico}/>
