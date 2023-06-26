@@ -15,13 +15,13 @@ background: linear-gradient(to top, #ffffff 50%, #B1B6B1 100%);
     border-top: 2px solid #F1F2F5;
 }
 .cover{
-    background-color:red;
+    background-color:lightgray;
     width: 73vw;
     height: 50vh;
     border-radius: 5px;
 }
 .profileinfo{
-    background-color: purple;
+    /* background-color: #ffffff; */
     width: 73vw;
     height:20vh;
 }
@@ -31,4 +31,23 @@ background: linear-gradient(to top, #ffffff 50%, #B1B6B1 100%);
     height: 250px;
     border-radius: 50%;
     border: 10px solid white;
+}
+.camera{
+    position: absolute;
+    left: 25%;
+    font-size: 31px;
+    border-radius: 50%;
+    background-color: #E3E6EA;
+    border: 5px solid #E3E6EA;
+    width: 2%;
+    height: 4%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.camera:hover{
+    background-color: #d8dade;
+    border: 5px solid #d8dade;
 }

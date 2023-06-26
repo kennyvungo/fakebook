@@ -5,6 +5,7 @@ import { useState,useEffect } from 'react'
 import { useDispatch,useSelector} from "react-redux";
 import * as userActions from "../../store/users"
 import * as sessionActions from "../../store/session"
+import {AiFillCamera} from 'react-icons/ai'
 import './profile.css'
 const Profile = () => {
   const dispatch = useDispatch()
@@ -49,15 +50,22 @@ const Profile = () => {
       </div>
     </div>
     <div className='profilebottomhalf'>
+    <label className="camera">
+          <AiFillCamera/>
     <input
           type='file'
+          className='reallyhidden'
           onChange={handleFile}
           placeholder='Upload Image'
           />
-      <button onClick = {handleClick}>
-            Upload photo
-          </button>
+      </label>
     </div>
+
+    <div>
+      {sessionUser.firstName}
+      {sessionUser.lastName}
+    </div>
+    <button onClick = {handleClick}>Change photo</button>
     </>
   )
 }
