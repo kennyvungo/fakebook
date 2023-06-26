@@ -2,11 +2,13 @@ import React from 'react'
 import { useState } from 'react'
 import { useDispatch,useSelector} from "react-redux";
 import * as postActions from "../../store/posts"
+import Dropzone from 'react-dropzone'
 
 const PostFormModal = ({setShowModal}) => {
   const dispatch = useDispatch();
     const [body,setBody] = useState('')
     const [errors,setErrors] = useState([]);
+    const [addPhoto,setaddPhoto] = useState(false);
     const [photoFile, setPhotoFile] = useState (null);
     const [photoUrl,setPhotoUrl] = useState(null);
     const user = useSelector(state => state.session.user);
@@ -55,7 +57,7 @@ const PostFormModal = ({setShowModal}) => {
         required
         />
           {preview}
-         <label className='uploadimg'>
+        <label className='uploadimg'>
             Upload an Image
         <input
           className='hidden'

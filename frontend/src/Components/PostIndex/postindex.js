@@ -9,7 +9,7 @@ import * as likeActions from "../../store/likes"
 
 const PostIndex = () => {
     const dispatch = useDispatch();
-    const posts = useSelector(getPosts)
+    const posts = [...useSelector(getPosts)].reverse()
 
     useEffect(() =>{
         dispatch(fetchPosts())
