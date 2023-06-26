@@ -55,6 +55,7 @@ require "open-uri"
       user_id: 1
     )
     p3.photo.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/friends.jpg"),filename: "friend")
+    p3.save
 
     p4 = Post.create(
       body: 'me and megan',
@@ -62,17 +63,20 @@ require "open-uri"
     )
 
     p4.photo.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/megan.JPG"),filename:"girl")
+    p4.save
     p5 = Post.create(
       body: 'me and family',
       user_id: 1
     )
 
     p5.photo.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/family.jpg"),filename:"family")
+    p5.save
 
     p6 = Post.create(
       body: 'me in arizona',
       user_id: 1
     )
     p6.photo.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/me.JPG"),filename:"me")
+    p6.save
   
     puts "Done!"

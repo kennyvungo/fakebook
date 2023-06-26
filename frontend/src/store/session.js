@@ -30,6 +30,9 @@ export const login = (user) => async dispatch => {
     const {email,password} = user;
     const response = await csrfFetch("/api/session", {
         method: "POST",
+        headers:{
+            "Content-Type":"application/json"
+        },
         body: JSON.stringify({ email, password })
     });
     const data = await response.json();
@@ -42,6 +45,9 @@ export const signup = (user) => async dispatch => {
     const {email,password,first_name,last_name} = user;
     const res = await csrfFetch("/api/users",{
         method: "POST",
+        headers:{
+            "Content-Type":"application/json"
+        },
         body: JSON.stringify({
             email,
             password,

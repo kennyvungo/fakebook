@@ -1,3 +1,14 @@
+.formwrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30vw;
+    /* min-height: 30vh; */
+    background-color: white;
+}
+
+
+
 .postbutton{
     font-family: klavika-web, sans-serif;
     font-size: 15px;
@@ -29,7 +40,7 @@
     background-color: #fff;
 }
 .posttextbox{
-    width: 400px;
+    width: 80%;
     height: 250px;
     font-size: 20px;
     border: none;
@@ -43,6 +54,7 @@
     display: flex;
     justify-content: center;
     margin-top: 20px;
+    width: 100%;
     padding-bottom: 15px;
     border-bottom: 1px solid lightgray;
 }
@@ -52,7 +64,7 @@
     font-size: 14px;
     padding: 9px;
     background-color: #1a73e3;
-    width: 89%;
+    width: 30vw;
     border-radius: 5px;
     display: flex;
     justify-content: center;
@@ -76,4 +88,14 @@ div.is-disabled
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.previewimg{
+    height: 400px;
+    margin: 5px
+}
+.uploadimg{
+    background-color: blue;
+    width: 30vw;
+    height: 5vh;
 }
