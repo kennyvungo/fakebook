@@ -75,7 +75,12 @@ const commentsReducer = (state={},action) => {
         case RECEIVE_COMMENTS:
             return {...action.comments}
         case RECEIVE_COMMENT:
-            newState[action.comment.id] = action.comment
+            if(action.comment.updateLikes){
+                newState[action.comment.id].numLikes = action.comment.numLikes
+            }
+            else{
+                newState[action.comment.id] = action.comment
+            }
             return newState;
         case REMOVE_COMMENT:
             delete newState.comments[action.commentId]

@@ -2,7 +2,7 @@
     json.set! post.id do
         json.extract! post, :body, :id, :user_id,:created_at
         json.numComments post.get_comment_nums
-        json.avatar post.get_avatar
+        json.avatarUrl post.user.avatar.url
         json.numLikes post.get_post_likes
         json.photoUrl post.photo.attached? ? post.photo.url : nil
         json.name post.get_name

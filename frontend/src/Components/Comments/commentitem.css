@@ -8,6 +8,7 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+    width: 60%
 }
 
 .commentitem{
@@ -45,7 +46,7 @@
 
 .comlikebutton{
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     width:24%;
     height: 5px;
     top: 0;
@@ -54,6 +55,7 @@
     cursor: pointer;
     color: #64676B;
     margin-bottom: 9px;
+    margin-left: 50px;
 }
 .comlikebutton:hover{
     text-decoration: underline;
@@ -69,14 +71,18 @@
 } */
 .comlikeico{
     position: relative;
-    padding-left: 17px;
-    right: -26%;
+    /* padding-left: 17px;
+    right: -26%; */
     top: -300%;
-    float: right;
+    /* float: right; */
     /* overflow: hidden; */
     /* z-index: 100; */
     font-size: 11px;
 }
 .notblue{
-    color:
+    color: purple;
+}
+
+.commwrapper{
+    width: 200px;
 }

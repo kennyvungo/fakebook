@@ -3,6 +3,6 @@
         json.extract! comment, :body,:id, :user_id,:post_id
         json.name comment.get_name
         json.numLikes comment.get_comment_likes
-        json.avatar comment.get_avatar
+        json.avatarUrl comment.user.avatar.url
     end
 end

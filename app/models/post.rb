@@ -32,7 +32,7 @@ class Post < ApplicationRecord
 
     def get_avatar 
         us = self.user 
-        return us.avatar
+        return us
     end
     def get_time 
         self.created_at.strftime("%B %d %Y")

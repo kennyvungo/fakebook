@@ -64,6 +64,7 @@ const PostItem = ({post}) => {
         else{
             setisLiked(true)
             dispatch(likeActions.createLike({userId: sessionUser.id,likeableId: post.id, likeableType: "Post"}))
+            dispatch(postActions.fetchPosts())
         }
     }
     const handleComment = () => {
@@ -85,7 +86,7 @@ const PostItem = ({post}) => {
             )}
             <div className="postbox">
         <div className='postUser'>
-            <img className = "profile" src={profile} />
+            <img className = "profile" src={post.avatarUrl} />
         <div className="postnamewrapper">
             <div className="postname">
             {post.name}

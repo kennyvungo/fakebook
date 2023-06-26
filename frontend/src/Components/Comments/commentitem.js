@@ -24,27 +24,38 @@ const CommentItem = ({com}) => {
     else{
       setisLiked(true)
       dispatch(likeActions.createLike({userId: sessionUser.id,likeableId: com.id, likeableType: "Comment"}))
+      // dispatch(fetchComments())
     }
   }
   return (
     <div className='commentitemwrapwrapper'>
     <div className='commentitemwrapper'>
-      <img className = "smallprofile" src={profile} />
+      <img className = "smallprofile" src={com.avatarUrl} />
+      <div className="commwrapper">
+
       <div className="commentitem">
       
         <div className='comname'> {com.name}</div>
         <div>{com.body}</div>
       </div>
+      <div className={isLiked ? "comlikebutton comlikeblue" : "comlikebutton" }onClick={handleLike}> Like
+        
+        <div className={com.numLikes > 0 ? 'comlikeico' : 'comlikeico hidden'}>
+        <img className='bluelikeico' src={likeico}/>
+        {com.numLikes}
+        </div>
+      </div>
+      </div>
     </div>
-    
-
-        <div className={isLiked ? "comlikebutton comlikeblue" : "comlikebutton" }onClick={handleLike}> Like
+        {/* <div className={isLiked ? "comlikebutton comlikeblue" : "comlikebutton" }onClick={handleLike}> Like
         
           <div className={com.numLikes > 0 ? 'comlikeico' : 'comlikeico hidden'}>
           <img className='bluelikeico' src={likeico}/>
           {com.numLikes}
           </div>
-        </div>
+        </div> */}
+    
+
     </div>
   )
 }

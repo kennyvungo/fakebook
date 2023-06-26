@@ -105,7 +105,12 @@ const postsReducer = (state={},action) => {
         case RECEIVE_POSTS:
             return {...action.posts}
         case RECEIVE_POST:
-            newState[action.post.id] = action.post
+            if(action.post.updateLikes){
+                newState[action.post.id].numLikes = action.post.numLikes
+            }
+            else{
+                newState[action.post.id] = action.post
+            }
             return newState;
         case REMOVE_POST:
             delete newState[action.postId]

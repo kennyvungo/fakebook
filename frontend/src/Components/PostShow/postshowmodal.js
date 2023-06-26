@@ -53,7 +53,7 @@ const PostShowModal = ({post}) => {
         <>
         <div className="postbox">
         <div className='postUser'>
-        <img className = "profile" src={profile} />
+        <img className = "profile" src={post.avatarUrl} />
         <div className="postnamewrapper">
             <div className="postname">
             {post.name}

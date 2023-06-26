@@ -5,7 +5,7 @@ end
 comment = @like.likeable
 
 json.comment do 
-    json.extract! comment, :id, :body, :post_id, :user_id
-    json.name comment.get_name
+    json.extract! comment, :id
     json.numLikes comment.get_comment_likes
+    json.updateLikes true
 end
