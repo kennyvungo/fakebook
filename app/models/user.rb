@@ -23,6 +23,9 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+  has_one_attached :prof
+  has_one_attached :cover
+
   def self.find_by_credentials(email,password)
     user = User.find_by(email: email)
     

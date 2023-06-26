@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { useDispatch,useSelector} from "react-redux";
 import * as postActions from "../../store/posts"
 import Dropzone from 'react-dropzone'
+import {MdAddPhotoAlternate} from "react-icons/md"
 
 const PostFormModal = ({setShowModal}) => {
   const dispatch = useDispatch();
@@ -21,7 +22,6 @@ const PostFormModal = ({setShowModal}) => {
         const formData = new FormData();
         formData.append('post[body]', body);
         formData.append('post[userId]', userId);
-        console.log("photofile",photoFile)
         if (photoFile) {
           formData.append('post[photo]', photoFile);
         }
@@ -58,14 +58,15 @@ const PostFormModal = ({setShowModal}) => {
         />
           {preview}
         <label className='uploadimg'>
-            Upload an Image
+            <MdAddPhotoAlternate/>
         <input
-          className='hidden'
+          className='reallyhidden'
           type='file'
           onChange={handleFile}
           placeholder='Upload Image'
           />
         </label>
+      
     <div onClick={handleSubmit} className={(!isDisabled) ? 'is-disabled postformbutton' : 'postformbutton'}> Post</div>
     </form>
   )

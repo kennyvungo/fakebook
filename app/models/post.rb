@@ -33,4 +33,5 @@ class Post < ApplicationRecord
     def get_time 
         self.created_at.strftime("%B %d %Y")
     end
+
 end

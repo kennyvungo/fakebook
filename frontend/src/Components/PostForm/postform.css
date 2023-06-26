@@ -41,7 +41,7 @@
 }
 .posttextbox{
     width: 80%;
-    height: 250px;
+    height: 130px;
     font-size: 20px;
     border: none;
     margin-left: 5px;
@@ -64,7 +64,7 @@
     font-size: 14px;
     padding: 9px;
     background-color: #1a73e3;
-    width: 30vw;
+    width: 100%;
     border-radius: 5px;
     display: flex;
     justify-content: center;
@@ -95,7 +95,20 @@ div.is-disabled
     margin: 5px
 }
 .uploadimg{
-    background-color: blue;
-    width: 30vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    background-color: gray;
+    width: 100%;
     height: 5vh;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.reallyhidden{
+    position: absolute;
+    right: -100%;
+    top: -100%;
+    visibility: hidden;
 }
