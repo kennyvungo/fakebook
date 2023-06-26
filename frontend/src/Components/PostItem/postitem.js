@@ -94,9 +94,11 @@ const PostItem = ({post}) => {
             {post.time}
             </div>
         </div>
-            <div className='postdots' onClick={openMenu}>
-                <BsThreeDots/>
-        </div>
+                {sessionUser.id === post.userId && (
+                <div className='postdots' onClick={openMenu}>
+                    <BsThreeDots/>
+                </div>
+                )}
         </div>
         {showMenu &&(
             <ul className="postdropdown">

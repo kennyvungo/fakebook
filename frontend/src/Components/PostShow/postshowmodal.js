@@ -62,9 +62,11 @@ const PostShowModal = ({post}) => {
             {post.time}
             </div>
         </div>
+            {sessionUser.id === post.userId && (
             <div className='postdots' onClick={openMenu}>
                 <BsThreeDots/>
-        </div>
+            </div>
+            )}
         </div>
         {showMenu &&(
             <ul className="postdropdown">
