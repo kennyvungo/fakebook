@@ -1,42 +1,57 @@
 .profilewrapper{
+    width: 100%;
+    height: 500px;
+    background: linear-gradient(to top, #ffffff 55%, #20211B 100%);
+}
+
+.proftophalf{
+    width: 100vw;
+    height: 70vh;
+    margin-top: 4.7vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100vw;
-    height: 70vh;
-    background: #ffffff;
-background: linear-gradient(to top, #ffffff 50%, #B1B6B1 100%);
-
+    background: linear-gradient(to top, #ffffff 55%, #20211B 100%);
 }
 .profilebottomhalf{
     background-color: #F1F2F5;
-    height: 30vh;
+    width: 100%;
     border-top: 2px solid #F1F2F5;
+    display: flex;
+    justify-content: center;
+    /* border-top: 2px solid lightgray; */
+
 }
 .cover{
     background-color:lightgray;
     width: 73vw;
-    height: 50vh;
+    height: 66%;
     border-radius: 5px;
 }
 .profileinfo{
-    /* background-color: #ffffff; */
+    background-color: #ffffff;
     width: 73vw;
-    height:20vh;
+    height:34%;
+    display: flex;
+    align-items: center;
 }
 
 .profileavatar{
-    width: 250px;
-    height: 250px;
+    position: absolute;
+    width: 14%;
+    height: 25%;
     border-radius: 50%;
-    border: 10px solid white;
+    border: 7px solid white;
+    margin-left: 30px;
+    margin-bottom: 5%;
 }
 .camera{
     position: absolute;
     left: 25%;
-    font-size: 31px;
+    font-size: 3100px;
     border-radius: 50%;
+    top: 63%;
     background-color: #E3E6EA;
     border: 5px solid #E3E6EA;
     width: 2%;
@@ -50,4 +65,34 @@ background: linear-gradient(to top, #ffffff 50%, #B1B6B1 100%);
 .camera:hover{
     background-color: #d8dade;
     border: 5px solid #d8dade;
+}
+
+.profilename{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 24%;
+    /* height: 20%; */
+    font-size: 30px;
+    font-weight: bold;
+    font-family: klavika-web, sans-serif;
+    display: flex;
+}
+.profilebottomleft{
+    background-color: blue;
+    width: 31.39vw;
+}
+.profilebottomright{
+    background-color: red;
+    width: 41.61vw;
+}
+
+.wholeprofile{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
 }

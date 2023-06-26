@@ -7,6 +7,7 @@ import * as userActions from "../../store/users"
 import * as sessionActions from "../../store/session"
 import {AiFillCamera} from 'react-icons/ai'
 import './profile.css'
+import PostIndex from '../PostIndex/postindex';
 const Profile = () => {
   const dispatch = useDispatch()
   const [photoFile, setPhotoFile] = useState (null);
@@ -39,33 +40,47 @@ const Profile = () => {
   return (
     <>
     <Navigation/>
-    <div className="profilewrapper">
-      <div className="cover">Cover Photo</div>
-      <div className="profileinfo">
-      {sessionUser.avatar && (
-        <img className="profileavatar" src={sessionUser.avatar}/>
-        )
-      }
+    <div className='wholeprofile'>
+        <div className='proftophalf'>
+          <div className="cover">
+          </div>
+          <div className="profileinfo">
+          {sessionUser.avatar && (
+            <>
+              <img className="profileavatar" src={sessionUser.avatar}/>
+              <label className="camera">
+                <AiFillCamera/>
+                <input
+                  type='file'
+                  className='reallyhidden'
+                  onChange={handleFile}
+                  placeholder='Upload Image'
+                />
+              </label>
+            </>
+            )
+          }
+            <div className='profilename'>
+              {sessionUser.firstName} 
+              {sessionUser.lastName}
+            </div>
+          </div>
+        </div>
 
-      </div>
-    </div>
-    <div className='profilebottomhalf'>
-    <label className="camera">
-          <AiFillCamera/>
-    <input
-          type='file'
-          className='reallyhidden'
-          onChange={handleFile}
-          placeholder='Upload Image'
-          />
-      </label>
-    </div>
 
-    <div>
-      {sessionUser.firstName}
-      {sessionUser.lastName}
+
+        <div className='profilebottomhalf'>
+     
+          <div className='profilebottomleft'>
+
+          </div>
+          <div className='profilebottomright'>
+           <PostIndex/>
+          <button onClick = {handleClick}>Change photo</button>
+          </div>
+        </div>
+      
     </div>
-    <button onClick = {handleClick}>Change photo</button>
     </>
   )
 }
