@@ -16,7 +16,7 @@ const PostForm = () => {
     <div className='postformwrapper'>
 
     <div className='postbuttoncontainer'>
-        <img className = "profile" src={profile} />
+        <img className = "profile" src={sessionUser.avatar} />
         <div onClick={() => helperFunc()} className='postbutton'> 
             Whats on your mind, {sessionUser.firstName}?
         </div>

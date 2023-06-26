@@ -109,6 +109,7 @@ const PostItem = ({post}) => {
         {post.photoUrl && (
             <img className='postphoto' src={post.photoUrl} alt=""/>
         )}
+
         </div>
         <div>
             <CommentLikeNumber post={post} setPostModal={setPostModal}/>

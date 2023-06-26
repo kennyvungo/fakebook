@@ -1,14 +1,17 @@
 import React from 'react'
 import Navigation from '../Navigation'
-import { useState } from 'react'
+import { Redirect } from 'react-router-dom';
+import { useState,useEffect } from 'react'
 import { useDispatch,useSelector} from "react-redux";
 import * as userActions from "../../store/users"
+import * as sessionActions from "../../store/session"
 import './profile.css'
 const Profile = () => {
   const dispatch = useDispatch()
   const [photoFile, setPhotoFile] = useState (null);
   const [photoUrl,setPhotoUrl] = useState(null);
   const sessionUser = useSelector(state => state.session.user)
+  if (!sessionUser) return <Redirect to="/login" />;
   let userId = sessionUser.id
   let file;
   const handleFile = ({ currentTarget }) => {
@@ -20,7 +23,7 @@ const Profile = () => {
       fileReader.onload = () => setPhotoUrl(fileReader.result);
       }
     else {
-      setPhotoUrl(null);
+      setPhotoUrl(null); 
     }
   }
    const handleClick = (e) => {
@@ -38,6 +41,10 @@ const Profile = () => {
     <div className="profilewrapper">
       <div className="cover">Cover Photo</div>
       <div className="profileinfo">
+      {sessionUser.avatar && (
+        <img className="profileavatar" src={sessionUser.avatar}/>
+        )
+      }
 
       </div>
     </div>

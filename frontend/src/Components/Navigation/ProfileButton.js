@@ -36,7 +36,7 @@ function ProfileButton({ user }) {
 
   return (
     <div className='rightmenu'>
-      <img className = "profile" src={profile} onClick={openMenu} />
+      <img className = "profile" src={user.avatar} onClick={openMenu} />
       {showMenu && (
         <ul className="profile-dropdown">
           <Link to="/profile">

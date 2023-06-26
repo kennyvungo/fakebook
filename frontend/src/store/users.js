@@ -1,5 +1,5 @@
 import csrfFetch from './csrf'
-import { storeCurrentUser, restoreSession } from './session'
+import * as sessionActions from './session'
 
 const RECEIVE_USER = 'users/receiveUser'
 const RECEIVE_USERS = 'users/receieveUsers'
@@ -55,8 +55,6 @@ export const editUser = user => async dispatch =>{
 
     let data = await res.json()
     dispatch(receiveUser(data.user))
-    storeCurrentUser(data.user)
-    restoreSession()
 }
 
 export const createProf = (userId,formData) => async(dispatch) =>{
@@ -66,7 +64,8 @@ export const createProf = (userId,formData) => async(dispatch) =>{
         })
     if(res.ok){
         const data = await res.json()
-        dispatch(receiveUser(data))
+        dispatch(receiveUser(data.user))
+        dispatch(sessionActions.restoreSession(data.user))
     }
 }
 

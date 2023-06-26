@@ -25,3 +25,10 @@ background: linear-gradient(to top, #ffffff 50%, #B1B6B1 100%);
     width: 73vw;
     height:20vh;
 }
+
+.profileavatar{
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 10px solid white;
+}
