@@ -64,7 +64,7 @@ const PostItem = ({post}) => {
         else{
             setisLiked(true)
             dispatch(likeActions.createLike({userId: sessionUser.id,likeableId: post.id, likeableType: "Post"}))
-            dispatch(postActions.fetchPosts())
+            // dispatch(postActions.fetchPosts())
         }
     }
     const handleComment = () => {
