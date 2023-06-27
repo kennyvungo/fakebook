@@ -1,6 +1,7 @@
 import React from 'react'
 import Navigation from '../Navigation'
 import { Redirect } from 'react-router-dom';
+import Modal from '../../context/Modal';
 import { useState,useEffect } from 'react'
 import { useDispatch,useSelector} from "react-redux";
 import * as userActions from "../../store/users"
@@ -9,9 +10,12 @@ import {AiFillCamera} from 'react-icons/ai'
 import './profile.css'
 import ProfilePostIndex from '../PostIndex/profilepostindex';
 import PostForm from '../PostForm/postform';
+import ProfilePhotoModal from '../PhotoModals/ProfilePhotoModal';
+
 const Profile = () => {
   const dispatch = useDispatch()
   const [photoFile, setPhotoFile] = useState (null);
+  const [showProfileModal,setProfileModal] = useState(false);
   const [coverFile,setCoverFile] = useState(null);
   const [photoUrl,setPhotoUrl] = useState(null);
   const sessionUser = useSelector(state => state.session.user)
@@ -21,18 +25,6 @@ const Profile = () => {
   let userId = sessionUser.id
   // console.log("This is the userid",user.id)
   let file;
-  const handleFile = ({ currentTarget }) => {
-    file = currentTarget.files[0];
-    setPhotoFile(file);
-    if (file) {
-      const fileReader = new FileReader();
-      fileReader.readAsDataURL(file);
-      fileReader.onload = () => setPhotoUrl(fileReader.result);
-      }
-    else {
-      setPhotoUrl(null); 
-    }
-  }
   const handleCoverFile = ({ currentTarget }) => {
     file = currentTarget.files[0];
     setPhotoFile(file);
@@ -44,6 +36,9 @@ const Profile = () => {
     else {
       setPhotoUrl(null); 
     }
+  }
+  const handleProfile =() => {
+      setProfileModal(true);
   }
   
   const handleClick = (e) => {
@@ -65,10 +60,15 @@ const Profile = () => {
   return (
     <>
     <Navigation/>
+    {showProfileModal && (
+            <Modal onClose={() => setProfileModal(false)}>
+            <ProfilePhotoModal setProfileModal={setProfileModal} />
+            </Modal>
+        )}
     <div className='wholeprofile'>
         <div className='proftophalf'>
           <div className="cover">
-          <label >
+          <label onClick={handleProfile} >
                 <AiFillCamera/>
                 <input
                   type='file'
@@ -82,15 +82,9 @@ const Profile = () => {
           {sessionUser.avatar && (
             <>
               <img className="profileavatar" src={sessionUser.avatar}/>
-              <label className="camera">
+              <div className="camera" onClick={handleProfile}>
                 <AiFillCamera/>
-                <input
-                  type='file'
-                  className='reallyhidden'
-                  onChange={handleFile}
-                  placeholder='Upload Image'
-                />
-              </label>
+              </div>
             </>
             )
           }
