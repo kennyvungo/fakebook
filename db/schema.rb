@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_24_052225) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_27_174525) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,6 +52,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_24_052225) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "friends", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "friend_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["friend_id"], name: "index_friends_on_friend_id"
+    t.index ["user_id"], name: "index_friends_on_user_id"
+  end
+
   create_table "likes", force: :cascade do |t|
     t.string "likeable_type", null: false
     t.bigint "user_id", null: false
@@ -61,6 +70,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_24_052225) do
     t.index ["likeable_id", "likeable_type"], name: "index_likes_on_likeable_id_and_likeable_type"
     t.index ["user_id", "likeable_id", "likeable_type"], name: "index_likes_on_user_id_and_likeable_id_and_likeable_type", unique: true
     t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "pendingfriends", force: :cascade do |t|
+    t.bigint "friender_id", null: false
+    t.bigint "friendee_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["friendee_id"], name: "index_pendingfriends_on_friendee_id"
+    t.index ["friender_id"], name: "index_pendingfriends_on_friender_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -87,6 +105,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_24_052225) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
+  add_foreign_key "friends", "users"
+  add_foreign_key "friends", "users", column: "friend_id"
   add_foreign_key "likes", "users"
+  add_foreign_key "pendingfriends", "users", column: "friendee_id"
+  add_foreign_key "pendingfriends", "users", column: "friender_id"
   add_foreign_key "posts", "users"
 end

@@ -24,6 +24,23 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+  has_many :pendingfriends,
+  foreign_key: :friender_id,
+  dependent: :destroy,
+  class_name: :Pendingfriend
+
+  has_many :pendingrequests,
+  foreign_key: :friendee_id,
+  dependent: :destroy,
+  class_name: :Pendingfriend
+
+  has_many :friends, dependent: :destroy
+
+  has_many :userfriends,
+  foreign_key: :friend_id,
+  dependent: :destroy,
+  class_name: :Friend
+
   has_one_attached :avatar
   has_one_attached :cover
 
