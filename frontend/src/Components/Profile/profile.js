@@ -11,11 +11,13 @@ import './profile.css'
 import ProfilePostIndex from '../PostIndex/profilepostindex';
 import PostForm from '../PostForm/postform';
 import ProfilePhotoModal from '../PhotoModals/ProfilePhotoModal';
+import CoverPhotoModal from '../PhotoModals/CoverPhotoModal';
 
 const Profile = () => {
   const dispatch = useDispatch()
   const [photoFile, setPhotoFile] = useState (null);
   const [showProfileModal,setProfileModal] = useState(false);
+  const [showCoverModal,setCoverModal] = useState(false)
   const [coverFile,setCoverFile] = useState(null);
   const [photoUrl,setPhotoUrl] = useState(null);
   const sessionUser = useSelector(state => state.session.user)
@@ -40,20 +42,15 @@ const Profile = () => {
   const handleProfile =() => {
       setProfileModal(true);
   }
+  const handleCover =() => {
+    setCoverModal(true)
+  }
   
   const handleClick = (e) => {
     e.preventDefault()
     const formData = new FormData();
     formData.append('user[avatar]', photoFile);
     dispatch(userActions.createProf(userId,formData)).then(() =>{
-      dispatch(userActions.fetchUser(userId))
-    })
-  }
-  const handleCover = (e) => {
-    e.preventDefault()
-    const coverData = new FormData();
-    coverData.append('user[cover]',coverFile);
-    dispatch(userActions.createProf(userId,coverData)).then(() =>{
       dispatch(userActions.fetchUser(userId))
     })
   }
@@ -65,18 +62,17 @@ const Profile = () => {
             <ProfilePhotoModal setProfileModal={setProfileModal} />
             </Modal>
         )}
+    {showCoverModal && (
+            <Modal onClose={() => setCoverModal(false)}>
+            <CoverPhotoModal setCoverModal={setCoverModal} />
+            </Modal>
+        )}
     <div className='wholeprofile'>
         <div className='proftophalf'>
           <div className="cover">
-          <label onClick={handleProfile} >
+          <div onClick={handleCover} >
                 <AiFillCamera/>
-                <input
-                  type='file'
-                  className='reallyhidden'
-                  onChange={handleCover}
-                  placeholder='Upload Image'
-                />
-              </label>
+          </div>
           </div>
           <div className="profileinfo">
           {sessionUser.avatar && (

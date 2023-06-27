@@ -24,15 +24,13 @@ const ProfileShow = () => {
   //   // dispatch(userActions.fetchUser(userId))
   // },[userId])
   const user = useSelector(userActions.getUser(userId))
-  console.log("This is the userid",userId)
-  console.log("this is different",user.id)
 
   const [photoFile, setPhotoFile] = useState (null);
   const [coverFile,setCoverFile] = useState(null);
   const [photoUrl,setPhotoUrl] = useState(null);
-  console.warn("user",user)
-console.log("userid:",user.id)
+
   if (!sessionUser) return <Redirect to="/login" />;
+  if (sessionUser.id === user.id) return <Redirect to="/profile" />;
   
   return (
     <>
@@ -45,14 +43,6 @@ console.log("userid:",user.id)
           {sessionUser.avatar && (
             <>
               <img className="profileavatar" src={user.avatar}/>
-              <label className="camera">
-                <AiFillCamera/>
-                <input
-                  type='file'
-                  className='reallyhidden'
-                  placeholder='Upload Image'
-                />
-              </label>
             </>
             )
           }
@@ -62,16 +52,12 @@ console.log("userid:",user.id)
             </div>
           </div>
         </div>
-
-
-
         <div className='profilebottomhalf'>
-     
           <div className='profilebottomleft'>
 
           </div>
           <div className='profilebottomright'>
-           <ProfilePostIndex userId = {user.id}/>
+            <ProfilePostIndex userId = {user.id}/>
           </div>
         </div>
       
