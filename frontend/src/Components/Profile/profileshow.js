@@ -24,6 +24,8 @@ const ProfileShow = () => {
   //   // dispatch(userActions.fetchUser(userId))
   // },[userId])
   const user = useSelector(userActions.getUser(userId))
+  console.log("This is the userid",userId)
+  console.log("this is different",user.id)
 
   const [photoFile, setPhotoFile] = useState (null);
   const [coverFile,setCoverFile] = useState(null);

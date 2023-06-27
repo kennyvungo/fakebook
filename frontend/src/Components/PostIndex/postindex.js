@@ -8,7 +8,7 @@ import * as userActions from "../../store/users"
 import "./postindex.css"
 import * as likeActions from "../../store/likes"
 
-const ProfilePostIndex = () => {
+const PostIndex = () => {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user)
     const userId = sessionUser.id
@@ -28,4 +28,4 @@ const ProfilePostIndex = () => {
   )
 }
 
-export default ProfilePostIndex
+export default PostIndex

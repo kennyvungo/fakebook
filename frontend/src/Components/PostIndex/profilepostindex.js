@@ -9,14 +9,13 @@ import * as likeActions from "../../store/likes"
 
 const ProfilePostIndex = ({userId}) => {
     const dispatch = useDispatch();
-    const sessionUser = useSelector(state => state.session.user)
-    console.log("THis is the idL",sessionUser.id)
+    // const sessionUser = useSelector(state => state.session.user)
     const posts = [...useSelector(getWallPosts(userId))].reverse()
     useEffect(() =>{
         dispatch(fetchPosts())
         dispatch(commentActions.fetchComments())
         dispatch(likeActions.fetchLikes())
-    },[])
+    },[dispatch])
 
   return (
     <div className="postIndex">
