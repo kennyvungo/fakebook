@@ -91,7 +91,7 @@ const PostItem = ({post}) => {
         <div className='postUser'>
             <img onClick={handleShow} className = "profile" src={post.avatarUrl} />
         <div className="postnamewrapper">
-            <div className="postname">
+            <div className="postname" onClick={handleShow}>
             {post.name}
             </div>
             <div className='posttime'>

@@ -4,16 +4,13 @@ import { Redirect } from 'react-router-dom';
 import { useState,useEffect } from 'react'
 import { useDispatch,useSelector} from "react-redux";
 import * as userActions from "../../store/users"
-import * as sessionActions from "../../store/session"
-import * as commentActions from "../../store/comments"
-import { fetchPosts } from '../../store/posts';
 import * as likeActions from "../../store/likes"
 import {AiFillCamera} from 'react-icons/ai'
 import { useMemo } from 'react';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import './profile.css'
 import ProfilePostIndex from '../PostIndex/profilepostindex';
-import PostForm from '../PostForm/postform';
+import Bio from './bio';
 const ProfileShow = () => {
   const dispatch = useDispatch()
   // dispatch(userActions.fetchUsers());
@@ -46,21 +43,25 @@ const ProfileShow = () => {
             </>
             )
           }
-            <div className='profilename'>
-              {user.firstName} 
-              {user.lastName}
+            <div className='profilenamecolumn'>
+              <div className='profilename'>
+                {user.firstName} 
+                {user.lastName}
+              </div>
+              <div className='profilenumfriends'>
+                  0 friends
+              </div>
             </div>
           </div>
         </div>
         <div className='profilebottomhalf'>
           <div className='profilebottomleft'>
-
+            <Bio isShow={false}/>
           </div>
           <div className='profilebottomright'>
             <ProfilePostIndex userId = {user.id}/>
           </div>
         </div>
-      
     </div>
     </>
   )

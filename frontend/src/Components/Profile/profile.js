@@ -85,9 +85,14 @@ const Profile = () => {
             </>
             )
           }
-            <div className='profilename'>
-              {sessionUser.firstName} 
-              {sessionUser.lastName}
+            <div className='profilenamecolumn'>
+              <div className='profilename'>
+                {sessionUser.firstName} 
+                {sessionUser.lastName}
+              </div>
+              <div className='profilenumfriends'>
+                  0 friends
+              </div>
             </div>
           </div>
         </div>
@@ -96,12 +101,12 @@ const Profile = () => {
 
         <div className='profilebottomhalf'>
           <div className='profilebottomleft'>
-            <Bio/>
+            <Bio isShow={true}/>
               
           </div>
           <div className='profilebottomright'>
             <PostForm/>
-           <ProfilePostIndex userId = {userId}/>
+            <ProfilePostIndex userId = {userId}/>
           <button onClick = {handleClick}>Change photo</button>
           </div>
         </div>

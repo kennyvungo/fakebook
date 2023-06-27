@@ -69,10 +69,6 @@
 }
 
 .profilename{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin-left: 24%;
     /* height: 20%; */
     font-size: 30px;
     font-weight: bold;
@@ -118,7 +114,7 @@
     align-items: center;
     color: #FFFFFF;
     cursor: pointer;
-    z-index: 1;
+    /* z-index: 1; */
     position: relative;
     right: -85%;
     top: -15%;
@@ -173,4 +169,18 @@
 
 .addbio:hover{
     background-color: lightgray;
+}
+.profilenamecolumn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 25%;
+}
+
+.profilenumfriends{
+    margin-top: 5%;
+    color: #64676B;
+    font-family: klavika-web, sans-serif;
+    font-weight: 400;
 }

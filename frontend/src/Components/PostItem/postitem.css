@@ -7,6 +7,9 @@
     margin-bottom: 20px;
     background-color: #fff;
 }
+.postname{
+    cursor: pointer;
+}
 
 .postUser{
     font-size: 17px;
@@ -168,7 +171,9 @@ div ul{
     display: flex;
     flex-direction: column;
 }
-
+.postname:hover{
+    text-decoration: underline;
+}
 
 .posttime{
 margin-top: 2px;

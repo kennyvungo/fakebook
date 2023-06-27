@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import profile from '../../assets/profile.jpg'
 import * as likeActions from "../../store/likes"
 import likeico from "../../assets/likeico.png"
-
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 const CommentItem = ({com}) => {
   const sessionUser = useSelector(state => state.session.user)
@@ -15,6 +15,10 @@ const CommentItem = ({com}) => {
   let comLikes = useSelector(likeActions.getCommentLikes(com.id,sessionUser.id))
   let likeId = comLikes.find((like) => like.userId === sessionUser.id)
   const [isLiked,setisLiked] = useState(likeId);
+  const history = useHistory();
+  const handleShow = () => {
+    history.push(`/users/${com.userId}`)
+}
   const handleLike = () => {
     if(isLiked){
       setisLiked(false)
@@ -30,12 +34,12 @@ const CommentItem = ({com}) => {
   return (
     <div className='commentitemwrapwrapper'>
     <div className='commentitemwrapper'>
-      <img className = "smallprofile" src={com.avatarUrl} />
+      <img  onClick={handleShow} className = "smallprofile" src={com.avatarUrl} />
       <div className="commwrapper">
 
       <div className="commentitem">
       
-        <div className='comname'> {com.name}</div>
+        <div onClick={handleShow} className='comname'> {com.name}</div>
         <div>{com.body}</div>
       </div>
       <div className={isLiked ? "comlikebutton comlikeblue" : "comlikebutton" }onClick={handleLike}> <div className='likeword'>

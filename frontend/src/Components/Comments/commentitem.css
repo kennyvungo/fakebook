@@ -32,16 +32,24 @@
 }
 
 .smallprofile{
-    height: 30px;
-    width: 40px;
+    height: 35px;
+    width: 35px;
     border-radius: 50%;
     margin-left: 10px;
+    cursor: pointer;
+}
+.smallprofile:hover{
+    opacity: 80%;
 }
 
 .comname{
     font-weight: bold;
     font-size: 13px;
     margin-bottom: 2px;
+    cursor: pointer;
+}
+.comname:hover{
+    text-decoration: underline;
 }
 
 .comlikebutton{
