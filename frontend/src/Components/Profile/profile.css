@@ -80,8 +80,12 @@
     display: flex;
 }
 .profilebottomleft{
-    background-color: blue;
+    /* background-color: blue; */
     width: 31.39vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
 .profilebottomright{
     /* background-color: red; */
@@ -92,7 +96,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     width: 100%;
     height: 100%;
     background: #ffffff;
@@ -100,4 +104,73 @@
 
 .profile{
     cursor: pointer;
+}
+
+.coverbutton{
+    background-color: #52554E;
+    opacity: 88%;
+    font-family: klavika-web, sans-serif;
+    width: 13%;
+    height: 8%;
+    border-radius: 9px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    cursor: pointer;
+    z-index: 1;
+    position: relative;
+    right: -85%;
+    top: -15%;
+}
+.coverbutton:hover{
+    background-color: darkgray;
+}
+.profilecover{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.bio{
+    width: 100%;
+    height: 400px;
+    background-color: #ffffff;
+    margin-top: 14%;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-family: klavika-web, sans-serif;
+    margin-left: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.intro{
+    font-size: 20px;
+    font-weight: bold;
+    padding-left: 30px;
+    padding-top: 20px;
+    margin-bottom: 6%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+.addbio{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    width: 90%;
+    height: 10%;
+    background-color: #E3E6EA;
+    border-radius: 5px;
+    font-weight: 530;
+    cursor: pointer;
+}
+
+.addbio:hover{
+    background-color: lightgray;
 }

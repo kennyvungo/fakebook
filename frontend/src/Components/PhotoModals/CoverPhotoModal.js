@@ -16,7 +16,7 @@ const CoverPhotoModal = ({setCoverModal}) => {
     const [photoUrl,setPhotoUrl] = useState(null);
     const user = useSelector(state => state.session.user);
     const userId = user.id
-    let isDisabled = false;
+    let isDisabled = true;
     let file = false;
   
     const handleSubmit =(e) => {
@@ -45,7 +45,6 @@ const CoverPhotoModal = ({setCoverModal}) => {
     if (photoUrl) preview = <img  className="coverpreview" src={photoUrl} alt="" />
   return (
     <form className = "formwrapper" onSubmit={handleSubmit}>
-
     <div className='postformhead'>Add Cover Picture</div>
           {preview}
         <label className='uploadimg'>

@@ -12,7 +12,7 @@ import ProfilePostIndex from '../PostIndex/profilepostindex';
 import PostForm from '../PostForm/postform';
 import ProfilePhotoModal from '../PhotoModals/ProfilePhotoModal';
 import CoverPhotoModal from '../PhotoModals/CoverPhotoModal';
-
+import Bio from './bio';
 const Profile = () => {
   const dispatch = useDispatch()
   const [photoFile, setPhotoFile] = useState (null);
@@ -70,8 +70,9 @@ const Profile = () => {
     <div className='wholeprofile'>
         <div className='proftophalf'>
           <div className="cover">
-          <div onClick={handleCover} >
-                <AiFillCamera/>
+            <img className='profilecover' src={sessionUser.cover} />
+          <div onClick={handleCover} className='coverbutton' >
+                <AiFillCamera/> Add cover photo
           </div>
           </div>
           <div className="profileinfo">
@@ -94,9 +95,9 @@ const Profile = () => {
 
 
         <div className='profilebottomhalf'>
-     
           <div className='profilebottomleft'>
-
+            <Bio/>
+              
           </div>
           <div className='profilebottomright'>
             <PostForm/>
