@@ -5,47 +5,33 @@ import { useState,useEffect } from 'react'
 import { useDispatch,useSelector} from "react-redux";
 import * as userActions from "../../store/users"
 import * as sessionActions from "../../store/session"
+import * as commentActions from "../../store/comments"
+import { fetchPosts } from '../../store/posts';
+import * as likeActions from "../../store/likes"
 import {AiFillCamera} from 'react-icons/ai'
+import { useMemo } from 'react';
+import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import './profile.css'
-import ProfilePostIndex from '../PostIndex/postindex';
+import ProfilePostIndex from '../PostIndex/profilepostindex';
 import PostForm from '../PostForm/postform';
-const Profile = () => {
+const ProfileShow = () => {
   const dispatch = useDispatch()
+  // dispatch(userActions.fetchUsers());
+  const sessionUser = useSelector(state => state.session.user)
+  const {userId} = useParams()
+  // useMemo(() => {
+  //   dispatch(userActions.fetchUsers())
+  //   // dispatch(userActions.fetchUser(userId))
+  // },[userId])
+  const user = useSelector(userActions.getUser(userId))
+
   const [photoFile, setPhotoFile] = useState (null);
   const [coverFile,setCoverFile] = useState(null);
   const [photoUrl,setPhotoUrl] = useState(null);
-  const sessionUser = useSelector(state => state.session.user)
+  console.warn("user",user)
+console.log("userid:",user.id)
   if (!sessionUser) return <Redirect to="/login" />;
-  let userId = sessionUser.id
-  let file;
-  const handleFile = ({ currentTarget }) => {
-    file = currentTarget.files[0];
-    setPhotoFile(file);
-    if (file) {
-      const fileReader = new FileReader();
-      fileReader.readAsDataURL(file);
-      fileReader.onload = () => setPhotoUrl(fileReader.result);
-      }
-    else {
-      setPhotoUrl(null); 
-    }
-  }
-  const handleClick = (e) => {
-    e.preventDefault()
-    const formData = new FormData();
-    formData.append('user[avatar]', photoFile);
-    dispatch(userActions.createProf(userId,formData)).then(() =>{
-      dispatch(userActions.fetchUser(userId))
-    })
-    const handleCover = (e) => {
-      e.preventDefault()
-      const coverData = new FormData();
-      coverData.append('user[cover]',coverFile);
-      dispatch(userActions.createProf(userId,formData)).then(() =>{
-        dispatch(userActions.fetchUser(userId))
-      })
-    }
-   }
+  
   return (
     <>
     <Navigation/>
@@ -56,13 +42,12 @@ const Profile = () => {
           <div className="profileinfo">
           {sessionUser.avatar && (
             <>
-              <img className="profileavatar" src={sessionUser.avatar}/>
+              <img className="profileavatar" src={user.avatar}/>
               <label className="camera">
                 <AiFillCamera/>
                 <input
                   type='file'
                   className='reallyhidden'
-                  onChange={handleFile}
                   placeholder='Upload Image'
                 />
               </label>
@@ -70,8 +55,8 @@ const Profile = () => {
             )
           }
             <div className='profilename'>
-              {sessionUser.firstName} 
-              {sessionUser.lastName}
+              {user.firstName} 
+              {user.lastName}
             </div>
           </div>
         </div>
@@ -84,9 +69,7 @@ const Profile = () => {
 
           </div>
           <div className='profilebottomright'>
-            <PostForm/>
-           <ProfilePostIndex userId = {sessionUser.id}/>
-          <button onClick = {handleClick}>Change photo</button>
+           <ProfilePostIndex userId = {user.id}/>
           </div>
         </div>
       
@@ -95,4 +78,4 @@ const Profile = () => {
   )
 }
 
-export default Profile
+export default ProfileShow

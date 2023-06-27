@@ -2,6 +2,7 @@ import LoginFormPage from "./Components/LoginFormPage";
 import React from "react";
 import { useSelector } from "react-redux";
 import {Route,Switch} from 'react-router-dom'
+import ProfileShow from "./Components/Profile/profileshow";
 import SignUpFormPage from "./Components/SignupFormModal/SignUpForm";
 import Navigation from "./Components/Navigation";
 import Splash from "./Components/Splash/splash";
@@ -14,6 +15,9 @@ function App() {
   return (
     <>
       <Switch>
+        <Route exact path ="/users/:userId">
+          <ProfileShow/>
+        </Route>
         <Route exact path="/login">
           <LoginFormPage/>
         </Route>

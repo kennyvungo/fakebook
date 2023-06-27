@@ -27,6 +27,9 @@ export const getPosts =(state) => {
     return state.posts ? Object.values(state.posts) : []
 }
 
+export const getWallPosts =(userId) => (state) => {
+    return state.posts ? Object.values(state.posts).filter((post) => post.userId === userId) : []
+}
 
 export const getPost =(postId) => (state) => {
     return state.posts ? state.posts[postId] :null

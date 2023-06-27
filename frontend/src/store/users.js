@@ -1,8 +1,8 @@
 import csrfFetch from './csrf'
 import * as sessionActions from './session'
 
-const RECEIVE_USER = 'users/receiveUser'
-const RECEIVE_USERS = 'users/receieveUsers'
+const RECEIVE_USER = 'users/RECEIVE_USER'
+const RECEIVE_USERS = 'users/RECEIVE_USERS'
 
 export const receiveUser = user =>({
     type: RECEIVE_USER,
@@ -29,7 +29,7 @@ export const fetchUser = userId => async(dispatch)=>{
         dispatch(receiveUser(data.user))
 }
 
-export  const fetchUsers = () => async(dispatch)=>{
+export const fetchUsers = () => async(dispatch)=>{
     const res = await csrfFetch ('/api/users')
     const data= await res.json()
     dispatch(receiveUsers(data))

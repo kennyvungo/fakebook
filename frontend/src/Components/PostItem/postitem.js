@@ -18,6 +18,7 @@ import * as commentActions from "../../store/comments"
 import profile from '../../assets/profile.jpg'
 import * as likeActions from "../../store/likes"
 import { getUser } from '../../store/users';
+import { useHistory } from "react-router-dom";
 
 const PostItem = ({post}) => {
     const sessionUser = useSelector(state => state.session.user)
@@ -28,7 +29,7 @@ const PostItem = ({post}) => {
     let allComments = useSelector(commentActions.getPostComments(post.id))
     let postLikes = useSelector(likeActions.getPostLikes(post.id,sessionUser.id))
     let likeId = postLikes.find((like) => like.userId === sessionUser.id)
-
+    const history = useHistory();
     const [isLiked,setisLiked] = useState(likeId);
     let firstCom = allComments[0]
 
@@ -51,7 +52,9 @@ const PostItem = ({post}) => {
         return () => document.removeEventListener("click", closeMenu);
     }, [showMenu,allComments]);
 
-
+    const handleShow = () => {
+        history.push(`/users/${post.userId}`)
+    }
     const handleDelete = () => {
         dispatch(postActions.deletePost(post.id))
     }
@@ -86,7 +89,7 @@ const PostItem = ({post}) => {
             )}
             <div className="postbox">
         <div className='postUser'>
-            <img className = "profile" src={post.avatarUrl} />
+            <img onClick={handleShow} className = "profile" src={post.avatarUrl} />
         <div className="postnamewrapper">
             <div className="postname">
             {post.name}
