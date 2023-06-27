@@ -14,14 +14,14 @@ import {IoPersonAddSharp} from 'react-icons/io5'
 import Bio from './bio';
 import * as pendingfriendActions from "../../store/pendingfriends"
 const ProfileShow = () => {
+  const {userId} = useParams()
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(userActions.fetchUsers())
-    // dispatch(userActions.fetchUser(userId))
+    // dispatch(userActions.fetchUsers())
+    dispatch(userActions.fetchUser(userId))
   },[dispatch])
   // dispatch(userActions.fetchUsers());
   const sessionUser = useSelector(state => state.session.user)
-  const {userId} = useParams()
   const user = useSelector(userActions.getUser(userId))
 // if(user === undefined){
 //   return null
@@ -31,14 +31,15 @@ const ProfileShow = () => {
   const [photoUrl,setPhotoUrl] = useState(null);
 
   if (!sessionUser) return <Redirect to="/login" />;
-  if (sessionUser.id === user.id) return <Redirect to="/profile" />;
+  if (sessionUser.id === userId) return <Redirect to="/profile" />;
   const handleFriend = (e) => {
     e.preventDefault();
     // setErrors([]);
-    dispatch(pendingfriendActions.createPendingfriend({friender_id: sessionUser.id, friendee_id: user.id}))
+    dispatch(pendingfriendActions.createPendingfriend({friender_id: sessionUser.id, friendee_id: userId}))
     console.log("sent friend request!")
   }
-  return (
+
+  return user ?  ( 
     <>
     <Navigation/>
     <div className='wholeprofile'>
@@ -81,7 +82,7 @@ const ProfileShow = () => {
         </div>
     </div>
     </>
-  )
+  ) : null
 }
 
 export default ProfileShow
