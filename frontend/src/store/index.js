@@ -5,6 +5,7 @@ import posts from './posts';
 import comments from './comments'
 import likes from './likes'
 import users from './users'
+import pendingfriends from './pendingfriends'
 
 
 const rootReducer = combineReducers({
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
     likes,
     posts,
     comments,
-    users
+    users,
+    pendingfriends
 })
 
 let enhancer;

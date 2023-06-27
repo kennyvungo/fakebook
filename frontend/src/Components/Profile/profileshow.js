@@ -10,18 +10,21 @@ import { useMemo } from 'react';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import './profile.css'
 import ProfilePostIndex from '../PostIndex/profilepostindex';
+import {IoPersonAddSharp} from 'react-icons/io5'
 import Bio from './bio';
 const ProfileShow = () => {
   const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(userActions.fetchUsers())
+    // dispatch(userActions.fetchUser(userId))
+  },[dispatch])
   // dispatch(userActions.fetchUsers());
   const sessionUser = useSelector(state => state.session.user)
   const {userId} = useParams()
-  // useMemo(() => {
-  //   dispatch(userActions.fetchUsers())
-  //   // dispatch(userActions.fetchUser(userId))
-  // },[userId])
   const user = useSelector(userActions.getUser(userId))
-
+// if(user === undefined){
+//   return null
+// }
   const [photoFile, setPhotoFile] = useState (null);
   const [coverFile,setCoverFile] = useState(null);
   const [photoUrl,setPhotoUrl] = useState(null);
@@ -52,6 +55,10 @@ const ProfileShow = () => {
                   0 friends
               </div>
             </div>
+            <div className='friendbutton'>
+            <IoPersonAddSharp/>
+                Add friend
+            </div>
           </div>
         </div>
         <div className='profilebottomhalf'>
@@ -59,7 +66,11 @@ const ProfileShow = () => {
             <Bio isShow={false}/>
           </div>
           <div className='profilebottomright'>
-            <ProfilePostIndex userId = {user.id}/>
+            {user && (
+
+              <ProfilePostIndex userId = {user.id}/>
+            )
+            }
           </div>
         </div>
     </div>

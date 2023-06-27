@@ -24,7 +24,7 @@
 
 }
 .cover{
-    background-color:lightgray;
+    background-color: #EFF2F5;
     width: 73vw;
     height: 66%;
     border-radius: 5px;
@@ -183,4 +183,23 @@
     color: #64676B;
     font-family: klavika-web, sans-serif;
     font-weight: 400;
+}
+
+.friendbutton{
+    color: white;
+    background-color: #1a73e3;
+    border-radius: 5px;
+    font-family: klavika-web, sans-serif;
+    font-size: 15px;
+    padding: 9px;
+    margin-left: 3%;
+    cursor: pointer;
+    display: flex;
+    width: 7.5%;
+    justify-content: space-between;
+    align-items: space-between;
+}
+
+.friendbutton:hover{
+    background-color: blue;
 }
