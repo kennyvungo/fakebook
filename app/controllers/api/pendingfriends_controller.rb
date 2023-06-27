@@ -6,7 +6,7 @@ class Api::PendingfriendsController < ApplicationController
 
     def create 
         @friend = Pendingfriend.new(friend_params)
-        if(@post.save)
+        if(@friend.save)
             render json: :show
         else 
             render json: {errors:@friend.errors.full_messages},status: 422
@@ -18,7 +18,7 @@ class Api::PendingfriendsController < ApplicationController
 
     end
     def friend_params 
-        params.require(:friends).permit(:friender_id,:friendee_id)
+        params.require(:pendingfriend).permit(:friender_id,:friendee_id)
     end
 
 end

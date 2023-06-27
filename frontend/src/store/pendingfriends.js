@@ -38,15 +38,15 @@ export const fetchPendingfriend = (pendingfriendId) => async(dispatch) => {
     const res = await csrfFetch(`/api/pendingfriends/${pendingfriendId}`)
 } 
 
-export const createPendingfriend = ({friender_id,friendee_id}) => async(dispatch) =>{
-    // const{friender_id,friendee_id} = pendingFriend;
+export const createPendingfriend = (pendingfriend) => async(dispatch) =>{
+    const{friender_id,friendee_id} = pendingfriend;
     const res = await csrfFetch(`/api/pendingfriends`,{
         method: 'POST',
         headers:{
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            pendingFriend:{
+            pendingfriend:{
                 friender_id,
                 friendee_id
             }

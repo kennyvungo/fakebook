@@ -12,6 +12,7 @@ import './profile.css'
 import ProfilePostIndex from '../PostIndex/profilepostindex';
 import {IoPersonAddSharp} from 'react-icons/io5'
 import Bio from './bio';
+import * as pendingfriendActions from "../../store/pendingfriends"
 const ProfileShow = () => {
   const dispatch = useDispatch()
   useEffect(() => {
@@ -31,7 +32,12 @@ const ProfileShow = () => {
 
   if (!sessionUser) return <Redirect to="/login" />;
   if (sessionUser.id === user.id) return <Redirect to="/profile" />;
-  
+  const handleFriend = (e) => {
+    e.preventDefault();
+    // setErrors([]);
+    dispatch(pendingfriendActions.createPendingfriend({friender_id: sessionUser.id, friendee_id: user.id}))
+    console.log("sent friend request!")
+  }
   return (
     <>
     <Navigation/>
@@ -55,7 +61,7 @@ const ProfileShow = () => {
                   0 friends
               </div>
             </div>
-            <div className='friendbutton'>
+            <div className='friendbutton' onClick={handleFriend}>
             <IoPersonAddSharp/>
                 Add friend
             </div>
