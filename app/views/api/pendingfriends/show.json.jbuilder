@@ -1,3 +1,3 @@
 json.pendingfriend do 
-    json.extract! @friend, :friender_id,:friendee_id
+    json.extract! @friend, :id, :friender_id,:friendee_id
 end

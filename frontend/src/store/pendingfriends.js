@@ -12,10 +12,11 @@ const receivePendingFriends = (pendfriends) => {
     }
 }
 
-const receivePendingFriend = (pendfriend) => {
+const receivePendingFriend = (pendingfriend) => {
+    debugger
     return{
         type: RECEIVE_PENDINGFRIEND,
-        pendfriend
+        pendingfriend
     }
 }
 
@@ -38,8 +39,8 @@ export const fetchPendingfriend = (pendingfriendId) => async(dispatch) => {
     const res = await csrfFetch(`/api/pendingfriends/${pendingfriendId}`)
 } 
 
-export const createPendingfriend = (pendingfriend) => async(dispatch) =>{
-    const{friender_id,friendee_id} = pendingfriend;
+export const createPendingfriend = (pendfriend) => async(dispatch) =>{
+    const{friender_id,friendee_id} = pendfriend;
     const res = await csrfFetch(`/api/pendingfriends`,{
         method: 'POST',
         headers:{
@@ -54,8 +55,7 @@ export const createPendingfriend = (pendingfriend) => async(dispatch) =>{
     })
     if(res.ok){
         const data = await res.json()
-        dispatch(receivePendingFriend(data.comment))
-        dispatch(receivePost(data.post))
+        dispatch(receivePendingFriend(data))
         return data;
     }
 }
@@ -66,7 +66,8 @@ const pendingfriendsReducer = (state={},action) => {
         case RECEIVE_PENDINGFRIENDS:
             return {...action.pendfriends}
         case RECEIVE_PENDINGFRIEND:
-            return newState[action.pendfriend.id] = action.pendfriend
+             newState[action.pendingfriend.id] = action.pendingfriend
+             return newState
         case REMOVE_PENDINGFRIEND:
             delete newState.pendingfriends[action.pendfriendId]
             return newState;
