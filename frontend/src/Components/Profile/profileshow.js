@@ -23,6 +23,7 @@ const ProfileShow = () => {
   const sessionUser = useSelector(state => state.session.user)
   const user = useSelector(userActions.getUser(userId))
   const pends = useSelector(pendingfriendActions.getUserPends(sessionUser.id))
+  const sentpends = useSelector(pendingfriendActions.getUserPends(sessionUser.id))
   // if(user === undefined){
     //   return null
     // }
@@ -35,7 +36,7 @@ const ProfileShow = () => {
     useEffect(() => {
       // dispatch(userActions.fetchUsers())
       dispatch(userActions.fetchUser(userId))
-      dispatch(pendingfriendActions.fetchPendFriends())
+      dispatch(pendingfriendActions.fetchPendFriends(userId))
     },[dispatch,requestSent])
 
     if (!sessionUser) return <Redirect to="/login" />;
@@ -48,6 +49,7 @@ const ProfileShow = () => {
     console.log("sent friend request!")
     setRequestSent(true);
   }
+  console.log("sentpends",sentpends)
 
   return user ?  ( 
     <>
@@ -74,11 +76,14 @@ const ProfileShow = () => {
             </div>
             {/* {requestSent} */}
           {(pends.some(pend => pend.friendeeId == userId)) ?  <div className='friendsent'> Friend Request Sent! </div> :
+            
+            (sentpends.some(pend => pend.friendeeId == sessionUser.id)) ?  <div className='friendsent'> Accept Friend Request? </div> :
             <div className='friendbutton' onClick={handleFriend}>
             <IoPersonAddSharp/>
                 Add friend
             </div>
             }
+            
           </div>
         </div>
         <div className='profilebottomhalf'>

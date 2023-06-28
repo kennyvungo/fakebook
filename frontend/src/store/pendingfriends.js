@@ -36,7 +36,9 @@ export const getPendFriend = (pendfriendId) => (state) => {
 export const getUserPends = (userId) => (state) => {
     return state.pendingfriends ? Object.values(state.pendingfriends).filter(pend => pend.frienderId === userId) : null
 }
-
+export const getSentPends = (userId) => (state) => {
+    return state.pendingfriends ? Object.values(state.pendingfriends).filter(pend => pend.friendeeId === userId) : null
+}
 export const fetchPendingfriend = (pendingfriendId) => async(dispatch) => {
     const res = await csrfFetch(`/api/pendingfriends/${pendingfriendId}`)
 } 

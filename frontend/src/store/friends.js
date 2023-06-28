@@ -78,8 +78,8 @@ const friendsReducer = (state={},action) => {
         case RECEIVE_FRIENDS:
             return {...action.pendfriends}
         case RECEIVE_FRIEND:
-             newState[action.friend.id] = action.friend
-             return newState
+            newState[action.friend.id] = action.friend
+            return newState
         case REMOVE_FRIEND:
             delete newState.friends[action.pendfriendId]
             return newState;
