@@ -15,8 +15,7 @@ import Bio from './bio';
 import * as pendingfriendActions from "../../store/pendingfriends"
 import { getPendFriend } from '../../store/pendingfriends';
 import * as friendActions from "../../store/friends"
-
-
+import {FiUserCheck} from "react-icons/fi"
 const ProfileShow = () => {
   const {userId} = useParams()
   const dispatch = useDispatch()
@@ -79,7 +78,7 @@ const ProfileShow = () => {
               </div>
             </div>
             {/* {requestSent} */}
-          { myFriends.some(friend => friend.user_id == userId || friend.friend_id == userId) ? <div> Friends </div> :
+          { myFriends.some(friend => friend.user_id == userId || friend.friend_id == userId) ? <div className='currentfriend'>  <FiUserCheck/> Friends </div> :
           (pends.some(pend => pend.friendeeId == userId)) ?  <div className='friendsent'> Friend Request Sent! </div> :
             
             (sentpends.some(pend => pend.friendeeId == sessionUser.id)) ?  <div className='friendsent'> Accept Friend Request? </div> :

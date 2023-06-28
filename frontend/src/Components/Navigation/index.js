@@ -10,6 +10,7 @@ import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import FriendIndex from '../FriendIndex/friendindex';
+import Searchbar from '../Searchbar/searchbar';
 
 function Navigation (){
 
@@ -32,11 +33,12 @@ const history = useHistory();
     sessionLinks = (
         <div className='navbar'>
             <i className="fa-brands fa-facebook profbutton" onClick={()=> history.push("/")}></i>
-            <input
+            {/* <input
                 className='searchbar'
                 type= 'text'
                 placeholder=' Search Fakebook'
-            />
+            /> */}
+            <Searchbar/>
             <div className='rightnav'>
                 <div>
                 <i className="fa-brands fa-facebook-messenger" id='smallico'></i>

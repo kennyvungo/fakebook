@@ -1,0 +1,19 @@
+.search-dropdown{
+    position: absolute;
+    top: 40px;
+    left: -25px;
+    width: 350px;
+    height: fit-content;
+    border: 1px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px lightgray;
+    overflow:hidden;
+    background-color: #fff;
+    font-size: 30px;
+    font-family: klavika-web, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+}

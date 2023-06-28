@@ -218,3 +218,17 @@
     justify-content: space-between;
     align-items: space-between;
 }
+
+.currentfriend{
+    background-color: #E3E6EA;
+    border-radius: 5px;
+    font-family: klavika-web, sans-serif;
+    font-size: 15px;
+    padding: 9px;
+    margin-left: 3%;
+    cursor: pointer;
+    display: flex;
+    width: 7.5%;
+    justify-content: center;
+    align-items: center;
+}
