@@ -29,17 +29,15 @@ const ProfileShow = () => {
     const [photoFile, setPhotoFile] = useState (null);
     const [coverFile,setCoverFile] = useState(null);
     const [photoUrl,setPhotoUrl] = useState(null);
-    const pending = useSelector(getPendFriend())
     const [requestSent,setRequestSent] = useState(false)
+    // const pending = useSelector(getPendFriend())
+    // const [requestSent,setRequestSent] = useState(false)
     useEffect(() => {
       // dispatch(userActions.fetchUsers())
       dispatch(userActions.fetchUser(userId))
       dispatch(pendingfriendActions.fetchPendFriends())
-    },[dispatch])
-    
-    let requetSent = pends.find((pend) => pend.friendeeId === userId)
-
-
+      setRequestSent(pends.some(pend => pend.friendeeId == userId))
+    },[dispatch,requestSent])
 
     if (!sessionUser) return <Redirect to="/login" />;
     if (sessionUser.id === userId) return <Redirect to="/profile" />;
@@ -51,7 +49,10 @@ const ProfileShow = () => {
     console.log("sent friend request!")
     setRequestSent(true);
   }
-
+  console.log("userId",userId)
+  console.log("pends",pends)
+console.log("requestSent",requestSent)
+console.log(pends.some((pend) => pend.friendeeId == userId))
   return user ?  ( 
     <>
     <Navigation/>
@@ -75,12 +76,12 @@ const ProfileShow = () => {
                   0 friends
               </div>
             </div>
-            {requestSent}
-          {requetSent ?  <div className='friendsent'> Friend Request Sent! </div> :
-           <div className='friendbutton' onClick={handleFriend}>
-           <IoPersonAddSharp/>
-               Add friend
-           </div>
+            {/* {requestSent} */}
+          {(pends.some(pend => pend.friendeeId == userId)) ?  <div className='friendsent'> Friend Request Sent! </div> :
+            <div className='friendbutton' onClick={handleFriend}>
+            <IoPersonAddSharp/>
+                Add friend
+            </div>
             }
           </div>
         </div>
