@@ -6,7 +6,7 @@ class Api::FriendsController < ApplicationController
 
     def create 
         @friend = Friend.new(friend_params)
-        if(@post.save)
+        if(@friend.save)
             render json: :show
         else 
             render json: {errors:@friend.errors.full_messages},status: 422

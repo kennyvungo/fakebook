@@ -5,10 +5,10 @@ export const RECEIVE_FRIENDS = 'friends/RECEIVE_FRIENDS'
 export const RECEIVE_FRIEND = 'friends/RECEIVE_FRIEND'
 export const REMOVE_FRIEND = 'friends/REMOVE_FRIEND'
 
-const receiveFriends = (pendfriends) => {
+const receiveFriends = (friends) => {
     return{
         type: RECEIVE_FRIENDS,
-        pendfriends
+        friends
     }
 }
 
@@ -19,30 +19,30 @@ const receiveFriend = (friend) => {
     }
 }
 
-const removePendfriend = (pendfriendId) => {
+const removefriend = (friendId) => {
     return{
         type: REMOVE_FRIEND,
-        pendfriendId
+        friendId
     }
 }
 
-export const getPendFriends = (state) => {
-    return state.pendfriends ? Object.values(state.pendfriends) : []
+export const getFriends = (state) => {
+    return state.friends ? Object.values(state.friends) : []
 }
 
-export const getPendFriend = (pendfriendId) => (state) => {
-    return state.pendfriends ? state.pendfriends[pendfriendId] : null
+export const getFriend = (friendId) => (state) => {
+    return state.friends ? state.friends[friendId] : null
 }
 
-export const getUserPends = (userId) => (state) => {
-    return state.friends ? Object.values(state.friends).filter(pend => pend.frienderId === userId) : null
+export const getUsers = (userId) => (state) => {
+    return state.friends ? Object.values(state.friends).filter( friend => friend.frienderId === userId) : null
 }
 
 export const fetchfriend = (friendId) => async(dispatch) => {
     const res = await csrfFetch(`/api/friends/${friendId}`)
 } 
 
-export const fetchPendFriends = () => async(dispatch) =>{
+export const fetchFriends = () => async(dispatch) =>{
     const res = await csrfFetch(`/api/friends`)
     if(res.ok){
         const data = await res.json()
@@ -51,8 +51,8 @@ export const fetchPendFriends = () => async(dispatch) =>{
 }
 
 
-export const createfriend = (pendfriend) => async(dispatch) =>{
-    const{friender_id,friendee_id} = pendfriend;
+export const createfriend = (friend) => async(dispatch) =>{
+    const{friender_id,friendee_id} = friend;
     const res = await csrfFetch(`/api/friends`,{
         method: 'POST',
         headers:{
@@ -76,12 +76,12 @@ const friendsReducer = (state={},action) => {
     let newState = {...state};
     switch(action.type){
         case RECEIVE_FRIENDS:
-            return {...action.pendfriends}
+            return {...action.friends}
         case RECEIVE_FRIEND:
             newState[action.friend.id] = action.friend
             return newState
         case REMOVE_FRIEND:
-            delete newState.friends[action.pendfriendId]
+            delete newState.friends[action.friendId]
             return newState;
         default:
             return state;

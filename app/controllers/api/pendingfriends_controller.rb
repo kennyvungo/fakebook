@@ -12,9 +12,11 @@ class Api::PendingfriendsController < ApplicationController
             render json: {errors:@friend.errors.full_messages},status: 422
         end
     end 
-    
-    def destroy 
 
+    def destroy 
+        @friend = Pendingfriend.find(params[:id])
+        @friend.destroy
+        head :no_content
     end
     def friend_params 
         params.require(:pendingfriend).permit(:friender_id,:friendee_id)
