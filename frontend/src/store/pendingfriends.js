@@ -1,5 +1,4 @@
 import csrfFetch from "./csrf";
-import { receivePost } from "./posts";
 
 export const RECEIVE_PENDINGFRIENDS = 'pendingfriends/RECEIVE_PENDINGFRIENDS'
 export const RECEIVE_PENDINGFRIEND = 'pendingfriends/RECEIVE_PENDINGFRIEND'

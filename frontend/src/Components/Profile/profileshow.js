@@ -36,7 +36,6 @@ const ProfileShow = () => {
       // dispatch(userActions.fetchUsers())
       dispatch(userActions.fetchUser(userId))
       dispatch(pendingfriendActions.fetchPendFriends())
-      setRequestSent(pends.some(pend => pend.friendeeId == userId))
     },[dispatch,requestSent])
 
     if (!sessionUser) return <Redirect to="/login" />;
@@ -49,10 +48,7 @@ const ProfileShow = () => {
     console.log("sent friend request!")
     setRequestSent(true);
   }
-  console.log("userId",userId)
-  console.log("pends",pends)
-console.log("requestSent",requestSent)
-console.log(pends.some((pend) => pend.friendeeId == userId))
+
   return user ?  ( 
     <>
     <Navigation/>
