@@ -19,11 +19,6 @@ import { getPendFriend } from '../../store/pendingfriends';
 const ProfileShow = () => {
   const {userId} = useParams()
   const dispatch = useDispatch()
-  useEffect(() => {
-    // dispatch(userActions.fetchUsers())
-    dispatch(userActions.fetchUser(userId))
-    dispatch(pendingfriendActions.fetchPendFriends())
-  },[dispatch])
   // dispatch(userActions.fetchUsers());
   const sessionUser = useSelector(state => state.session.user)
   const user = useSelector(userActions.getUser(userId))
@@ -36,8 +31,13 @@ const ProfileShow = () => {
     const [photoUrl,setPhotoUrl] = useState(null);
     const pending = useSelector(getPendFriend())
     const [requestSent,setRequestSent] = useState(false)
+    useEffect(() => {
+      // dispatch(userActions.fetchUsers())
+      dispatch(userActions.fetchUser(userId))
+      dispatch(pendingfriendActions.fetchPendFriends())
+    },[dispatch])
     
-    let requetSent = pends.find((pend) => pend.friendeeId = userId)
+    let requetSent = pends.find((pend) => pend.friendeeId === userId)
 
 
 
@@ -76,7 +76,7 @@ const ProfileShow = () => {
               </div>
             </div>
             {requestSent}
-          {requetSent ?  <div> Sent! </div> :
+          {requetSent ?  <div className='friendsent'> Friend Request Sent! </div> :
            <div className='friendbutton' onClick={handleFriend}>
            <IoPersonAddSharp/>
                Add friend

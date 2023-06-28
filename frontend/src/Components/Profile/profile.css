@@ -203,3 +203,18 @@
 .friendbutton:hover{
     background-color: blue;
 }
+
+.friendsent{
+    color: white;
+    background-color: #1a73e3;
+    border-radius: 5px;
+    font-family: klavika-web, sans-serif;
+    font-size: 15px;
+    padding: 9px;
+    margin-left: 3%;
+    cursor: pointer;
+    display: flex;
+    width: 13%;
+    justify-content: space-between;
+    align-items: space-between;
+}
