@@ -12,8 +12,7 @@ class Api::PendingfriendsController < ApplicationController
             render json: {errors:@friend.errors.full_messages},status: 422
         end
     end 
-
-
+    
     def destroy 
 
     end

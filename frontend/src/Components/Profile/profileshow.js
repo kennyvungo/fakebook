@@ -13,30 +13,43 @@ import ProfilePostIndex from '../PostIndex/profilepostindex';
 import {IoPersonAddSharp} from 'react-icons/io5'
 import Bio from './bio';
 import * as pendingfriendActions from "../../store/pendingfriends"
+import { getPendFriend } from '../../store/pendingfriends';
+
+
 const ProfileShow = () => {
   const {userId} = useParams()
   const dispatch = useDispatch()
   useEffect(() => {
     // dispatch(userActions.fetchUsers())
     dispatch(userActions.fetchUser(userId))
+    dispatch(pendingfriendActions.fetchPendFriends())
   },[dispatch])
   // dispatch(userActions.fetchUsers());
   const sessionUser = useSelector(state => state.session.user)
   const user = useSelector(userActions.getUser(userId))
-// if(user === undefined){
-//   return null
-// }
-  const [photoFile, setPhotoFile] = useState (null);
-  const [coverFile,setCoverFile] = useState(null);
-  const [photoUrl,setPhotoUrl] = useState(null);
+  const pends = useSelector(pendingfriendActions.getUserPends(sessionUser.id))
+  // if(user === undefined){
+    //   return null
+    // }
+    const [photoFile, setPhotoFile] = useState (null);
+    const [coverFile,setCoverFile] = useState(null);
+    const [photoUrl,setPhotoUrl] = useState(null);
+    const pending = useSelector(getPendFriend())
+    const [requestSent,setRequestSent] = useState(false)
+    
+    let requetSent = pends.find((pend) => pend.friendeeId = userId)
 
-  if (!sessionUser) return <Redirect to="/login" />;
-  if (sessionUser.id === userId) return <Redirect to="/profile" />;
+
+
+    if (!sessionUser) return <Redirect to="/login" />;
+    if (sessionUser.id === userId) return <Redirect to="/profile" />;
+    // let requestSent = false;
   const handleFriend = (e) => {
     e.preventDefault();
     // setErrors([]);
     dispatch(pendingfriendActions.createPendingfriend({friender_id: sessionUser.id, friendee_id: userId}))
     console.log("sent friend request!")
+    setRequestSent(true);
   }
 
   return user ?  ( 
@@ -62,10 +75,13 @@ const ProfileShow = () => {
                   0 friends
               </div>
             </div>
-            <div className='friendbutton' onClick={handleFriend}>
-            <IoPersonAddSharp/>
-                Add friend
-            </div>
+            {requestSent}
+          {requetSent ?  <div> Sent! </div> :
+           <div className='friendbutton' onClick={handleFriend}>
+           <IoPersonAddSharp/>
+               Add friend
+           </div>
+            }
           </div>
         </div>
         <div className='profilebottomhalf'>
@@ -74,7 +90,6 @@ const ProfileShow = () => {
           </div>
           <div className='profilebottomright'>
             {user && (
-
               <ProfilePostIndex userId = {user.id}/>
             )
             }

@@ -13,7 +13,6 @@ const receivePendingFriends = (pendfriends) => {
 }
 
 const receivePendingFriend = (pendingfriend) => {
-    debugger
     return{
         type: RECEIVE_PENDINGFRIEND,
         pendingfriend
@@ -35,9 +34,22 @@ export const getPendFriend = (pendfriendId) => (state) => {
     return state.pendfriends ? state.pendfriends[pendfriendId] : null
 }
 
+export const getUserPends = (userId) => (state) => {
+    return state.pendingfriends ? Object.values(state.pendingfriends).filter(pend => pend.frienderId === userId) : null
+}
+
 export const fetchPendingfriend = (pendingfriendId) => async(dispatch) => {
     const res = await csrfFetch(`/api/pendingfriends/${pendingfriendId}`)
 } 
+
+export const fetchPendFriends = () => async(dispatch) =>{
+    const res = await csrfFetch(`/api/pendingfriends`)
+    if(res.ok){
+        const data = await res.json()
+        dispatch(receivePendingFriends(data))
+    }
+}
+
 
 export const createPendingfriend = (pendfriend) => async(dispatch) =>{
     const{friender_id,friendee_id} = pendfriend;
