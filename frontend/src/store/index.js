@@ -6,7 +6,7 @@ import comments from './comments'
 import likes from './likes'
 import users from './users'
 import pendingfriends from './pendingfriends'
-
+import friends from './friends'
 
 const rootReducer = combineReducers({
     session,
@@ -14,7 +14,8 @@ const rootReducer = combineReducers({
     posts,
     comments,
     users,
-    pendingfriends
+    pendingfriends,
+    friends
 })
 
 let enhancer;

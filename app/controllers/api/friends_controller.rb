@@ -1,7 +1,7 @@
 class Api::FriendsController < ApplicationController
     def index 
         @friends = Friend.all
-        render :index
+        render json: @friends
     end 
 
     def create 
@@ -18,6 +18,6 @@ class Api::FriendsController < ApplicationController
     end
 
     def friend_params 
-        params.require(:friends).permit(:user_id,:friend_id)
+        params.require(:friend).permit(:user_id,:friend_id)
     end
 end

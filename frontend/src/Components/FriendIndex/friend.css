@@ -1,0 +1,101 @@
+.friend-dropdown{
+    position: absolute;
+    top: 40px;
+    right: -25px;
+    width: 350px;
+    height: fit-content;
+    border: 1px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px lightgray;
+    overflow:hidden;
+    background-color: #fff;
+    font-size: 30px;
+    font-family: klavika-web, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* .friend-dropdown ul{
+    height: 100%;
+    font-size: 18px;
+    width: 100%;
+    padding-left: 40px;
+    padding-top: 20px;
+    border-radius: 5px;
+} */
+.frienditemwrapper{
+    display: flex;
+    height: 100%;
+    font-size: 18px;
+    width: 100%;
+    padding-left: 40px;
+    padding-top: 20px;
+    border-radius: 5px;   
+}
+.frienditemwrapper:hover{
+    background-color: #f2f2f2;
+}
+.friendname{
+    font-size: 17px;
+    margin-bottom: 5px;
+}
+.confirmfriend{
+    font-size: 12px;
+    color: white;
+    background-color: #1a73e3;
+    border-radius: 5px;
+    font-family: klavika-web, sans-serif;
+    font-size: 15px;
+    padding: 9px;
+    margin-left: 3%;
+    cursor: pointer;
+    display: flex;
+    width: 90px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    
+}
+.confirmfriend:hover{
+    background-color: #196ed8;
+}
+
+.frienditemright{
+    margin-left: 20px;
+}
+
+.friendheader{
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 5%;
+    border-bottom: 1px solid lightgray;
+    width: 90%;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.friendbuttonrow{
+    display: flex;
+}
+.deletereq{
+    font-size: 12px;
+    background-color: #d8dade;
+    border-radius: 5px;
+    font-family: klavika-web, sans-serif;
+    font-size: 15px;
+    padding: 9px;
+    margin-left: 3%;
+    cursor: pointer;
+    display: flex;
+    width: 90px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.deletereq:hover{
+    background-color: lightgray;
+}

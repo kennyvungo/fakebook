@@ -73,16 +73,25 @@ export const createPendingfriend = (pendfriend) => async(dispatch) =>{
     }
 }
 
+export const deletePendingfriend = (pendfriendId) => async(dispatch) =>{
+    const res = await csrfFetch(`api/pendingfriends/${pendfriendId}`,{
+        method: 'DELETE'
+    })
+    if(res.ok){
+        dispatch(removePendfriend(pendfriendId))
+    }
+}
+
 const pendingfriendsReducer = (state={},action) => {
     let newState = {...state};
     switch(action.type){
         case RECEIVE_PENDINGFRIENDS:
             return {...action.pendfriends}
         case RECEIVE_PENDINGFRIEND:
-             newState[action.pendingfriend.id] = action.pendingfriend
-             return newState
+            newState[action.pendingfriend.id] = action.pendingfriend
+            return newState
         case REMOVE_PENDINGFRIEND:
-            delete newState.pendingfriends[action.pendfriendId]
+            delete newState[action.pendfriendId]
             return newState;
         default:
             return state;

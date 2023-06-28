@@ -49,10 +49,13 @@ export const fetchFriends = () => async(dispatch) =>{
         dispatch(receiveFriends(data))
     }
 }
+export const getUserFriends = (userId) => (state) => {
+    return state.friends ? Object.values(state.friends).filter(friend => friend.user_id == userId|| friend.friend_id == userId) : null
+}
 
 
 export const createfriend = (friend) => async(dispatch) =>{
-    const{friender_id,friendee_id} = friend;
+    const{user_id,friend_id} = friend;
     const res = await csrfFetch(`/api/friends`,{
         method: 'POST',
         headers:{
@@ -60,8 +63,8 @@ export const createfriend = (friend) => async(dispatch) =>{
         },
         body: JSON.stringify({
             friend:{
-                friender_id,
-                friendee_id
+                user_id,
+                friend_id
             }
         })
     })

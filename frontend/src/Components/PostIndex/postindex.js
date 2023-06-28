@@ -8,6 +8,7 @@ import * as userActions from "../../store/users"
 import "./postindex.css"
 import * as likeActions from "../../store/likes"
 import * as pendingfriendActions from "../../store/pendingfriends"
+import * as friendActions from "../../store/friends"
 
 
 const PostIndex = () => {
@@ -22,6 +23,7 @@ const PostIndex = () => {
         dispatch(commentActions.fetchComments())
         dispatch(likeActions.fetchLikes())
         dispatch(pendingfriendActions.fetchPendFriends())
+        dispatch(friendActions.fetchFriends())
     },[dispatch])
 
   return (

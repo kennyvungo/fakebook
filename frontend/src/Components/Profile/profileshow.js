@@ -14,6 +14,7 @@ import {IoPersonAddSharp} from 'react-icons/io5'
 import Bio from './bio';
 import * as pendingfriendActions from "../../store/pendingfriends"
 import { getPendFriend } from '../../store/pendingfriends';
+import * as friendActions from "../../store/friends"
 
 
 const ProfileShow = () => {
@@ -24,6 +25,7 @@ const ProfileShow = () => {
   const user = useSelector(userActions.getUser(userId))
   const pends = useSelector(pendingfriendActions.getUserPends(sessionUser.id))
   const sentpends = useSelector(pendingfriendActions.getUserPends(sessionUser.id))
+  const myFriends = useSelector(friendActions.getUserFriends(sessionUser.id))
   // if(user === undefined){
     //   return null
     // }
@@ -37,6 +39,7 @@ const ProfileShow = () => {
       // dispatch(userActions.fetchUsers())
       dispatch(userActions.fetchUser(userId))
       dispatch(pendingfriendActions.fetchPendFriends(userId))
+      dispatch(friendActions.fetchFriends())
     },[dispatch,requestSent])
 
     if (!sessionUser) return <Redirect to="/login" />;
@@ -50,6 +53,7 @@ const ProfileShow = () => {
     setRequestSent(true);
   }
   console.log("sentpends",sentpends)
+  console.log("myfriends",myFriends)
 
   return user ?  ( 
     <>
@@ -71,11 +75,12 @@ const ProfileShow = () => {
                 {user.lastName}
               </div>
               <div className='profilenumfriends'>
-                  0 friends
+                  {user.numFriends} friends
               </div>
             </div>
             {/* {requestSent} */}
-          {(pends.some(pend => pend.friendeeId == userId)) ?  <div className='friendsent'> Friend Request Sent! </div> :
+          { myFriends.some(friend => friend.user_id == userId || friend.friend_id == userId) ? <div> Friends </div> :
+          (pends.some(pend => pend.friendeeId == userId)) ?  <div className='friendsent'> Friend Request Sent! </div> :
             
             (sentpends.some(pend => pend.friendeeId == sessionUser.id)) ?  <div className='friendsent'> Accept Friend Request? </div> :
             <div className='friendbutton' onClick={handleFriend}>

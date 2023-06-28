@@ -55,6 +55,7 @@ const Profile = () => {
     })
   }
   return (
+    user ? 
     <>
     <Navigation/>
     {showProfileModal && (
@@ -91,7 +92,7 @@ const Profile = () => {
                 {sessionUser.lastName}
               </div>
               <div className='profilenumfriends'>
-                  0 friends
+                  {user.numFriends} friends
               </div>
             </div>
           </div>
@@ -112,7 +113,7 @@ const Profile = () => {
         </div>
       
     </div>
-    </>
+    </> : null
   )
 }
 
