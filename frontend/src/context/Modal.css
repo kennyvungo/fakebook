@@ -18,11 +18,13 @@
     left: 0;
     bottom: 0;
     background-color: rgba(255, 255, 255, .8);
+    
   }
   
   #modal-content {
     top: 10%;
-    max-height: 200px;
+    height: fit-content;
+    max-height: 500px;
     position: absolute;
     background-color:white;
     border-radius: 6px;

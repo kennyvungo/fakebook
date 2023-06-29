@@ -69,7 +69,7 @@
     width:390px;
     border: 1px solid darkgray;
     border-radius: 5px;
-    margin-bottom: 30px;
+    margin-bottom: 12px;
 }
 
 .disclaim{
@@ -77,7 +77,8 @@
     color: darkgray;
     font-size: 12px;
     font-family: klavika-web, sans-serif;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
+    width: 85%;
 }
 
 .name{
@@ -89,4 +90,32 @@
     padding-top: 10px;
     padding-left: 10px;
     padding-bottom: 20px;
+}
+.birth{
+    background-color: #ffffff;
+    padding: 11px;
+    width: 130px;
+    border: 1px solid darkgray;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    margin: 5px;
+}
+.gender{
+    display: flex;
+    margin-bottom: 15px;
+}
+.genderitem{
+    background-color: #ffffff;
+    padding: 11px;
+    width: 107px;
+    border: 1px solid darkgray;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    margin: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: klavika-web, sans-serif;
+    font-size: 13px
+
 }

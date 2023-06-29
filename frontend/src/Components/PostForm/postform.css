@@ -64,12 +64,10 @@
     font-size: 14px;
     padding: 9px;
     background-color: #1a73e3;
-    width: 100%;
+    width: 97%;
     border-radius: 5px;
     display: flex;
     justify-content: center;
-    margin-left: 14px;
-    margin-bottom: 10px;
     cursor: pointer;
 }
 .postformbutton:hover{
