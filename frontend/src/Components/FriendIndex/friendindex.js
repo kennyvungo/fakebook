@@ -6,8 +6,7 @@ import "./friend.css"
 const FriendIndex = () => {
 const sessionUser = useSelector(state => state.session.user)
 const sentpends = useSelector(pendingfriendActions.getSentPends(sessionUser.id))
-// console.log(sentpends)
-// console.log(sessionUser)
+
   return (
     <ul className="friend-dropdown">
         <h1 className='friendheader'>Friend requests</h1>{

@@ -9,7 +9,10 @@ const dispatch = useDispatch();
             {channel: 'ChatsChannel',id: chatId},
             {
                 received: message=> {
+<<<<<<< HEAD
                     console.log('Received message:', message);
+=======
+>>>>>>> main
                 }
             }
         );
