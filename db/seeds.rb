@@ -34,6 +34,13 @@ require "open-uri"
       last_name: "Ngo"
     )
 
+    User.create!(
+      email: 'megan@gmail.com',
+      password: 'password',
+      first_name: 'Megan',
+      last_name: 'Yee'
+    )
+
     puts "Creating posts..."
 
     p1 = Post.create(
