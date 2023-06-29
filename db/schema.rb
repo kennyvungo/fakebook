@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_29_040421) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_29_044506) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -85,7 +85,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_29_040421) do
   create_table "messages", force: :cascade do |t|
     t.string "body", null: false
     t.bigint "author_id", null: false
+    t.bigint "chats_id"
     t.index ["author_id"], name: "index_messages_on_author_id"
+    t.index ["chats_id"], name: "index_messages_on_chats_id"
   end
 
   create_table "pendingfriends", force: :cascade do |t|

@@ -41,6 +41,16 @@ class User < ApplicationRecord
   dependent: :destroy,
   class_name: :Friend
 
+  has_many :chats,
+  foreign_key: :talker_id,
+  dependent: :destroy,
+  class_name: :User
+
+  has_many :talkchats,
+  foreign_key: :talkee_id,
+  dependent: :destroy,
+  class_name: :User
+
   has_one_attached :avatar
   has_one_attached :cover
 
