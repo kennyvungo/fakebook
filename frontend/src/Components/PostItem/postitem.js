@@ -20,7 +20,7 @@ import * as likeActions from "../../store/likes"
 import { getUser } from '../../store/users';
 import { useHistory } from "react-router-dom";
 
-const PostItem = ({post}) => {
+const PostItem = ({post,isProfile}) => {
     const sessionUser = useSelector(state => state.session.user)
     const dispatch = useDispatch();
     const [showMenu, setShowMenu] = useState(false);
@@ -87,7 +87,7 @@ const PostItem = ({post}) => {
                     </div>
                 </Modal>
             )}
-            <div className="postbox">
+    <div className="postbox">
         <div className='postUser'>
             <img onClick={handleShow} className = "profile" src={post.avatarUrl} />
         <div className="postnamewrapper">

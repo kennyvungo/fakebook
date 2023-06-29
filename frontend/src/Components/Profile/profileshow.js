@@ -25,6 +25,7 @@ const ProfileShow = () => {
   const pends = useSelector(pendingfriendActions.getUserPends(sessionUser.id))
   const sentpends = useSelector(pendingfriendActions.getUserPends(sessionUser.id))
   const myFriends = useSelector(friendActions.getUserFriends(sessionUser.id))
+  let isProfile = true;
   // if(user === undefined){
     //   return null
     // }
@@ -96,7 +97,7 @@ const ProfileShow = () => {
           </div>
           <div className='profilebottomright'>
             {user && (
-              <ProfilePostIndex userId = {user.id}/>
+              <ProfilePostIndex userId = {user.id} isProfile={isProfile}/>
             )
             }
           </div>

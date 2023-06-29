@@ -4,7 +4,7 @@ import {IoSend} from 'react-icons/io5';
 import * as commentActions from "../../store/comments"
 import { useDispatch, useSelector } from 'react-redux';
 import * as postActions from "../../store/posts"
-
+import "./commentitem.css"
 
 const CommentInput = ({post}) => {
     const [isFocused,setIsFocused] = useState(false);
@@ -25,12 +25,7 @@ const CommentInput = ({post}) => {
         setcommentBody("");
     }
     return (
-        <div>
-        {isFocused && (
-            <div className={(!isDisabled) ? 'comdisabled commentsend' : 'commentsend'} onClick={handleSubmit}>
-                <IoSend/>
-            </div>
-        )}
+        <div className='sendcontainer'>
         <input
             className={!isFocused ? 'commentinput' : 'commentfocused'}
             type="text"
@@ -38,8 +33,12 @@ const CommentInput = ({post}) => {
             placeholder='Write a comment'
             onClick={handleClick}
             onChange={(e) => setcommentBody(e.target.value)}
-
-        />
+            />
+            {isFocused && (
+                <div className={(!isDisabled) ? 'comdisabled commentsend' : 'commentsend'} onClick={handleSubmit}>
+                    <IoSend/>
+                </div>
+            )}
         </div>
     )
 }

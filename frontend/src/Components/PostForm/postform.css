@@ -1,20 +1,34 @@
-.formwrapper{
+.postformwrapper{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 30vw;
+    width: 35vw;
+    margin-left: 34vw;
     /* min-height: 30vh; */
-    background-color: white;
+    /* background-color: white; */
 }
 
+.profilepostformwrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 35vw;
+    margin-left: 7vw;
+}
 
+.postbuttonprofile{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin-left: 13px;
+}
 
 .postbutton{
     font-family: klavika-web, sans-serif;
     font-size: 15px;
     color: #606770;
     background-color: #EFF2F5;
-    width: 415px;
+    width: 86%;
     padding: 11px;
     border-radius: 20px;
     position: relative;
@@ -26,13 +40,13 @@
 }
 .postbuttoncontainer{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     background-color: #fff;
     margin-top: 75px;
     /* position: absolute; */
     left: 35%;
-    width: 500px;
+    width: 100%;
     height: 70px;
     border: 1px solid lightgray;
     border-radius: 10px;

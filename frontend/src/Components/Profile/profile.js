@@ -22,7 +22,7 @@ const Profile = () => {
   const [photoUrl,setPhotoUrl] = useState(null);
   const sessionUser = useSelector(state => state.session.user)
   const user = useSelector(userActions.getUser(sessionUser.id))
-
+  const isProfile = true;
   if (!sessionUser) return <Redirect to="/login" />;
   let userId = sessionUser.id
   // console.log("This is the userid",user.id)
@@ -106,8 +106,8 @@ const Profile = () => {
               
           </div>
           <div className='profilebottomright'>
-            <PostForm/>
-            <ProfilePostIndex userId = {userId}/>
+            <PostForm isProfile={isProfile}/>
+            <ProfilePostIndex userId = {userId} isProfile={isProfile}/>
           <button onClick = {handleClick}>Change photo</button>
           </div>
         </div>

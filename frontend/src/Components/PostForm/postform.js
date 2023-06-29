@@ -6,17 +6,17 @@ import PostFormModal from './postformmodal';
 import profile from '../../assets/profile.jpg'
 import './postform.css'
 
-const PostForm = () => {
+const PostForm = ({isProfile}) => {
     const sessionUser = useSelector(state => state.session.user)
     const [showModal, setShowModal] = useState(false);
     const helperFunc = () => {
         setShowModal(true)
     }
     return (
-    <div className='postformwrapper'>
+    <div className= {isProfile ? "profilepostformwrapper" : 'postformwrapper'}>
 
     <div className='postbuttoncontainer'>
-        <img className = "profile" src={sessionUser.avatar} />
+        <img className = "postbuttonprofile" src={sessionUser.avatar} />
         <div onClick={() => helperFunc()} className='postbutton'> 
             Whats on your mind, {sessionUser.firstName}?
         </div>

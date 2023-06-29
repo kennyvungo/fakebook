@@ -1,3 +1,6 @@
 .splashwrapper{
     background-color: #F1F2F5;
 }
+.splashbottomhalf{
+    display: flex;
+}

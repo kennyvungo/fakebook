@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import PostForm from '../PostForm/postform';
 import PostIndex from '../PostIndex/postindex';
 import Contacts from '../Contacts/contacts';
+import Links from '../Links/links';
 import "./splash.css"
 
 
@@ -17,9 +18,7 @@ const Splash = () => {
         <div className="splashwrapper">
             <Navigation/>
             <div className='splashbottomhalf'>
-                <div>
-                    f
-                </div>
+                <Links/>
             <div>
             <PostForm user={sessionUser}/>
             <PostIndex/>

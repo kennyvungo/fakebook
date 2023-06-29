@@ -1,0 +1,29 @@
+.contactwrapper{
+    /* background-color: yellow; */
+    margin-top: 9.5vh;
+    right:0;
+    position: fixed;
+    width: 20vw;
+    height: 95.2vh;
+    color: #64676B;
+    font-size: 19px;
+    font-family: klavika-web, sans-serif;
+}
+.contactheader{
+    margin-left: 30px;
+    margin-bottom: 10px;
+}
+.contactitemwrapper{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.contactitemwrapper:hover{
+    background-color: #e4e5e8;
+}
+
+.contactname{
+    margin-left: 15px;
+    font-size: 15px;
+}

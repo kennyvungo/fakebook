@@ -11,7 +11,7 @@ import * as pendingfriendActions from "../../store/pendingfriends"
 import * as friendActions from "../../store/friends"
 
 
-const PostIndex = () => {
+const PostIndex = ({isProfile}) => {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user)
     const userId = sessionUser.id
@@ -27,7 +27,7 @@ const PostIndex = () => {
     },[dispatch])
 
   return (
-    <div className="postIndex">
+    <div className= {isProfile ? "profileIndex" : "postIndex"}>
         {posts.map((post) => (<PostItem key={post.id} post={post}/>))}
     </div>
   )

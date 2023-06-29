@@ -67,9 +67,10 @@
 }
 
 .friendheader{
-    font-size: 25px;
+    font-size: 22px;
     font-weight: bold;
     margin-top: 5%;
+    padding-bottom: 10px;
     border-bottom: 1px solid lightgray;
     width: 90%;
     padding: 5px;
@@ -98,4 +99,9 @@
 }
 .deletereq:hover{
     background-color: lightgray;
+}
+.nofriends{
+    padding: 50px;
+    font-size: 15px;
+    font-weight: none;
 }

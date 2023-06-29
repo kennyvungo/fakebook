@@ -1,0 +1,54 @@
+.linkwrapper{
+    width: 34vw;
+    /* background-color: blue; */
+    left: 0;
+    position: fixed;
+    margin-top: 8.5vh;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    align-items: flex-start;
+    font-family: klavika-web, sans-serif;
+    font-size: 16px;
+    padding-left: 1%;
+
+}
+.linkprofilename{
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    width: 64%;
+}
+
+.linkprofilepic{
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    padding-right: 10px;
+}
+
+.linkwrapper div{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    height: 100%;
+    /* width: 50%; */
+    /* justify-content: flex-start; */
+}
+.linkwrapper div:hover{
+    background-color: #e4e5e8;
+}
+.linkico{
+    font-size: 30px;
+    padding-right: 10px;
+}
+.linkedin{
+    width: 64%;
+}
+.linkemail{
+    width: 64%;
+}
+.github{
+    width: 64%;
+}

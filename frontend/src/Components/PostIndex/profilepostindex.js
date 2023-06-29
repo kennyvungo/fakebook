@@ -7,7 +7,7 @@ import * as commentActions from "../../store/comments"
 import "./postindex.css"
 import * as likeActions from "../../store/likes"
 
-const ProfilePostIndex = ({userId}) => {
+const ProfilePostIndex = ({userId,isProfile}) => {
     const dispatch = useDispatch();
     // const sessionUser = useSelector(state => state.session.user)
     const posts = [...useSelector(getWallPosts(userId))].reverse()
@@ -16,10 +16,10 @@ const ProfilePostIndex = ({userId}) => {
         dispatch(commentActions.fetchComments())
         dispatch(likeActions.fetchLikes())
     },[dispatch])
-
+    console.log("isProfile?",isProfile)
   return (
-    <div className="postIndex">
-        {posts.map((post) => (<PostItem key={post.id} post={post}/>))}
+    <div className= {isProfile ? "profileIndex" : "postIndex"}>
+        {posts.map((post) => (<PostItem key={post.id} post={post} isProfile={isProfile}/>))}
     </div>
   )
 }
