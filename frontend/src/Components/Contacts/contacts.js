@@ -3,8 +3,11 @@ import "./contacts.css"
 import { useSelector } from 'react-redux'
 import { getUserFriends } from '../../store/friends'
 import { getUser } from '../../store/users'
+import { useState } from 'react'
 import ContactItem from './contactitem'
+
 const Contacts = () => {
+    const [chatNum,setChatnum] = useState(0);
     const sessionUser = useSelector(state => state.session.user)
     const userFriends = useSelector(getUserFriends(sessionUser.id))
     const friends = userFriends.map((friendship) => {
@@ -19,13 +22,16 @@ const Contacts = () => {
     console.log(userFriends)
     console.log(friends)
   return (
+    <>
     <div className='contactwrapper'>
         <h1 className="contactheader"> Contacts</h1>
 
         {friends.map((friendid) => (
             <ContactItem key={friendid} friendid={friendid}/>
-        ))}
+            ))}
         </div>
+      
+    </>
   )
 }
 

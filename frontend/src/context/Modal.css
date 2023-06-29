@@ -23,7 +23,9 @@
   
   #modal-content {
     top: 10%;
-    width: 41vw;
+    width: 39vw;
+    /* width: fit-content; */
+    /* min-width: 35vw; */
     height: fit-content;
     max-height: 500px;
     position: absolute;
