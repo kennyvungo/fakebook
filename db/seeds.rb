@@ -24,15 +24,6 @@ require "open-uri"
       first_name: 'Kenny',
       last_name: "Ngo"
     )
-      # More users
-      10.times do 
-        User.create!({
-          email: Faker::Internet.unique.email,
-          password: 'password',
-          first_name: Faker::Name.first_name,
-          last_name:  Faker::Name.last_name
-        }) 
-      end
 
     puts "Creating posts..."
 
