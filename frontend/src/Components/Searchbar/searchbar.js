@@ -36,7 +36,7 @@ const Searchbar = () => {
             <input
                 className='searchbar'
                 type="text"
-                placeholder="Search Facebook"
+                placeholder="Search Fakebook"
                 onChange={handleFilter}
                 value = {query}
             />
