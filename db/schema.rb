@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_27_174525) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_29_040421) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +42,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_27_174525) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "chats", force: :cascade do |t|
+    t.bigint "talker_id", null: false
+    t.bigint "talkee_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["talkee_id"], name: "index_chats_on_talkee_id"
+    t.index ["talker_id", "talkee_id"], name: "index_chats_on_talker_id_and_talkee_id", unique: true
+    t.index ["talker_id"], name: "index_chats_on_talker_id"
+  end
+
   create_table "comments", force: :cascade do |t|
     t.string "body", null: false
     t.bigint "post_id", null: false
@@ -70,6 +80,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_27_174525) do
     t.index ["likeable_id", "likeable_type"], name: "index_likes_on_likeable_id_and_likeable_type"
     t.index ["user_id", "likeable_id", "likeable_type"], name: "index_likes_on_user_id_and_likeable_id_and_likeable_type", unique: true
     t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "body", null: false
+    t.bigint "author_id", null: false
+    t.index ["author_id"], name: "index_messages_on_author_id"
   end
 
   create_table "pendingfriends", force: :cascade do |t|
@@ -103,11 +119,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_27_174525) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "chats", "users", column: "talkee_id"
+  add_foreign_key "chats", "users", column: "talker_id"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
   add_foreign_key "friends", "users"
   add_foreign_key "friends", "users", column: "friend_id"
   add_foreign_key "likes", "users"
+  add_foreign_key "messages", "users", column: "author_id"
   add_foreign_key "pendingfriends", "users", column: "friendee_id"
   add_foreign_key "pendingfriends", "users", column: "friender_id"
   add_foreign_key "posts", "users"
