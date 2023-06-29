@@ -48,11 +48,8 @@ const ProfileShow = () => {
     e.preventDefault();
     // setErrors([]);
     dispatch(pendingfriendActions.createPendingfriend({friender_id: sessionUser.id, friendee_id: userId}))
-    console.log("sent friend request!")
     setRequestSent(true);
   }
-  console.log("sentpends",sentpends)
-  console.log("myfriends",myFriends)
 
   return user ?  ( 
     <>

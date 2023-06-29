@@ -29,7 +29,6 @@ const Searchbar = () => {
     // console.log(query)
     // console.log("filteredusers",newFilter)
     // console.log(newFilter)
-    console.log(filteredUsers)
   return (
     <div>
         <label>
