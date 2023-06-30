@@ -24,6 +24,7 @@ const Profile = () => {
   const user = useSelector(userActions.getUser(sessionUser.id))
   const isProfile = true;
   if (!sessionUser) return <Redirect to="/login" />;
+  if(sessionUser.id === null) return <Redirect to="/login" />;
   let userId = sessionUser.id
   // console.log("This is the userid",user.id)
   let file;
@@ -84,7 +85,7 @@ const Profile = () => {
                 <AiFillCamera/>
               </div>
             </>
-            )
+          )
           }
             <div className='profilenamecolumn'>
               <div className='profilename'>

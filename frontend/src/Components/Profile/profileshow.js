@@ -58,6 +58,7 @@ const ProfileShow = () => {
     <div className='wholeprofile'>
         <div className='proftophalf'>
           <div className="cover">
+            <img className='profilecover' src={user.cover}/>
           </div>
           <div className="profileinfo">
           {sessionUser.avatar && (

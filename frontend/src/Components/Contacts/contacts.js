@@ -18,20 +18,18 @@ const Contacts = () => {
             return friendship.friend_id
         }
     })
-
-    console.log(userFriends)
-    console.log(friends)
   return (
+    friends ? 
     <>
     <div className='contactwrapper'>
         <h1 className="contactheader"> Contacts</h1>
 
-        {friends.map((friendid) => (
+        {friends.slice(0,15).map((friendid) => (
             <ContactItem key={friendid} friendid={friendid}/>
             ))}
         </div>
       
-    </>
+    </> : null
   )
 }
 

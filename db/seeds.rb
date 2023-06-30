@@ -103,7 +103,7 @@ require "open-uri"
       first_name: 'Peter',
       last_name: 'Pham'
     )
-    u8.avatar.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/arjun.jpeg"),filename:"peter")
+    u8.avatar.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/peter.jpg"),filename:"peter")
 
     #9
     u9 = User.create!(
@@ -201,12 +201,49 @@ require "open-uri"
     u17.cover.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/mattcover.jpeg"), filename: "mattcover")
     u17.save
 
+    u18 = User.create!{
+      email: 'misha@gmail.com',
+      password: 'password',
+      first_name: 'Misha',
+      last_name: 'Bansal'
+    }
+  
 
+    u19 = User.create!{
+      email: 'ernest@gmail.com',
+      password: 'password',
+      first_name: 'Ernest',
+      last_name: 'Tan'
+    }
+
+    u20 = User.create!{
+      email: 'vincent@gmail.com',
+      password: 'password',
+      first_name: 'Vincent',
+      last_name: 'Pham'
+    }
+
+    u21 = User.create!{
+      email: 'anthony@gmail.com',
+      password: 'password',
+      first_name: 'Anthony',
+      last_name: 'Wong'
+    }
+
+    u22 = User.create!{
+      email: 'nick@gmail.com',
+      password: 'password',
+      first_name: 'Nick',
+      last_name: 'Gentry'
+    }
     puts "Creating posts..."
 
     p1 = Post.create(
       body: "this is just a text post",
       user_id: 1
+    )
+    p7 = Post.create(
+      body: ""
     )
     #6
     p2 = Post.create(
@@ -261,5 +298,11 @@ require "open-uri"
     Friend.create(user_id: 1, friend_id: 12)
     Friend.create(user_id: 1, friend_id: 13)
     Friend.create(user_id: 1, friend_id: 14)
+
+
+    Pendingfriend.create(friender_id: 15, friendee_id: 1)
+    Pendingfriend.create(friender_id: 16, friendee_id: 1)
+    Pendingfriend.create(friender_id: 17, friendee_id: 1)
+
   
     puts "Done!"
