@@ -365,7 +365,7 @@ require "open-uri"
     u35.avatar.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/vincent.png"),filename:"vincent")
 
     u36 = User.create!(
-      email: 'vincent@gmail.com',
+      email: 'chris@gmail.com',
       password: 'password',
       first_name: 'Chris',
       last_name: 'Cheasty'
@@ -383,7 +383,7 @@ require "open-uri"
     u37.save
 
     u38 = User.create!(
-      email: 'paulo@gmail.com',
+      email: 'michael@gmail.com',
       password: 'password',
       first_name: 'Michael',
       last_name: 'Madsen'
@@ -392,13 +392,21 @@ require "open-uri"
     u38.save
 
     u39 = User.create!(
-      email: 'paulo@gmail.com',
+      email: 'abbey@gmail.com',
       password: 'password',
       first_name: 'Abbey',
       last_name: 'Hernandez'
     )
     u39.avatar.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/abby.jpeg"),filename:"abby")
 
+    u40 = User.create!(
+      email: 'alvin@gmail.com',
+      password: 'password',
+      first_name: 'Alvin',
+      last_name: 'Zablan'
+    )
+    u40.avatar.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/alvin.jpeg"),filename:"alvin")
+    u40.save
 
 
     puts "Creating posts..."
@@ -431,26 +439,59 @@ require "open-uri"
       body: 'me and megan',
       user_id: 1
     )
-
     p4.photo.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/megan.JPG"),filename:"girl")
     p4.save
+
     p5 = Post.create(
       body: 'me and family',
       user_id: 1
     )
-
     p5.photo.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/family.jpg"),filename:"family")
     p5.save
 
     p6 = Post.create(
-      body: 'me in arizona',
-      user_id: 1
+      body: 'Hey Programmers!',
+      user_id: 40
     )
-    p6.photo.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/me.JPG"),filename:"me")
-    p6.save
+
+    p7= Post.create(
+      body: 'Trivia Night!',
+      user_id: 25
+    )
+    p7.photo.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/trivia.png"),filename:"me")
+    
+
+    p8 = Post.create(
+      body: 'topgolf with the gang',
+      user_id: 27
+    )
+    p8.photo.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/topgolf.jpg"),filename:"me")
+    
+
+    p9 = Post.create(
+      body: '[UNRESOLVED] I am getting a duplicate table error for my user_id index',
+      user_id: 30
+    )
+    p9.photo.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/code.jpg"),filename:"me")
+
+    p10 = Post.create(
+      body: "Celebrating Chris's new job!",
+      user_id: 37
+    )
+    p10.photo.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/bar.jpeg"),filename:"bar")
+
+
+    p11 = Post.create(
+      body: 'we are gathered here today to mourn the loss of our good friend akea',
+      user_id: 29
+    )
+    p11.photo.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/akeapost.png"),filename:"akea")
+
+
+
 
     puts "Creating Friendships"
-    Friend.create(user_id: 1, friend_id: 2)
+    # Friend.create(user_id: 1, friend_id: 2)
     Friend.create(user_id: 1, friend_id: 3)
     Friend.create(user_id: 1, friend_id: 4)
     Friend.create(user_id: 1, friend_id: 5)
@@ -463,11 +504,42 @@ require "open-uri"
     Friend.create(user_id: 1, friend_id: 12)
     Friend.create(user_id: 1, friend_id: 13)
     Friend.create(user_id: 1, friend_id: 14)
+    Friend.create(user_id: 1, friend_id: 15)
+    Friend.create(user_id: 1, friend_id: 16)
+    Friend.create(user_id: 1, friend_id: 17)
+    Friend.create(user_id: 1, friend_id: 18)
+    Friend.create(user_id: 1, friend_id: 19)
+    Friend.create(user_id: 1, friend_id: 20)
+    Friend.create(user_id: 1, friend_id: 21)
+    Friend.create(user_id: 1, friend_id: 22)
+    Friend.create(user_id: 1, friend_id: 23)
+    Friend.create(user_id: 1, friend_id: 24)
+    Friend.create(user_id: 1, friend_id: 25)
+    Friend.create(user_id: 1, friend_id: 26)
+    Friend.create(user_id: 1, friend_id: 27)
+    Friend.create(user_id: 1, friend_id: 28)
+    Friend.create(user_id: 1, friend_id: 29)
+    Friend.create(user_id: 1, friend_id: 30)
+    Friend.create(user_id: 1, friend_id: 31)
+    Friend.create(user_id: 1, friend_id: 32)
+    Friend.create(user_id: 1, friend_id: 33)
+    Friend.create(user_id: 1, friend_id: 34)
+    Friend.create(user_id: 1, friend_id: 35)
+    Friend.create(user_id: 1, friend_id: 36)
+    Friend.create(user_id: 1, friend_id: 37)
+    Friend.create(user_id: 1, friend_id: 38)
+    Friend.create(user_id: 1, friend_id: 39)
+    Friend.create(user_id: 1, friend_id: 40)
+
 
 
     Pendingfriend.create(friender_id: 15, friendee_id: 1)
     Pendingfriend.create(friender_id: 16, friendee_id: 1)
     Pendingfriend.create(friender_id: 17, friendee_id: 1)
+    Pendingfriend.create(friender_id: 37, friendee_id: 1)
+    Pendingfriend.create(friender_id: 38, friendee_id: 1)
+    Pendingfriend.create(friender_id: 39, friendee_id: 1)
+    Pendingfriend.create(friender_id: 40, friendee_id: 1)
 
   
     puts "Done!"
