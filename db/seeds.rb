@@ -752,21 +752,21 @@ require "open-uri"
     likeable_id: 6,
     user_id: 17
   )
-  Like.create(
-    likeable_type: 'Comment',
-    likeable_id: 1,
-    user_id: 1
-  )
-  Like.create(
-    likeable_type: 'Comment',
-    likeable_id: 1,
-    user_id: 2
-  )
-  Like.create(
-    likeable_type: 'Comment',
-    likeable_id: 1,
-    user_id: 3
-  )
+  # Like.create(
+  #   likeable_type: 'Comment',
+  #   likeable_id: 1,
+  #   user_id: 1
+  # )
+  # Like.create(
+  #   likeable_type: 'Comment',
+  #   likeable_id: 1,
+  #   user_id: 2
+  # )
+  # Like.create(
+  #   likeable_type: 'Comment',
+  #   likeable_id: 1,
+  #   user_id: 3
+  # )
 
 
 
