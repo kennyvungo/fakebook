@@ -10,6 +10,8 @@ const Contacts = () => {
     const [chatNum,setChatnum] = useState(0);
     const sessionUser = useSelector(state => state.session.user)
     const userFriends = useSelector(getUserFriends(sessionUser.id))
+    const [selectaa,setselectaa] = useState("");
+    console.log(selectaa)
     const friends = userFriends.map((friendship) => {
         if(friendship.user_id !== sessionUser.id){
             return friendship.user_id
@@ -22,12 +24,16 @@ const Contacts = () => {
     friends ? 
     <>
     <div className='contactwrapper'>
-        <h1 className="contactheader"> Contacts</h1>
-
-        {friends.slice(0,15).map((friendid) => (
+        <h1 className="contactheader"> <div onClick={() => setselectaa(false)} className={selectaa ? "conta" : "activ conta"}>Contacts </div> <h2 onClick={() => setselectaa(true)} className={selectaa ? "aa activ" : "aa"}>A/a</h2></h1> 
+        {selectaa ? 
+        friends.slice(15,30).map((friendid) => (
             <ContactItem key={friendid} friendid={friendid}/>
-            ))}
-        </div>
+            ))
+
+        : friends.slice(0,15).map((friendid) => (
+            <ContactItem key={friendid} friendid={friendid}/>
+            )) }
+            </div>
       
     </> : null
   )

@@ -70,8 +70,7 @@ const ProfileShow = () => {
           }
             <div className='profilenamecolumn'>
               <div className='profilename'>
-                {user.firstName} 
-                {user.lastName}
+                {user.firstName} {user.lastName}
               </div>
               <div className='profilenumfriends'>
                   {user.numFriends} friends

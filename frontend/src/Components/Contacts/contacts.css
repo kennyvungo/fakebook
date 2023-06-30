@@ -12,6 +12,8 @@
 .contactheader{
     margin-left: 30px;
     margin-bottom: 10px;
+    display: flex;
+    cursor: pointer;
 }
 .contactitemwrapper{
     padding: 10px;
@@ -26,4 +28,20 @@
 .contactname{
     margin-left: 15px;
     font-size: 15px;
+}
+.aa{
+    margin-left: 10%;
+    padding-left: 10%;
+    border-left: 2px solid lightgray;
+    cursor: pointer;
+}
+.aa:hover{
+    text-decoration: underline;
+}
+.activ{
+    color: black;
+    font-weight: 680;
+}
+.conta:hover{
+    text-decoration: underline;
 }
