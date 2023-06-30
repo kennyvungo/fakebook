@@ -201,41 +201,48 @@ require "open-uri"
     u17.cover.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/mattcover.jpeg"), filename: "mattcover")
     u17.save
 
-    u18 = User.create!{
+
+
+
+
+
+
+    
+    u18 = User.create!(
       email: 'misha@gmail.com',
       password: 'password',
       first_name: 'Misha',
       last_name: 'Bansal'
-    }
+    )
   
 
-    u19 = User.create!{
+    u19 = User.create!(
       email: 'ernest@gmail.com',
       password: 'password',
       first_name: 'Ernest',
       last_name: 'Tan'
-    }
+    )
 
-    u20 = User.create!{
+    u20 = User.create!(
       email: 'vincent@gmail.com',
       password: 'password',
       first_name: 'Vincent',
       last_name: 'Pham'
-    }
+    )
 
-    u21 = User.create!{
+    u21 = User.create!(
       email: 'anthony@gmail.com',
       password: 'password',
       first_name: 'Anthony',
       last_name: 'Wong'
-    }
+    )
 
-    u22 = User.create!{
+    u22 = User.create!(
       email: 'nick@gmail.com',
       password: 'password',
       first_name: 'Nick',
       last_name: 'Gentry'
-    }
+    )
     puts "Creating posts..."
 
     p1 = Post.create(
