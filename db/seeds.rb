@@ -494,6 +494,11 @@ require "open-uri"
         user_id: 38,
         post_id: 9
       )
+      Comment.create(
+        body: "omw",
+        user_id: 37,
+        post_id: 9
+      )
       c2 = Comment.create(
         body: "thoughts and prayers",
         user_id: 1,
@@ -524,6 +529,47 @@ require "open-uri"
         user_id: 28,
         post_id: 11
       )
+      Comment.create(
+        body: "thoughts and prayers",
+        user_id: 21,
+        post_id: 11
+      )
+      Comment.create(
+        body: "thoughts and prayers",
+        user_id: 20,
+        post_id: 11
+      )
+      Comment.create(
+        body: "gang gang",
+        user_id: 31,
+        post_id: 8
+      )
+      Comment.create(
+        body: "Congrats chris!!",
+        user_id: 32,
+        post_id: 10
+      )
+      Comment.create(
+        body: "we'll miss u chris",
+        user_id: 23,
+        post_id: 10
+      )
+      Comment.create(
+        body: "best of luck w/ everything Chris!",
+        user_id: 26,
+        post_id: 10
+      )
+      Comment.create(
+        body: "looks fun",
+        user_id: 22,
+        post_id: 7
+      )
+      Comment.create(
+        body: "lit",
+        user_id: 35,
+        post_id: 7
+      )
+
     
   puts "Creating Likes"
   Like.create(
@@ -705,6 +751,21 @@ require "open-uri"
     likeable_type: 'Post',
     likeable_id: 6,
     user_id: 17
+  )
+  Like.create(
+    likeable_type: 'Comment',
+    likeable_id: 1,
+    user_id: 1
+  )
+  Like.create(
+    likeable_type: 'Comment',
+    likeable_id: 1,
+    user_id: 2
+  )
+  Like.create(
+    likeable_type: 'Comment',
+    likeable_id: 1,
+    user_id: 3
   )
 
 
