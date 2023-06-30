@@ -8,6 +8,7 @@ import * as likeActions from "../../store/likes"
 import {AiFillCamera} from 'react-icons/ai'
 import { useMemo } from 'react';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import './profile.css'
 import ProfilePostIndex from '../PostIndex/profilepostindex';
 import {IoPersonAddSharp} from 'react-icons/io5'
