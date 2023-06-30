@@ -26,7 +26,7 @@ const Contacts = () => {
     <div className='contactwrapper'>
         <h1 className="contactheader"> <div onClick={() => setselectaa(false)} className={selectaa ? "conta" : "activ conta"}>Contacts </div> <h2 onClick={() => setselectaa(true)} className={selectaa ? "aa activ" : "aa"}>A/a</h2></h1> 
         {selectaa ? 
-        friends.slice(20,40).map((friendid) => (
+        friends.slice(17,40).map((friendid) => (
             <ContactItem key={friendid} friendid={friendid}/>
             ))
 

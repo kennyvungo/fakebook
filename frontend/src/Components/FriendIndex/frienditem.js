@@ -19,7 +19,7 @@ const FriendItem = ({friend}) => {
     <div className='frienditemwrapper'>
         <img className="smallprofile" src={user.avatar} />
         <div className='frienditemright'>
-            <div className='friendname'>{user.firstName}{user.lastName}</div>
+            <div className='friendname'>{user.firstName} {user.lastName}</div>
             <div className='friendbuttonrow'>
                 <div onClick={handleConfirm} className='confirmfriend'> Confirm</div>
                 <div onClick={handleDelete} className='deletereq'>Delete</div>

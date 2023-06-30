@@ -488,7 +488,28 @@ require "open-uri"
     p11.photo.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/akeapost.png"),filename:"akea")
 
 
-
+    puts "Creating Comments"
+      c1 = Comment.create(
+        body: "Is your webpack running?",
+        user_id: 38,
+        post_id: 9
+      )
+      c2 = Comment.create(
+        body: "thoughts and prayers",
+        user_id: 1,
+        post_id: 11
+      )
+      c3 = Comment.create(
+        body: "thoughts and prayers",
+        user_id: 34,
+        post_id: 11
+      )
+      c4 = Comment.create(
+        body: "thoughts and prayers",
+        user_id: 33,
+        post_id: 11
+      )
+    
 
     puts "Creating Friendships"
     # Friend.create(user_id: 1, friend_id: 2)
@@ -531,11 +552,8 @@ require "open-uri"
     Friend.create(user_id: 1, friend_id: 39)
     Friend.create(user_id: 1, friend_id: 40)
 
+    puts "Creating PendingFriends"
 
-
-    Pendingfriend.create(friender_id: 15, friendee_id: 1)
-    Pendingfriend.create(friender_id: 16, friendee_id: 1)
-    Pendingfriend.create(friender_id: 17, friendee_id: 1)
     Pendingfriend.create(friender_id: 37, friendee_id: 1)
     Pendingfriend.create(friender_id: 38, friendee_id: 1)
     Pendingfriend.create(friender_id: 39, friendee_id: 1)
