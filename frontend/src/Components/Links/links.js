@@ -21,13 +21,13 @@ const openInNewTab = (url) => {
             </div>
             kennyvungo@gmail.com
         </div>
-        <div onclick={() => openInNewTab("https://google.com")} className='linkedin'>
+        <div onClick={() => openInNewTab("https://www.linkedin.com/in/kennyvungo/")} className='linkedin'>
             <div className='linkico'>
            <GrLinkedin/> 
             </div>
            Linkedin
         </div>
-        <div onclick={() => openInNewTab("https://github.com/kennyvungo")} className='github'>
+        <div onClick={() => openInNewTab("https://github.com/kennyvungo")} className='github'>
             <div className='linkico'>
             <AiFillGithub/>
             </div>

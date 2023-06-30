@@ -506,10 +506,210 @@ require "open-uri"
       )
       c4 = Comment.create(
         body: "thoughts and prayers",
-        user_id: 33,
+        user_id: 35,
+        post_id: 11
+      )
+      Comment.create(
+        body: "thoughts and prayers",
+        user_id: 30,
+        post_id: 11
+      )
+      Comment.create(
+        body: "thoughts and prayers",
+        user_id: 29,
+        post_id: 11
+      )
+      Comment.create(
+        body: "thoughts and prayers",
+        user_id: 28,
         post_id: 11
       )
     
+  puts "Creating Likes"
+  Like.create(
+    likeable_type: 'Post',
+    likeable_id: 11,
+    user_id: 1
+  )
+  Like.create(
+    likeable_type: 'Post',
+    likeable_id: 11,
+    user_id: 2
+  )
+  Like.create(
+    likeable_type: 'Post',
+    likeable_id: 11,
+    user_id: 3
+  )
+  Like.create(
+    likeable_type: 'Post',
+    likeable_id: 11,
+    user_id: 4
+  )
+  Like.create(
+    likeable_type: 'Post',
+    likeable_id: 11,
+    user_id: 5
+  )
+  Like.create(
+    likeable_type: 'Post',
+    likeable_id: 11,
+    user_id: 6
+  )
+  Like.create(
+    likeable_type: 'Post',
+    likeable_id: 11,
+    user_id: 7
+  )
+  Like.create(
+    likeable_type: 'Post',
+    likeable_id: 11,
+    user_id: 8
+  )
+  Like.create(
+    likeable_type: 'Post',
+    likeable_id: 11,
+    user_id: 9
+  )
+  Like.create(
+    likeable_type: 'Post',
+    likeable_id: 11,
+    user_id: 10
+  )
+  Like.create(
+    likeable_type: 'Post',
+    likeable_id: 10,
+    user_id: 3
+  )
+  Like.create(
+    likeable_type: 'Post',
+    likeable_id: 10,
+    user_id: 4
+  )
+  Like.create(
+    likeable_type: 'Post',
+    likeable_id: 10,
+    user_id: 5
+  )
+  Like.create(
+    likeable_type: 'Post',
+    likeable_id: 10,
+    user_id: 6
+  )
+  Like.create(
+    likeable_type: 'Post',
+    likeable_id: 7,
+    user_id: 1
+  )
+  Like.create(
+    likeable_type: 'Post',
+    likeable_id: 7,
+    user_id: 2
+  )
+  Like.create(
+    likeable_type: 'Post',
+    likeable_id: 7,
+    user_id: 3
+  )
+  Like.create(
+    likeable_type: 'Post',
+    likeable_id: 7,
+    user_id: 4
+  )
+  Like.create(
+    likeable_type: 'Post',
+    likeable_id: 7,
+    user_id: 5
+  )
+  Like.create(
+    likeable_type: 'Post',
+    likeable_id: 6,
+    user_id: 1
+  )
+  Like.create(
+    likeable_type: 'Post',
+    likeable_id: 6,
+    user_id: 2
+  )
+  Like.create(
+    likeable_type: 'Post',
+    likeable_id: 6,
+    user_id: 3
+  )
+  Like.create(
+    likeable_type: 'Post',
+    likeable_id: 6,
+    user_id: 4
+  )
+  Like.create(
+    likeable_type: 'Post',
+    likeable_id: 6,
+    user_id: 5
+  )
+  Like.create(
+    likeable_type: 'Post',
+    likeable_id: 6,
+    user_id: 6
+  )
+  Like.create(
+    likeable_type: 'Post',
+    likeable_id: 6,
+    user_id: 7
+  )
+  Like.create(
+    likeable_type: 'Post',
+    likeable_id: 6,
+    user_id: 8
+  )
+  Like.create(
+    likeable_type: 'Post',
+    likeable_id: 6,
+    user_id: 9
+  )
+  Like.create(
+    likeable_type: 'Post',
+    likeable_id: 6,
+    user_id: 10
+  )
+  Like.create(
+    likeable_type: 'Post',
+    likeable_id: 6,
+    user_id: 11
+  )
+  Like.create(
+    likeable_type: 'Post',
+    likeable_id: 6,
+    user_id: 12
+  )
+  Like.create(
+    likeable_type: 'Post',
+    likeable_id: 6,
+    user_id: 13
+  )
+  Like.create(
+    likeable_type: 'Post',
+    likeable_id: 6,
+    user_id: 14
+  )
+  Like.create(
+    likeable_type: 'Post',
+    likeable_id: 6,
+    user_id: 15
+  )
+  Like.create(
+    likeable_type: 'Post',
+    likeable_id: 6,
+    user_id: 16
+  )
+  Like.create(
+    likeable_type: 'Post',
+    likeable_id: 6,
+    user_id: 17
+  )
+
+
+
+
 
     puts "Creating Friendships"
     # Friend.create(user_id: 1, friend_id: 2)
@@ -559,5 +759,7 @@ require "open-uri"
     Pendingfriend.create(friender_id: 39, friendee_id: 1)
     Pendingfriend.create(friender_id: 40, friendee_id: 1)
 
+      
   
+
     puts "Done!"
