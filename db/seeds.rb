@@ -201,48 +201,206 @@ require "open-uri"
     u17.cover.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/mattcover.jpeg"), filename: "mattcover")
     u17.save
 
-
-
-
-
-
-
-    
     u18 = User.create!(
-      email: 'misha@gmail.com',
+      email: 'karen@gmail.com',
       password: 'password',
-      first_name: 'Misha',
-      last_name: 'Bansal'
+      first_name: 'Karen',
+      last_name: 'Li'
     )
-  
+    u18.avatar.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/karen.jpeg"),filename:"karen")
+    u18.cover.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/karencover.jpeg"), filename: "karencover")
+    u18.save
 
     u19 = User.create!(
+      email: 'ed@gmail.com',
+      password: 'password',
+      first_name: 'Edwin',
+      last_name: 'Choi'
+    )
+   
+    u20= User.create!(
+      email: 'ahmed@gmail.com',
+      password: 'password',
+      first_name: 'Ahmed',
+      last_name: 'Razi'
+    )
+
+    u21 = User.create!(
+      email: 'ant@gmail.com',
+      password: 'password',
+      first_name: 'Anthony',
+      last_name: 'Wong'
+    )
+    u21.avatar.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/anthony.png"),filename:"ant")
+    u21.save
+  
+
+    u22 = User.create!(
       email: 'ernest@gmail.com',
       password: 'password',
       first_name: 'Ernest',
       last_name: 'Tan'
     )
+    u22.avatar.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/ernest.png"),filename:"ernest")
+    u22.save
 
-    u20 = User.create!(
-      email: 'vincent@gmail.com',
+
+    u23 = User.create!(
+      email: 'hanna@gmail.com',
       password: 'password',
-      first_name: 'Vincent',
-      last_name: 'Pham'
+      first_name: 'Hanna',
+      last_name: 'Darwish'
     )
+    u23.avatar.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/hanna.png"),filename:"hanna")
+    u23.save
 
-    u21 = User.create!(
-      email: 'anthony@gmail.com',
+
+    u24 = User.create!(
+      email: 'akea@gmail.com',
       password: 'password',
-      first_name: 'Anthony',
-      last_name: 'Wong'
+      first_name: 'Akea',
+      last_name: 'Tolentino'
     )
+    u24.avatar.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/akea.png"),filename:"akea")
+    u24.save
 
-    u22 = User.create!(
+    u25 = User.create!(
+      email: 'jas@gmail.com',
+      password: 'password',
+      first_name: 'Jasvneet',
+      last_name: 'Kaur'
+    )
+    u25.avatar.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/jas.png"),filename:"jas")
+    u25.save
+
+    u26 = User.create!(
+      email: 'lauren@gmail.com',
+      password: 'password',
+      first_name: 'Lauren',
+      last_name: 'Armstrong'
+    )
+    u26.avatar.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/lauren.png"),filename:"lauren")
+    u26.save
+
+
+    u27 = User.create!(
+      email: 'matthew@gmail.com',
+      password: 'password',
+      first_name: 'Matthew',
+      last_name: 'Montejo'
+    )
+    u27.avatar.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/matthew.jpeg"),filename:"matthew")
+    u27.save
+
+
+    u28 = User.create!(
       email: 'nick@gmail.com',
       password: 'password',
       first_name: 'Nick',
       last_name: 'Gentry'
     )
+    u28.avatar.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/nickg.png"),filename:"nickg")
+    u28.save
+
+    u29= User.create!(
+      email: 'nitty@gmail.com',
+      password: 'password',
+      first_name: 'Nitty',
+      last_name: 'Hein'
+    )
+    u29.avatar.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/nitty.png"),filename:"nitty")
+    u29.save
+
+    u30= User.create!(
+      email: 'rocco@gmail.com',
+      password: 'password',
+      first_name: 'Rocco',
+      last_name: 'Lattanzio'
+    )
+    u30.avatar.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/rocco.png"),filename:"rocco")
+    u30.save
+
+    u31 = User.create!(
+      email: 'rohan@gmail.com',
+      password: 'password',
+      first_name: 'Rohan',
+      last_name: 'Mudumba'
+    )
+    u31.cover.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/rohancover.jpeg"),filename:"rohan")
+    u31.save
+
+    u32 = User.create!(
+      email: 'misha@gmail.com',
+      password: 'password',
+      first_name: 'Misha',
+      last_name: 'Bansal'
+    )
+    u32.avatar.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/misha.jpeg"),filename:"misha")
+    u32.save 
+
+    u33 = User.create!(
+      email: 'shanna@gmail.com',
+      password: 'password',
+      first_name: 'Shanna',
+      last_name: 'Le'
+    )
+    u33.avatar.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/shanna.png"),filename:"shanna")
+    u33.save
+
+    u34 = User.create!(
+      email: 'thomas@gmail.com',
+      password: 'password',
+      first_name: 'Thomas',
+      last_name: 'Ly'
+    )
+    u34.avatar.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/thomas.png"),filename:"thomas")
+    u34.save
+    
+    u35 = User.create!(
+      email: 'vincent@gmail.com',
+      password: 'password',
+      first_name: 'Vincent',
+      last_name: 'Pham'
+    )
+    u35.avatar.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/vincent.png"),filename:"vincent")
+
+    u36 = User.create!(
+      email: 'vincent@gmail.com',
+      password: 'password',
+      first_name: 'Chris',
+      last_name: 'Cheasty'
+    )
+    u36.avatar.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/chris.jpeg"),filename:"chris")
+    u36.save
+
+    u37 = User.create!(
+      email: 'paulo@gmail.com',
+      password: 'password',
+      first_name: 'Paulo',
+      last_name: 'Bocanegra'
+    )
+    u37.avatar.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/paulo.jpeg"),filename:"paulo")
+    u37.save
+
+    u38 = User.create!(
+      email: 'paulo@gmail.com',
+      password: 'password',
+      first_name: 'Michael',
+      last_name: 'Madsen'
+    )
+    u38.avatar.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/mike.jpeg"),filename:"mike")
+    u38.save
+
+    u39 = User.create!(
+      email: 'paulo@gmail.com',
+      password: 'password',
+      first_name: 'Abbey',
+      last_name: 'Hernandez'
+    )
+    u39.avatar.attach(io: URI.open("https://newknfakebook-seeds.s3.us-west-1.amazonaws.com/abby.jpeg"),filename:"abby")
+
+
+
     puts "Creating posts..."
 
     p1 = Post.create(
