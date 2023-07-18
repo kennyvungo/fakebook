@@ -70,19 +70,11 @@ export const createPost = (formData) => async(dispatch) =>{
     }
 }
 
-export const updatePost = (post) => async(dispatch) =>{
-    const {userId,body} = post;
-    const res = await csrfFetch(`/api/posts/${post.id}`,{
+export const updatePost = (formData,postId) => async(dispatch) =>{
+    // const {userId,body} = post;
+    const res = await csrfFetch(`/api/posts/${postId}`,{
         method: 'PATCH',
-        headers:{
-            'Content-Type':'application/json'
-        },
-        body: JSON.stringify({
-            post:{
-                userId,
-                body
-            }
-        })
+        body: formData
     })
     if(res.ok){
         const post = await res.json()

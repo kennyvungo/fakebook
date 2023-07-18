@@ -23,7 +23,13 @@ const EditPostModal = ({setShowModal,post}) => {
     const handleSubmit =(e) => {
         e.preventDefault();
         setErrors([]);
-        dispatch(postActions.updatePost({id: post.id,userId: userId,body:body})).then(() =>{
+        const formData = new FormData();
+        formData.append('post[body]', body);
+        formData.append('post[userId]', userId);
+        if (photoFile) {
+          formData.append('post[photo]', photoFile);
+        }
+        dispatch(postActions.updatePost(formData,post.id)).then(() =>{
             setShowModal(false)
             dispatch(postActions.fetchPosts())
         })
