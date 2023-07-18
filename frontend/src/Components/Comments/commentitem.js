@@ -8,7 +8,8 @@ import profile from '../../assets/profile.jpg'
 import * as likeActions from "../../store/likes"
 import likeico from "../../assets/likeico.png"
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
-
+import {BsThreeDots} from 'react-icons/bs'
+import { deleteComment } from '../../store/comments';
 const CommentItem = ({com}) => {
   const sessionUser = useSelector(state => state.session.user)
   const dispatch = useDispatch();
@@ -30,6 +31,10 @@ const CommentItem = ({com}) => {
       dispatch(likeActions.createLike({userId: sessionUser.id,likeableId: com.id, likeableType: "Comment"}))
       // dispatch(fetchComments())
     }
+  }
+  const handleDelete = () => {
+    console.log(com.id)
+    dispatch(deleteComment(com.id))
   }
   return (
     <div className='commentitemwrapwrapper'>
@@ -53,6 +58,9 @@ const CommentItem = ({com}) => {
         </div>
       </div>
       </div>
+      <div onClick={handleDelete}>
+      <BsThreeDots />
+      </div>
     </div>
         {/* <div className={isLiked ? "comlikebutton comlikeblue" : "comlikebutton" }onClick={handleLike}> Like
         
@@ -62,7 +70,7 @@ const CommentItem = ({com}) => {
           </div>
         </div> */}
     
-
+        
     </div>
   )
 }
