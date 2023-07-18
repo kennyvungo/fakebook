@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch} from "react-redux";
 import * as sessionActions from "../../store/session";
 import './SignupForm.css';
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const SignUpFormPage = () => {
     const dispatch = useDispatch();
@@ -18,21 +19,23 @@ const SignUpFormPage = () => {
     const days = [...Array(31).keys()];
     const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Oct","Nov","Dec"]
     const years = [...Array(2023).keys()].reverse()
+    const history = useHistory();
     const handleSubmit = (e) => {
         setBirthday(`${year}-${month}-${day}`)
         e.preventDefault();
-            setErrors([]);
+        setErrors([]);
+        // history.push("/");
             return dispatch(sessionActions.signup({ email, password,first_name,last_name}))
             .catch(async (res) => {
-            let data;
-            try {
-                data = await res.clone().json();
-            } catch {
-                data = await res.text();
-            }
-            if (data?.errors) setErrors(data.errors);
-            else if (data) setErrors([data]);
-            else setErrors([res.statusText]);
+                let data;
+                try {
+                    data = await res.clone().json();
+                } catch {
+                    data = await res.text();
+                }
+                if (data?.errors) setErrors(data.errors);
+                else if (data) setErrors([data]);
+                else setErrors([res.statusText]);
             });
     }
 

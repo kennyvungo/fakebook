@@ -56,7 +56,9 @@ const PostFormModal = ({setShowModal}) => {
         onChange={(e) => setBody(e.target.value)}
         required
         />
+        <div className='imgwrapper'>
           {preview}
+        </div>
         <label className='uploadimg'>
             <MdAddPhotoAlternate/>
         <input
