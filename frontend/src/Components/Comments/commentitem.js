@@ -16,6 +16,7 @@ const CommentItem = ({com}) => {
   let comLikes = useSelector(likeActions.getCommentLikes(com.id,sessionUser.id))
   let likeId = comLikes.find((like) => like.userId === sessionUser.id)
   const [isLiked,setisLiked] = useState(likeId);
+  const [showDots,setshowDots] = useState(com.userId === sessionUser.id)
   const history = useHistory();
   const handleShow = () => {
     history.push(`/users/${com.userId}`)
@@ -58,9 +59,11 @@ const CommentItem = ({com}) => {
         </div>
       </div>
       </div>
+    {showDots &&
       <div onClick={handleDelete}>
       <BsThreeDots />
       </div>
+      }
     </div>
         {/* <div className={isLiked ? "comlikebutton comlikeblue" : "comlikebutton" }onClick={handleLike}> Like
         
