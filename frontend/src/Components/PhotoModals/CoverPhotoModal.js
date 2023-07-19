@@ -14,9 +14,9 @@ const CoverPhotoModal = ({setCoverModal}) => {
     const [addPhoto,setaddPhoto] = useState(false);
     const [photoFile, setPhotoFile] = useState (null);
     const [photoUrl,setPhotoUrl] = useState(null);
+    const [disabled,setDisabled] = useState(true);
     const user = useSelector(state => state.session.user);
     const userId = user.id
-    let isDisabled = true;
     let file = false;
   
     const handleSubmit =(e) => {
@@ -32,7 +32,7 @@ const CoverPhotoModal = ({setCoverModal}) => {
       const file = currentTarget.files[0];
       setPhotoFile(file);
       if (file) {
-        isDisabled = true;
+        setDisabled(false)
         const fileReader = new FileReader();
         fileReader.readAsDataURL(file);
         fileReader.onload = () => setPhotoUrl(fileReader.result);
@@ -57,7 +57,7 @@ const CoverPhotoModal = ({setCoverModal}) => {
           />
         </label>
       
-    <div onClick={handleSubmit} className={(isDisabled) ? 'postformbutton' : 'is-disabled postformbutton'}> Add Photo</div>
+    <div onClick={handleSubmit} className={(disabled) ? 'is-disabled postformbutton' : 'postformbutton'}> Add Photo</div>
     </form>
   )
 }

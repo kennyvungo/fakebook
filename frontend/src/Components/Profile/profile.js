@@ -109,7 +109,7 @@ const Profile = () => {
           <div className='profilebottomright'>
             <PostForm isProfile={isProfile}/>
             <ProfilePostIndex userId = {userId} isProfile={isProfile}/>
-          <button onClick = {handleClick}>Change photo</button>
+          {/* <button onClick = {handleClick}>Change photo</button> */}
           </div>
         </div>
       
