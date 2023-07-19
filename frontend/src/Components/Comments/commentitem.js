@@ -11,6 +11,8 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import {BsThreeDots} from 'react-icons/bs'
 import { deleteComment } from '../../store/comments';
 import { fetchPosts, receivePost } from '../../store/posts';
+import EditCommentModal from './editcommentmodal';
+import Modal from '../../context/Modal';
 const CommentItem = ({com}) => {
   const sessionUser = useSelector(state => state.session.user)
   const dispatch = useDispatch();
@@ -51,6 +53,7 @@ useEffect(() => {
     dispatch(fetchPosts())
   }
   const helperFunc = () => {
+    console.log("kennnnnnny")
     setShowModal(true)
 }
 
@@ -59,13 +62,18 @@ const openMenu = () => {
     setShowMenu(true);
 }; 
   return (
+    <>
+    {showModal && (
+      <Modal onClose={() => setShowModal(false)}>
+          <EditCommentModal setShowModal={setShowModal} com={com}/>
+      </Modal>
+      )}
     <div className='commentitemwrapwrapper'>
     <div className='commentitemwrapper'>
       <img  onClick={handleShow} className = "smallprofile" src={com.avatarUrl} />
       <div className="commwrapper">
 
       <div className="commentitem">
-      
         <div onClick={handleShow} className='comname'> {com.name}</div>
         <div>{com.body}</div>
       </div>
@@ -88,19 +96,20 @@ const openMenu = () => {
     </div>
         {/* <div className={isLiked ? "comlikebutton comlikeblue" : "comlikebutton" }onClick={handleLike}> Like
         
-          <div className={com.numLikes > 0 ? 'comlikeico' : 'comlikeico hidden'}>
-          <img className='bluelikeico' src={likeico}/>
-          {com.numLikes}
-          </div>
-        </div> */}
+        <div className={com.numLikes > 0 ? 'comlikeico' : 'comlikeico hidden'}>
+        <img className='bluelikeico' src={likeico}/>
+        {com.numLikes}
+        </div>
+      </div> */}
     
       {showMenu &&(
-            <ul className="comdropdown">
+        <ul className="comdropdown">
                     <ul onClick={() => helperFunc()}>Edit Comment </ul>
                     <ul onClick={handleDelete}>Delete Comment</ul>
                 </ul>
             )}
     </div>
+    </>
   )
 }
 

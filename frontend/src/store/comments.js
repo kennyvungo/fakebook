@@ -86,7 +86,7 @@ export const updateComment = (comment) => async(dispatch) => {
     if(res.ok){
         const data = await res.json()
         dispatch(receiveComment(data.comment))
-        dispatch(receivePost(data.post))
+        // dispatch(receivePost(data.post))
         return data;
     }
 }
