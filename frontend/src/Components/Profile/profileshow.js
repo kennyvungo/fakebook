@@ -17,6 +17,9 @@ import * as pendingfriendActions from "../../store/pendingfriends"
 import { getPendFriend } from '../../store/pendingfriends';
 import * as friendActions from "../../store/friends"
 import {FiUserCheck} from "react-icons/fi"
+import Modal from '../../context/Modal';
+import DeleteModal from './deletemodal';
+
 const ProfileShow = () => {
   const {userId} = useParams()
   const dispatch = useDispatch()
@@ -34,6 +37,9 @@ const ProfileShow = () => {
     const [coverFile,setCoverFile] = useState(null);
     const [photoUrl,setPhotoUrl] = useState(null);
     const [requestSent,setRequestSent] = useState(false)
+    const [hovering,setHovering] = useState(false)
+    const [showModal, setShowModal] = useState(false);
+
     // const pending = useSelector(getPendFriend())
     // const [requestSent,setRequestSent] = useState(false)
     useEffect(() => {
@@ -41,7 +47,7 @@ const ProfileShow = () => {
       dispatch(userActions.fetchUser(userId))
       dispatch(pendingfriendActions.fetchPendFriends(userId))
       dispatch(friendActions.fetchFriends())
-    },[dispatch,requestSent])
+    },[dispatch,requestSent,showModal])
 
     if (!sessionUser) return <Redirect to="/login" />;
     if (sessionUser.id === userId) return <Redirect to="/profile" />;
@@ -52,6 +58,22 @@ const ProfileShow = () => {
     dispatch(pendingfriendActions.createPendingfriend({friender_id: sessionUser.id, friendee_id: userId}))
     setRequestSent(true);
   }
+  const handleMouseOver = () => {
+    setHovering(true);
+  };
+
+  const handleMouseOut = () => {
+    setHovering(false);
+  };
+  const handleModal = () => {
+    setShowModal(true);
+  }
+  let fid = 0;
+  myFriends.forEach((friendship) => {
+    if(friendship.user_id == userId || friendship.friend_id == userId){
+      fid = friendship.id;
+    }
+  })
 
   return user ?  ( 
     <>
@@ -77,7 +99,7 @@ const ProfileShow = () => {
               </div>
             </div>
             {/* {requestSent} */}
-          { myFriends.some(friend => friend.user_id == userId || friend.friend_id == userId) ? <div className='currentfriend'>  <FiUserCheck/> Friends </div> :
+          { myFriends.some(friend => friend.user_id == userId || friend.friend_id == userId) ? <div onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} onClick={handleModal} className='currentfriend'> {hovering ? "Unfriend?" : <><FiUserCheck/> Friends </>}</div> :
           (pends.some(pend => pend.friendeeId == userId)) ?  <div className='friendsent'> Friend Request Sent! </div> :
             
             (sentpends.some(pend => pend.friendeeId == sessionUser.id)) ?  <div className='friendsent'> Accept Friend Request? </div> :
@@ -101,6 +123,11 @@ const ProfileShow = () => {
           </div>
         </div>
     </div>
+    {showModal && (
+            <Modal onClose={() => setShowModal(false)}>
+                <DeleteModal setShowModal={setShowModal} name={user.firstName + " " + user.lastName} fid={fid} userId={userId}/>
+            </Modal>
+        )}
     </>
   ) : null
 }

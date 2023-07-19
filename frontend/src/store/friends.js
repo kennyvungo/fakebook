@@ -19,7 +19,7 @@ const receiveFriend = (friend) => {
     }
 }
 
-const removefriend = (friendId) => {
+const removeFriend = (friendId) => {
     return{
         type: REMOVE_FRIEND,
         friendId
@@ -75,6 +75,15 @@ export const createfriend = (friend) => async(dispatch) =>{
     }
 }
 
+export const deleteFriend = (fid) => async(dispatch) =>{
+    const res = await csrfFetch(`/api/friends/${fid}`,{
+        method: 'DELETE'
+    })
+    if(res.ok){
+        dispatch(removeFriend(fid))
+    }
+}
+
 const friendsReducer = (state={},action) => {
     let newState = {...state};
     switch(action.type){
@@ -84,7 +93,7 @@ const friendsReducer = (state={},action) => {
             newState[action.friend.id] = action.friend
             return newState
         case REMOVE_FRIEND:
-            delete newState.friends[action.friendId]
+            delete newState[action.friendId]
             return newState;
         default:
             return state;

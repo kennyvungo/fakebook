@@ -14,7 +14,9 @@ class Api::FriendsController < ApplicationController
     end 
 
     def destroy 
-
+        @friend = Friend.find(params[:id])
+        @friend.destroy
+        head :no_content
     end
 
     def friend_params 
