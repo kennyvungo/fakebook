@@ -12,6 +12,16 @@ class Api::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      Friend.create(user_id: @user.id, friend_id: 1)
+      Friend.create(user_id: @user.id, friend_id: 2)
+      Friend.create(user_id: @user.id, friend_id: 3)
+      Friend.create(user_id: @user.id, friend_id: 4)
+      Friend.create(user_id: @user.id, friend_id: 5)
+      Friend.create(user_id: @user.id, friend_id: 6)
+      Friend.create(user_id: @user.id, friend_id: 7)
+      Friend.create(user_id: @user.id, friend_id: 8)
+      Friend.create(user_id: @user.id, friend_id: 9)
+      Friend.create(user_id: @user.id, friend_id: 10)
       login!(@user)
       render :show
     else
