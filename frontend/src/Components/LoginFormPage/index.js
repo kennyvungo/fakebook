@@ -50,7 +50,7 @@ const LoginFormPage = () => {
             <div className='homeright'>
             <form className='logform' onSubmit={handleSubmit}>
                 <ul>
-                    {errors.map(error => <li key={error}>{error}</li>)}
+                    {errors.map(error => <li className='errors' key={error}>{error}</li>)}
                 </ul>
                 <ul>
                 <label>

@@ -89,8 +89,8 @@ const openMenu = () => {
       </div>
       </div>
     {showDots &&
-      <div onClick={openMenu}>
-      <BsThreeDots />
+      <div className="commentdots" onClick={openMenu}>
+        <BsThreeDots />
       </div>
       }
     </div>

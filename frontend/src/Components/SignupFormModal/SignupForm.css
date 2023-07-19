@@ -119,3 +119,9 @@
     font-size: 13px
 
 }
+
+.errors{
+    font-family: klavika-web, sans-serif;
+    color: red;
+    font-size: 12px;
+}
