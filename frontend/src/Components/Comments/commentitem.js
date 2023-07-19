@@ -10,6 +10,7 @@ import likeico from "../../assets/likeico.png"
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import {BsThreeDots} from 'react-icons/bs'
 import { deleteComment } from '../../store/comments';
+import { fetchPosts, receivePost } from '../../store/posts';
 const CommentItem = ({com}) => {
   const sessionUser = useSelector(state => state.session.user)
   const dispatch = useDispatch();
@@ -17,10 +18,21 @@ const CommentItem = ({com}) => {
   let likeId = comLikes.find((like) => like.userId === sessionUser.id)
   const [isLiked,setisLiked] = useState(likeId);
   const [showDots,setshowDots] = useState(com.userId === sessionUser.id)
+  const [showMenu, setShowMenu] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const history = useHistory();
   const handleShow = () => {
     history.push(`/users/${com.userId}`)
 }
+useEffect(() => {
+  if (!showMenu) return;
+  
+  const closeMenu = () => {
+      setShowMenu(false);
+  };
+  document.addEventListener('click', closeMenu);
+  return () => document.removeEventListener("click", closeMenu);
+}, [showMenu]);
   const handleLike = () => {
     if(isLiked){
       setisLiked(false)
@@ -34,9 +46,18 @@ const CommentItem = ({com}) => {
     }
   }
   const handleDelete = () => {
-    console.log(com.id)
+    let postId = com.postId
     dispatch(deleteComment(com.id))
+    dispatch(fetchPosts())
   }
+  const helperFunc = () => {
+    setShowModal(true)
+}
+
+const openMenu = () => {
+    if (showMenu) return;
+    setShowMenu(true);
+}; 
   return (
     <div className='commentitemwrapwrapper'>
     <div className='commentitemwrapper'>
@@ -60,7 +81,7 @@ const CommentItem = ({com}) => {
       </div>
       </div>
     {showDots &&
-      <div onClick={handleDelete}>
+      <div onClick={openMenu}>
       <BsThreeDots />
       </div>
       }
@@ -73,7 +94,12 @@ const CommentItem = ({com}) => {
           </div>
         </div> */}
     
-        
+      {showMenu &&(
+            <ul className="comdropdown">
+                    <ul onClick={() => helperFunc()}>Edit Comment </ul>
+                    <ul onClick={handleDelete}>Delete Comment</ul>
+                </ul>
+            )}
     </div>
   )
 }

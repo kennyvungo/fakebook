@@ -63,7 +63,7 @@ export const createComment = (comment) => async(dispatch) => {
     if(res.ok){
         const data = await res.json()
         dispatch(receiveComment(data.comment))
-        // dispatch(receivePost(data.post))
+        dispatch(receivePost(data.post))
         return data;
     }
 }
@@ -90,12 +90,13 @@ export const updateComment = (comment) => async(dispatch) => {
         return data;
     }
 }
-export const deleteComment = (commentId) => async(dispatch) => {
+export const deleteComment = (commentId,postId) => async(dispatch) => {
     const res = await csrfFetch(`/api/comments/${commentId}`,{
         method: 'DELETE',
     })
     if(res.ok){
         dispatch(removeComment(commentId))
+        // dispatch(receivePost(postId))
     }
 }
 

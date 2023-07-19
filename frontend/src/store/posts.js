@@ -101,6 +101,9 @@ const postsReducer = (state={},action) => {
             if(action.post.updateLikes){
                 newState[action.post.id].numLikes = action.post.numLikes
             }
+            else if(action.post.updateComments){
+                newState[action.post.id].numComments = action.post.numComments
+            }
             else{
                 newState[action.post.id] = action.post
             }

@@ -97,3 +97,28 @@
 .commwrapper{
     width: fit-content;
 }
+.comdropdown{
+    position: absolute;
+    right: 48%;
+    width: 110px;
+    height: 50px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px lightgray;
+    margin-top: -1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    font-size: 10px;
+}
+.comdropdown ul{
+    padding-top: 10px;
+    padding-left: 20px;
+    height: 100%;
+    width: 85%;
+    cursor: pointer;
+}
+.comdropdown ul:hover{
+    background-color: #f2f2f2;
+}
