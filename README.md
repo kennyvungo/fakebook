@@ -1,9 +1,6 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
 
 * Background 
 
@@ -15,21 +12,32 @@ In this current implementation of Fakebook, a user is able to create an account,
 
 The backend of this project was set up using Ruby on Rails, while the frontend was accomplished using React, React Redux, and ReactRouter version 5; project dependencies were handled with npm. The live version of this project is hosted through Render and store images on AWS S3.
 
-* Features
+# Features
 
-* Posting 
-    Fakebook users can create a new post and upload photos to it. This post will be then added to the post index. They then can edit or delete the post.
+# Log In Page
+<img width="1533" alt="Screenshot 2023-07-18 at 9 56 43 PM" src="https://github.com/kennyvungo/fakebook/assets/28582863/5edc69ab-b6d6-4fa4-b458-0b37800a590b">
 
-* Commenting
-    Fakebook users can comment on any post.  
+# Profile Page
 
-* Database initialization
+Every user gets their own profile page which they can customize by uploading their own profile photo and cover photo
 
-        
-* How to run the test suite
+https://github.com/kennyvungo/fakebook/assets/28582863/1e90f63b-dca7-4195-b6b3-7068df418f58
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+# Main NewsFeed Page
 
-* ...
+https://github.com/kennyvungo/fakebook/assets/28582863/8a05c45c-8e57-463f-a694-fe59b6708757
+
+
+
+# Posting 
+
+https://github.com/kennyvungo/fakebook/assets/28582863/1751f20f-8e86-4306-b4d1-b18b39806689
+
+
+Users have full CRUD functionality for posts, likes, comments, and friendships.
+
+
+
+# Future Features
+  Some possible future features may include real-time messaging and Facebook Marketplace.
