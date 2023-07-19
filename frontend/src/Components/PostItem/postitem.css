@@ -6,6 +6,7 @@
     border-radius: 10px;
     margin-bottom: 20px;
     background-color: #fff;
+    position: relative;
 }
 .postname{
     cursor: pointer;
@@ -103,9 +104,11 @@
 }
 
 .postdots{
+    position: absolute;
     cursor: pointer;
     display: flex;
-    margin-left: 23%;
+    right: 3%;
+    /* margin-left: 23%; */
 }
 .postdots:hover{
     background-color: #f2f2f2;
@@ -132,15 +135,19 @@ div ul{
 
 .commentsend{
     position:absolute;
-    margin-top: 2.1%;
-    margin-left: 31.5%;
+    /* margin-top: 2.1%; */
+    /* margin-left: 31.5%; */
+    right: 6%;
+    top: 29%;
     padding: 3px;
     cursor: pointer;
     color: #1C74F2;
-    z-index: 1;
+    /* z-index: ; */
 }
 .sendcontainer{
-    display: flex;
+    /* display: flex; */
+    position: relative;
+    width: 100%;
 }
 
 .comdisabled{

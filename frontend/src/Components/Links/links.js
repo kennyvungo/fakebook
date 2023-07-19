@@ -15,12 +15,12 @@ const openInNewTab = (url) => {
             <img className='linkprofilepic' src={sessionUser.avatar}/>
             {sessionUser.firstName} {sessionUser.lastName}
         </div>
-        <div className='linkemail'>
+        {/* <div className='linkemail'>
             <div className='linkico'>
             <AiOutlineMail/> 
             </div>
             kennyvungo@gmail.com
-        </div>
+        </div> */}
         <div onClick={() => openInNewTab("https://www.linkedin.com/in/kennyvungo/")} className='linkedin'>
             <div className='linkico'>
            <GrLinkedin/> 

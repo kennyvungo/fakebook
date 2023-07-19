@@ -11,7 +11,7 @@ const Contacts = () => {
     const sessionUser = useSelector(state => state.session.user)
     const userFriends = useSelector(getUserFriends(sessionUser.id))
     const [selectaa,setselectaa] = useState("");
-    console.log(selectaa)
+    // console.log(selectaa)
     const friends = userFriends.map((friendship) => {
         if(friendship.user_id !== sessionUser.id){
             return friendship.user_id
